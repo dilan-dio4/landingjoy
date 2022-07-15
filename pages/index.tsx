@@ -51,6 +51,9 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+        <h1 className="text-3xl font-bold underline" style={{ fontFamily: "ABeeZee" }}>
+          Hello world!
+        </h1>
       </main>
 
       <footer className={styles.footer}>

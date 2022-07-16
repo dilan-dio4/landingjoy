@@ -1,0 +1,39 @@
+.hero-confetti {
+    background-color: #F8EDEB;
+}
+
+.texture {
+    background-image: url(/assets/images/snow.png);
+    background-color: #F8EDEB;
+    /* background-image: url(/assets/images/white_wall_hash.webp), linear-gradient(180deg, #F8EDEB, #F8EDEB); */
+    background-position: 0 0, 0 0;
+    background-size: auto, auto;
+    background-repeat: repeat;
+}
+
+.texture-blur {
+    overflow: hidden;
+    position: relative;
+}
+
+.texture-blur::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+
+    display: block;
+    background-image: url(/assets/images/snow.png);
+    background-color: #F8EDEB;
+    background-position: 0 0, 0 0;
+    background-size: auto, auto;
+    background-repeat: repeat;
+
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}

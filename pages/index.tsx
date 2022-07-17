@@ -27,9 +27,9 @@ const Home: NextPage = () => {
           <div className={clsx('h-[100vh] relative w-[100vw] max-w-[100vw] ', browserName === "Apple Safari" && "bg-[#f8edeb]")}>
             {browserName !== "Apple Safari" && <Texture />}
             <div className='flex flex-col justify-center items-center text-center h-[75%] sm:h-[85%]'>
-              {/* <h1 className='text-6xl tracking-normal leading-tight font-bold text-[#1f2d3d]'>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
-              {/* <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d]'>Your SaaS needs a landing page<br />that will convert</h1> */}
-              <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d]'>Your SaaS needs landing pages<br />and we <span className='font-extrabold'>love</span> building them</h1>
+              {/* <h1 className='text-6xl tracking-normal leading-tight font-bold text-[#1f2d3d] z-40'>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
+              {/* <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d] z-40'>Your SaaS needs a landing page<br />that will convert</h1> */}
+              <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d] z-40'>Your SaaS needs landing pages<span id="beeLineDestination">&#8203;</span><br />and we <span className='font-extrabold'>love</span> building them</h1>
               <h2 className='mt-4 text-xl tracking-normal leading-tight font-light text-[#1f2d3d]'>and we'll build the whole thing</h2>
               <div className={clsx(styles['button-outline'], 'mt-10 z-10')}>
                 <button className={clsx(styles['hero-button'])}>

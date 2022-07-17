@@ -14,5 +14,7 @@ background fractal: https://fffuel.co/nnnoise/
   6. Rename the filter id to `fractal-a`
 
 Curve maker: https://yqnn.github.io/svg-path-editor/
+  1. stroke="#fcd5ce"
+  2. stroke-width="0.13"
 
 TODO: Download all Ubuntu font

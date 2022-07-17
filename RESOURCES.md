@@ -4,3 +4,15 @@ shapes: https://fffuel.co/dddynamite/
   1. turn stroke width down 2
   2. Change stroke color to #ffb5a7
   3. Change Fill color to #fcd5ce
+
+background fractal: https://fffuel.co/nnnoise/
+  1. background color: #f8edeb
+  2. light source color: #ffb5a7
+  3. *Turbulence*
+  4. Copy SVG -> Paste in https://react-svgr.com/playground/?typescript=true
+  5. Only copy defs over to index.tsx
+  6. Rename the filter id to `fractal-a`
+
+Curve maker: https://yqnn.github.io/svg-path-editor/
+
+TODO: Download all Ubuntu font

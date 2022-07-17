@@ -2,218 +2,16 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/pages/index.module.css';
 import clsx from 'clsx';
-import { ReactComponent as Icon1 } from '../assets/hero-images/1.svg'
-import { ReactComponent as Icon2 } from '../assets/hero-images/2.svg'
-import { ReactComponent as Icon3 } from '../assets/hero-images/3.svg'
-import { ReactComponent as Icon4 } from '../assets/hero-images/4.svg'
-import { ReactComponent as Icon5 } from '../assets/hero-images/5.svg'
-import { ReactComponent as Icon6 } from '../assets/hero-images/6.svg'
-import { ReactComponent as Icon7 } from '../assets/hero-images/7.svg'
-import { ReactComponent as Icon8 } from '../assets/hero-images/8.svg'
-import { ReactComponent as Icon9 } from '../assets/hero-images/9.svg'
-import { ReactComponent as Icon10 } from '../assets/hero-images/10.svg'
-import { ReactComponent as Icon11 } from '../assets/hero-images/11.svg'
-import { ReactComponent as Icon12 } from '../assets/hero-images/12.svg'
-import { ReactComponent as Icon13 } from '../assets/hero-images/13.svg'
-import { ReactComponent as Icon14 } from '../assets/hero-images/14.svg'
-import { ReactComponent as Icon15 } from '../assets/hero-images/15.svg'
-import { ReactComponent as Icon16 } from '../assets/hero-images/16.svg'
+import heroDrawings from '../components/Hero/heroDrawings';
 import useDeviceSize from '../utils/useDeviceSize';
+import useBrowserName from '../utils/useBrowserName';
+import Header from '../components/Header';
+import Texture from '../components/Texture';
+import Bee from '../components/Hero/Bee';
 
 const Home: NextPage = () => {
   const { isMobile } = useDeviceSize();
-  interface HeroSvg {
-    Component: (props: Partial<React.SVGProps<SVGSVGElement>>) => JSX.Element;
-    bottom?: number | string;
-    left?: number | string;
-    size: number | string;
-  }
-
-  // const dynamicPositions: HeroSvg[] = [
-  //   {
-  //     top: -5,
-  //     left: -10,
-  //     size: 160,
-  //     Component: (props) => <Icon1 />
-  //   },
-  //   {
-  //     top: 40,
-  //     right: 70,
-  //     size: 140,
-  //     Component: (props) => <Icon3 />
-  //   },
-  //   {
-  //     bottom: 14,
-  //     right: -10,
-  //     size: 150,
-  //     Component: (props) => <Icon2 />
-  //   },
-  //   {
-  //     top: 150,
-  //     left: 280,
-  //     size: 110,
-  //     Component: (props) => <Icon4 />
-  //   },
-  //   {
-  //     bottom: 205,
-  //     left: 90,
-  //     size: 100,
-  //     Component: (props) => <Icon7 />
-  //   },
-  //   {
-  //     bottom: -24,
-  //     left: 155,
-  //     size: 140,
-  //     Component: (props) => <Icon6 />
-  //   },
-  //   {
-  //     bottom: 164,
-  //     right: 120,
-  //     size: 130,
-  //     Component: (props) => <Icon5 />
-  //   },
-  //   {
-  //     top: 80,
-  //     right: 370,
-  //     size: 140,
-  //     Component: (props) => <Icon8 />
-  //   },
-  //   {
-  //     bottom: 214,
-  //     right: -60,
-  //     size: 150,
-  //     Component: (props) => <Icon9 />
-  //   },
-  //   {
-  //     top: 200,
-  //     right: 200,
-  //     size: 110,
-  //     Component: (props) => <Icon10 />
-  //   },
-  //   {
-  //     bottom: -11,
-  //     right: 202,
-  //     size: 100,
-  //     Component: (props) => <Icon11 />
-  //   },
-  //   {
-  //     bottom: 30,
-  //     left: 300,
-  //     size: 140,
-  //     Component: (props) => <Icon12 />
-  //   },
-  //   {
-  //     top: 304,
-  //     right: 400,
-  //     size: 130,
-  //     Component: (props) => <Icon13 />
-  //   },
-  //   {
-  //     top: 250,
-  //     left: 20,
-  //     size: 100,
-  //     Component: (props) => <Icon14 />
-  //   },
-  //   {
-  //     top: 20,
-  //     right: 400,
-  //     size: 140,
-  //     Component: (props) => <Icon15 />
-  //   },
-  //   {
-  //     bottom: 64,
-  //     right: 400,
-  //     size: 130,
-  //     Component: (props) => <Icon16 />
-  //   }
-  // ]
-
-  const dynamicPositions: HeroSvg[] = [
-    {
-      bottom: -5,
-      left: "0%",
-      size: 160,
-      Component: (props) => <Icon1 />
-    },
-    {
-      bottom: "25%",
-      left: "10%",
-      size: 140,
-      Component: (props) => <Icon3 />
-    },
-    {
-      bottom: "20%",
-      left: "20%",
-      size: 150,
-      Component: (props) => <Icon2 />
-    },
-    {
-      bottom: "5%",
-      left: "18%",
-      size: 110,
-      Component: (props) => <Icon4 />
-    },
-    {
-      bottom: "-4%",
-      left: "29%",
-      size: 100,
-      Component: (props) => <Icon7 />
-    },
-    {
-      bottom: "19%",
-      left: "33%",
-      size: 140,
-      Component: (props) => <Icon6 />
-    },
-    {
-      bottom: "8%",
-      left: "43%",
-      size: 110,
-      Component: (props) => <Icon5 />
-    },
-    {
-      bottom: "-1%",
-      left: "54%",
-      size: 140,
-      Component: (props) => <Icon8 />
-    },
-    {
-      bottom: "22%",
-      left: "56%",
-      size: 150,
-      Component: (props) => <Icon9 />
-    },
-    {
-      bottom: "22%",
-      left: "71%",
-      size: 110,
-      Component: (props) => <Icon10 />
-    },
-    {
-      bottom: "8%",
-      left: "69%",
-      size: 100,
-      Component: (props) => <Icon11 />
-    },
-    {
-      bottom: "0%",
-      left: "79%",
-      size: 140,
-      Component: (props) => <Icon12 />
-    },
-    {
-      bottom: "22%",
-      left: "89%",
-      size: 100,
-      Component: (props) => <Icon14 />
-    },
-    {
-      bottom: "0%",
-      left: "89%",
-      size: 140,
-      Component: (props) => <Icon15 />
-    },
-  ]
+  const browserName = useBrowserName();
 
   return (
     <>
@@ -222,14 +20,34 @@ const Home: NextPage = () => {
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={clsx()}>
+      <Header variant='primary' />
+      <main className={clsx('overflow-x-hidden')}>
         <>
-          <div className={clsx('h-[100vh] relative', styles['texture-blur'])}>
-            {dynamicPositions.map(({ Component, size, ...position }, i) => (
-              <div key={i} style={{ height: size, width: size, position: "absolute", opacity: 0.8, ...position }} ><Component /></div>
+          <Bee />
+          <div className={clsx('h-[100vh] relative w-[100vw] max-w-[100vw] ', browserName === "Apple Safari" && "bg-[#f8edeb]")}>
+            {browserName !== "Apple Safari" && <Texture />}
+            <div className='flex flex-col justify-center items-center text-center h-[75%] sm:h-[85%]'>
+              {/* <h1 className='text-6xl tracking-normal leading-tight font-bold text-[#1f2d3d]'>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
+              {/* <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d]'>Your SaaS needs a landing page<br />that will convert</h1> */}
+              <h1 className='text-4xl sm:text-6xl tracking-normal !leading-tight font-bold text-[#1f2d3d]'>Your SaaS needs landing pages<br />and we <span className='font-extrabold'>love</span> building them</h1>
+              <h2 className='mt-4 text-xl tracking-normal leading-tight font-light text-[#1f2d3d]'>and we'll build the whole thing</h2>
+              <div className={clsx(styles['button-outline'], 'mt-10 z-10')}>
+                <button className={clsx(styles['hero-button'])}>
+                  <p className={clsx('text-[#f8edeb] p-0 text-lg leading-none font-bold tracking-wide')}>See plans</p>
+                </button>
+              </div>
+              <h2 className='mt-12 text-xl tracking-normal leading-tight font-light text-[#1f2d3d]'>A SaaS landing page subscription that'll convert quickly</h2>
+            </div>
+            {heroDrawings[isMobile ? "mobile" : "desktop"].map(({ Component, size, ...position }, i) => (
+              <Component key={"hero-key-" + i} style={{ height: size, width: size, position: "absolute", opacity: 0.8, zIndex: 1, ...position }} />
             ))}
           </div>
-          <h1>Some more stuff</h1>
+          <div className='relative w-[100vw]' style={{ background: 'linear-gradient(180deg, transparent 0%, #f8edeb 100%)', height: 100 }}>
+            {browserName !== "Apple Safari" && <Texture />}
+          </div>
+          <div className='relative w-[100vw] bg-[#1f2d3d]'>
+            <h1>Some more stuff</h1>
+          </div>
         </>
       </main>
       {/* <svg>

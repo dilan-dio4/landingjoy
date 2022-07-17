@@ -1,17 +1,35 @@
-.hero-confetti {
-    background-color: #F8EDEB;
+.button-outline {
+    display: inline-block;
+    border-radius: 9px;
+    background-color: #fcd5ce;
 }
 
-.texture {
-    background-image: url(/assets/images/snow.png);
-    background-color: #F8EDEB;
-    /* background-image: url(/assets/images/white_wall_hash.webp), linear-gradient(180deg, #F8EDEB, #F8EDEB); */
-    background-position: 0 0, 0 0;
-    background-size: auto, auto;
-    background-repeat: repeat;
+.hero-button {
+    transform: translate3d(6px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    display: flex;
+    min-width: 250px;
+    padding: 20px 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    background-color: #1f2d3d;
+    /* background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDQ1MCIgb3BhY2l0eT0iMSI+PGRlZnM+PGZpbHRlciBpZD0iYmJibHVycnktZmlsdGVyIiB4PSItMTAwJSIgeT0iLTEwMCUiIHdpZHRoPSI0MDAlIiBoZWlnaHQ9IjQwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgoJPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48ZyBmaWx0ZXI9InVybCgjYmJibHVycnktZmlsdGVyKSI+PGVsbGlwc2Ugcng9IjI3Ny41IiByeT0iMjc3LjUiIGN4PSI3OS45MTk0MTEzOTkxNDc3NSIgY3k9IjE5Ni44MzQyNDIzODcyNTE0NCIgZmlsbD0iaHNsKDM4LCA5OSUsIDY3JSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9IjUzMC43MTA1ODUxNjA2ODg5IiBjeT0iMjQ0LjE0ODYzNzI1MTQyMDQ0IiBmaWxsPSJoc2woMzE2LCA3MyUsIDUyJSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9Ijc2Ni45MTM4OTA0OTE4MzI1IiBjeT0iMTIyLjQ2NDU0MTM0ODU0NCIgZmlsbD0iaHNsKDE4NSwgMTAwJSwgNTclKSI+PC9lbGxpcHNlPjwvZz48L3N2Zz4="); */
+    background-size: cover;
+    border: 1px solid #ffb5a7;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform ease-in-out 200ms;
 }
 
-.texture-blur {
+.hero-button:hover {
+    transform: translate3d(4px, 4px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+/* .texture-blur {
     overflow: hidden;
     position: relative;
 }
@@ -36,4 +54,4 @@
     -o-filter: blur(2px);
     -ms-filter: blur(2px);
     filter: blur(2px);
-}
+} */

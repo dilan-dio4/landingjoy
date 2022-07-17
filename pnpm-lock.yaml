@@ -3,9 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@newhighsco/next-plugin-svgr': ^3.0.53
   '@tailwindcss/typography': ^0.5.4
+  '@types/animejs': ^3.1.5
   '@types/node': 18.0.4
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
+  animejs: ^3.2.1
   autoprefixer: ^10.4.7
   clsx: ^1.2.1
   eslint: 8.19.0
@@ -20,6 +22,7 @@ specifiers:
   use-async-effect: ^2.2.6
 
 dependencies:
+  animejs: 3.2.1
   clsx: 1.2.1
   next: 12.2.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -29,6 +32,7 @@ dependencies:
 devDependencies:
   '@newhighsco/next-plugin-svgr': 3.0.53_next@12.2.2
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.6
+  '@types/animejs': 3.1.5
   '@types/node': 18.0.4
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
@@ -1709,6 +1713,10 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
+  /@types/animejs/3.1.5:
+    resolution: {integrity: sha512-4i3i1YuNaNEPoHBJY78uzYu8qKIwyx96G04tnVtNhRMQC9I1Xhg6fY9GeWmZAzudaesKKrPkQgTCthT1zSGYyg==}
+    dev: true
+
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -1858,6 +1866,10 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
     dev: true
+
+  /animejs/3.2.1:
+    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
+    dev: false
 
   /ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}

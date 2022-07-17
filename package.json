@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "clsx": "^1.2.1",
     "next": "12.2.2",
     "react": "18.2.0",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@newhighsco/next-plugin-svgr": "^3.0.53",
     "@tailwindcss/typography": "^0.5.4",
+    "@types/animejs": "^3.1.5",
     "@types/node": "18.0.4",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

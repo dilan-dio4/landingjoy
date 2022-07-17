@@ -1,0 +1,123 @@
+.nav-ul>li>a {
+    color: inherit;
+}
+
+.nav-ul>li {
+    display: inline-block;
+    text-decoration: none;
+    transition: color .2s ease-in-out;
+    color: var(--site-foreground);
+    border: 0;
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 500;
+    margin-right: 5px;
+    letter-spacing: -0.01em;
+}
+
+.nav-ul>li:last-of-type {
+    margin-right: 0px;
+}
+
+.nav-ul>li:hover {
+    color: var(--site-foreground-active);
+}
+
+.nav-ul>li:active {
+    color: var(--site-foreground-active);
+}
+
+.nav-ul>li:focus {
+    color: var(--site-foreground-active);
+}
+
+.nav-root {
+    position: absolute;
+    transition: height .2s ease-in-out, box-shadow .2s ease-in-out, background-color .2s ease-in-out, top .2s ease-in-out;
+    z-index: 101;
+    height: var(--header-height);
+}
+
+.nav-root-primary {
+    background-color: transparent;
+}
+
+.nav-root-secondary {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-on-scroll {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .04), 0 6px 12px rgba(0, 0, 0, .02);
+    transition: height .2s ease-in-out, box-shadow .2s ease-in-out, background-color .2s ease-in-out;
+    height: var(--header-height-expanded);
+    position: fixed;
+    top: 0;
+    backdrop-filter: saturate(180%) blur(10px);
+}
+
+.nav-on-scroll-primary {
+    background-color: #f8edeb;
+}
+
+.nav-on-scroll-secondary {
+    background-color: #171717dd;
+}
+
+.header-banner-root {
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #141414;
+    border-bottom: solid 1px var(--divider-color);
+}
+
+.banner_close {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    color: var(--accents-5);
+}
+
+.mobile-nav {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    overflow: touch;
+    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+}
+
+.mobile-nav-close {
+    cursor: pointer;
+    position: fixed;
+    top: 0px;
+    right: 19px;
+    opacity: .4;
+    transition: opacity .3s;
+    z-index: 2;
+}
+
+.mobile-nav-system-status {
+    cursor: pointer;
+    position: fixed;
+    bottom: 0px;
+    right: 19px;
+    z-index: 2;
+}
+
+.mobile-nav-route li {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.mobile-nav-route li:last-of-type {
+    margin-bottom: 0px;
+}
+
+.mobile-nav-route svg {
+    font-size: 2.5rem;
+}
+
+/* TODO: SOMETHING WITH THE OPERATIONAL FLASHER */

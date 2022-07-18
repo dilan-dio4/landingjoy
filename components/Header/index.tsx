@@ -70,20 +70,20 @@ export default function Header({ variant }: IHeader) {
                                         <Link href="https://docs.easybase.io/microstacks/what-is-a-microstack"><a itemProp="url" title="What is a Microstack?">What is a Microstack?</a></Link>
                                     </li> */}
                                     <li itemProp="name" role="menuitem" >
-                                        <Link href="/library"><a itemProp="url" title="Explore the Hub">Explore the Hub</a></Link>
+                                        <Link href="/plans"><a itemProp="url" title="Plans">Methodology</a></Link>
                                     </li>
-                                    {/* <li itemProp="name" role="menuitem" >
-                                                <a itemProp="url" title="Blog" href="/blog/">Partners</a>
-                                            </li> */}
+                                    <li itemProp="name" role="menuitem" >
+                                        <Link href="/plans"><a itemProp="url" title="Plans">Plans</a></Link>
+                                    </li>
+                                    <li itemProp="name" role="menuitem" >
+                                        <Link href="/what-you-get"><a itemProp="url" title="What you get">What you get</a></Link>
+                                    </li>
+                                    <li itemProp="name" role="menuitem" >
+                                        <Link href="/faqs"><a itemProp="url" title="FAQs">FAQs</a></Link>
+                                    </li>
                                     {/* <li itemProp="name" role="menuitem" >
                                                 <a itemProp="url" title="Blog" href="/blog/">Blog</a>
                                             </li> TODO: LINK SOMEWHERE ELSE */}
-                                    <li itemProp="name" role="menuitem">
-                                        <Link href="/pricing/"><a itemProp="url" title="Pricing">Pricing</a></Link>
-                                    </li>
-                                    <li itemProp="name" role="menuitem">
-                                        <Link href="https://docs.easybase.io"><a itemProp="url" title="Documentation">Documentation</a></Link>
-                                    </li>
                                     <li itemProp="name" role="menuitem">
                                         <Link href="https://app.easybase.io"><a itemProp="url" title="Sign In" onClick={() => { }}>Log in</a></Link>
                                     </li>

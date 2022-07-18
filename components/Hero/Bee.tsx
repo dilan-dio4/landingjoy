@@ -63,11 +63,11 @@ export default function Bee() {
         await sendLineAnimation("lineLeftSvg", LINE_LEFT_DELAY, LINE_LEFT_DUR, "drawReverse", "easeInSine").finished;
         await sendLineAnimation("lineRightSvg", LINE_IN_BETWEEN_DELAY, LINE_RIGHT_DUR, "draw", "easeOutSine").finished;
 
-        sendBee();
+        // sendBee();
 
         // Undraw them
-        await sendLineAnimation("lineRightSvg", UNDRAW_DELAY, LINE_RIGHT_DUR, "undraw", "easeInSine").finished;
-        await sendLineAnimation("lineLeftSvg", LINE_IN_BETWEEN_DELAY, LINE_LEFT_DUR, "undrawReverse", "easeOutSine").finished;
+        // await sendLineAnimation("lineRightSvg", UNDRAW_DELAY, LINE_RIGHT_DUR, "undraw", "easeInSine").finished;
+        // await sendLineAnimation("lineLeftSvg", LINE_IN_BETWEEN_DELAY, LINE_LEFT_DUR, "undrawReverse", "easeOutSine").finished;
     }, [])
 
     useEffect(() => {

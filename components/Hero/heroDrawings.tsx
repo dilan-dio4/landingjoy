@@ -29,9 +29,9 @@ interface HeroSvg {
 const heroDrawings: { desktop: HeroSvg[], mobile: HeroSvg[] } = {
     desktop: [
         {
-            bottom: -5,
+            bottom: -9,
             left: "0%",
-            size: 140,
+            size: 130,
             Component: (props) => <Icon1 {...props} />
         },
         {
@@ -96,7 +96,7 @@ const heroDrawings: { desktop: HeroSvg[], mobile: HeroSvg[] } = {
         },
         {
             bottom: "-4%",
-            left: "79%",
+            left: "78%",
             size: 120,
             Component: (props) => <Icon12 {...props} />
         },
@@ -107,14 +107,14 @@ const heroDrawings: { desktop: HeroSvg[], mobile: HeroSvg[] } = {
             Component: (props) => <Icon14 {...props} />
         },
         {
-            bottom: "-2%",
-            left: "89%",
-            size: 120,
+            bottom: "2%",
+            left: "91%",
+            size: 90,
             Component: (props) => <Icon15 {...props} />
         },
         {
             bottom: "-15%",
-            left: "69%",
+            left: "67%",
             size: 120,
             Component: (props) => <Icon13 {...props} />
         },
@@ -127,14 +127,26 @@ const heroDrawings: { desktop: HeroSvg[], mobile: HeroSvg[] } = {
         {
             bottom: "-16%",
             left: "20%",
-            size: 120,
-            Component: (props) => <Icon17 {...props} />
+            size: 100,
+            Component: (props) => <Icon18 {...props} />
         },
         {
             bottom: "-12%",
             left: "8%",
             size: 120,
             Component: (props) => <Icon20 {...props} />
+        },
+        {
+            bottom: "-18%",
+            left: "50%",
+            size: 120,
+            Component: (props) => <Icon17 {...props} />
+        },
+        {
+            bottom: "-14%",
+            left: "85%",
+            size: 90,
+            Component: (props) => <Icon19 {...props} />
         },
     ],
     mobile: [

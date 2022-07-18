@@ -573,6 +573,27 @@ a {
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-center text-4xl sm:text-6xl tracking-normal !leading-tight font-bold;
+  }
+  h2 {
+    @apply text-center text-xl tracking-normal leading-tight font-light;
+  }
+  h3 {
+    @apply text-center text-4xl tracking-normal font-bold;
+  }
+  h4  {
+    @apply text-lg font-extrabold;
+  }
+}
+
+@layer components {
+  .plan-grid-ele {
+    @apply transition-all shadow-sm hover:shadow-none text-center opacity-0;
+  }
+}
+
 :root {
   --banner-height: 40px;
 

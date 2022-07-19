@@ -31,10 +31,19 @@ const Home: NextPage = () => {
               <Layout>
                 {/* <h1>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
                 {/* <h1 >Your SaaS needs a landing page<br />that will convert</h1> */}
-                <h1>{dict.hero.header}</h1>
-                <h2 className='mt-4'>{dict.hero.subheader}</h2>
+                <div className='relative'>
+                  <h1 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-1 dark:-translate-y-1'>{dict.hero.header}</h1>
+                  <h1 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.header}</h1>
+                </div>
+                <div className='relative mt-4'>
+                  <h2 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-0.5 dark:-translate-y-0.5'>{dict.hero.subheader}</h2>
+                  <h2 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.subheader}</h2>
+                </div>
                 <HeroPrimaryButton text="See plans" className="min-w-[250px] px-[48px] py-[20px]" />
-                <h2 className='mt-12'>{dict.hero.subheader2}</h2>
+                <div className='relative mt-12'>
+                  <h2 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-0.5 dark:-translate-y-0.5'>{dict.hero.subheader2}</h2>
+                  <h2 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.subheader2}</h2>
+                </div>
               </Layout>
             </div>
             <HeroDrawings />
@@ -81,7 +90,7 @@ const Home: NextPage = () => {
           <Container>
             <Layout>
               <h3 className='mb-10'>Plans</h3>
-                <Pricing />
+              <Pricing />
             </Layout>
           </Container>
         </>

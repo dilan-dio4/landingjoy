@@ -545,30 +545,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: #1f2d3d;
-}
-
-a {
-  color: #1890ff;
-  text-decoration: none;
-  background-color: initial;
-  outline: none;
-  /* cursor: pointer; */
-  /* -webkit-transition: color .3s;
-  transition: color .3s;
-  -webkit-text-decoration-skip: objects; */
-}
-
-* {
-  box-sizing: border-box;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -592,6 +568,25 @@ a {
   .plan-grid-ele {
     @apply transition-all shadow-sm hover:shadow-none text-center opacity-0;
   }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply text-secondary-200 dark:text-primary-100;
+}
+
+a {
+  color: #1890ff;
+  text-decoration: none;
+  background-color: initial;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 :root {

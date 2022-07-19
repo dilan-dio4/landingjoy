@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { ReactComponent as LeftLine } from '../../assets/bee/hero-line-left.svg'
 import { ReactComponent as LineRight } from '../../assets/bee/hero-line-right.svg'
 import { ReactComponent as BeePath } from '../../assets/bee/bee-path.svg'
 import anime, { AnimeParams } from 'animejs';
-import useBrowserName from "../../utils/useBrowserName";
 import useAsyncEffect from "use-async-effect";
+import UiContext from "../Context/UiContext";
 
 export default function Bee() {
     const beeLineRef = useRef<HTMLDivElement>(null);
     const beeLottieRef = useRef<HTMLDivElement>(null);
 
-    const browserName = useBrowserName();
+    const { browserName } = useContext(UiContext);
 
     const LINE_LEFT_DUR = 1150;
     const LINE_LEFT_DELAY = 200;

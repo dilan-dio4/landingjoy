@@ -1,7 +1,7 @@
 .button-outline {
     display: inline-block;
     border-radius: 9px;
-    background-color: #fcd5ce;
+    @apply bg-primary-200 dark:bg-secondary-100;
 }
 
 .hero-button {
@@ -11,16 +11,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 9px;
-    background-color: #1f2d3d;
     /* background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDQ1MCIgb3BhY2l0eT0iMSI+PGRlZnM+PGZpbHRlciBpZD0iYmJibHVycnktZmlsdGVyIiB4PSItMTAwJSIgeT0iLTEwMCUiIHdpZHRoPSI0MDAlIiBoZWlnaHQ9IjQwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgoJPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48ZyBmaWx0ZXI9InVybCgjYmJibHVycnktZmlsdGVyKSI+PGVsbGlwc2Ugcng9IjI3Ny41IiByeT0iMjc3LjUiIGN4PSI3OS45MTk0MTEzOTkxNDc3NSIgY3k9IjE5Ni44MzQyNDIzODcyNTE0NCIgZmlsbD0iaHNsKDM4LCA5OSUsIDY3JSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9IjUzMC43MTA1ODUxNjA2ODg5IiBjeT0iMjQ0LjE0ODYzNzI1MTQyMDQ0IiBmaWxsPSJoc2woMzE2LCA3MyUsIDUyJSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9Ijc2Ni45MTM4OTA0OTE4MzI1IiBjeT0iMTIyLjQ2NDU0MTM0ODU0NCIgZmlsbD0iaHNsKDE4NSwgMTAwJSwgNTclKSI+PC9lbGxpcHNlPjwvZz48L3N2Zz4="); */
     background-size: cover;
-    border: 1px solid #ffb5a7;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    transition: transform ease-in-out 200ms;
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    @apply bg-secondary-200 dark:bg-primary-200 border border-primary-300 dark:border-secondary-200;
+
 }
 
 .hero-button:hover {
@@ -30,7 +30,7 @@
 .button-outline-sm {
     display: inline-block;
     border-radius: 9px;
-    background-color: #f8edeb;
+    @apply bg-primary-100 dark:bg-secondary-200;
 }
 
 .hero-button-sm {
@@ -40,16 +40,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 9px;
-    background-color: #1f2d3d;
     /* background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgODAwIDQ1MCIgb3BhY2l0eT0iMSI+PGRlZnM+PGZpbHRlciBpZD0iYmJibHVycnktZmlsdGVyIiB4PSItMTAwJSIgeT0iLTEwMCUiIHdpZHRoPSI0MDAlIiBoZWlnaHQ9IjQwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgoJPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMTMwIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJTb3VyY2VHcmFwaGljIiBlZGdlTW9kZT0ibm9uZSIgcmVzdWx0PSJibHVyIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48ZyBmaWx0ZXI9InVybCgjYmJibHVycnktZmlsdGVyKSI+PGVsbGlwc2Ugcng9IjI3Ny41IiByeT0iMjc3LjUiIGN4PSI3OS45MTk0MTEzOTkxNDc3NSIgY3k9IjE5Ni44MzQyNDIzODcyNTE0NCIgZmlsbD0iaHNsKDM4LCA5OSUsIDY3JSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9IjUzMC43MTA1ODUxNjA2ODg5IiBjeT0iMjQ0LjE0ODYzNzI1MTQyMDQ0IiBmaWxsPSJoc2woMzE2LCA3MyUsIDUyJSkiPjwvZWxsaXBzZT48ZWxsaXBzZSByeD0iMjc3LjUiIHJ5PSIyNzcuNSIgY3g9Ijc2Ni45MTM4OTA0OTE4MzI1IiBjeT0iMTIyLjQ2NDU0MTM0ODU0NCIgZmlsbD0iaHNsKDE4NSwgMTAwJSwgNTclKSI+PC9lbGxpcHNlPjwvZz48L3N2Zz4="); */
     background-size: cover;
-    /* border: 1px solid #ffb5a7; */
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    transition: transform ease-in-out 200ms;
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    @apply bg-secondary-200 dark:bg-primary-200;
+
 }
 
 .hero-button-sm:hover {

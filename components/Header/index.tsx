@@ -1,16 +1,15 @@
 import Link from "next/link";
 import clsx from 'clsx';
 import styles from '../../styles/components/Header.module.css';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import useDeviceSize from '../../utils/useDeviceSize'
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import UiContext from '../Context/UiContext';
+import colors from "../../utils/colors";
 
-interface IHeader {
-    variant: "primary" | "secondary";
-}
-
-export default function Header({ variant }: IHeader) {
+export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-
+    const { isDarkMode, setIsDarkMode } = useContext(UiContext);
     const headerRef = useRef<HTMLDivElement>(null);
     const { isMobile } = useDeviceSize();
 
@@ -21,7 +20,7 @@ export default function Header({ variant }: IHeader) {
         const onScroll = () => {
             const scroll_pos = getScrollY();
             if (getWindowWidth() > 800 && headerRef.current) {
-                const classList = [styles["nav-on-scroll"], variant === "secondary" ? styles["nav-on-scroll-secondary"] : styles["nav-on-scroll-primary"]];
+                const classList = [styles["nav-on-scroll"]];
                 if (scroll_pos > 0) {
                     headerRef.current.classList.add(...classList);
                 } else {
@@ -47,7 +46,7 @@ export default function Header({ variant }: IHeader) {
     // )
     return (
         <div className={""}>
-            <div className={clsx("flex justify-center w-full", styles["nav-root"], variant === "secondary" ? styles["nav-root-secondary"] : styles["nav-root-primary"], "top-0")} ref={headerRef}>
+            <div className={clsx("flex justify-center w-full", styles["nav-root"], "top-0")} ref={headerRef}>
                 <div className="flex flex-row w-[1360px] max-w-full md:px-[48px] px-6">
                     <div className="flex basis-1/4 items-center justify-start">
                         <Link href="/">
@@ -86,6 +85,15 @@ export default function Header({ variant }: IHeader) {
                                             </li> TODO: LINK SOMEWHERE ELSE */}
                                     <li itemProp="name" role="menuitem">
                                         <Link href="https://app.easybase.io"><a itemProp="url" title="Sign In" onClick={() => { }}>Log in</a></Link>
+                                    </li>
+                                    <li className="align-bottom -mb-[1px]">
+                                        <DarkModeSwitch
+                                            checked={isDarkMode}
+                                            onChange={_ => setIsDarkMode(prev => !prev)}
+                                            size={26}
+                                            moonColor={colors.primary[100]}
+                                            sunColor={colors.secondary[200]}
+                                        />
                                     </li>
                                 </ul>
                             </nav>

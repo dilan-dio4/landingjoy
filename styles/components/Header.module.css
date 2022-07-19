@@ -5,7 +5,6 @@
 .nav-ul>li {
     display: inline-block;
     text-decoration: none;
-    transition: color .2s ease-in-out;
     color: var(--site-foreground);
     border: 0;
     font-size: 15px;
@@ -13,6 +12,7 @@
     font-weight: 500;
     margin-right: 5px;
     letter-spacing: -0.01em;
+    @apply text-secondary-200 dark:text-primary-100 transition-colors duration-500;
 }
 
 .nav-ul>li:last-of-type {
@@ -36,14 +36,8 @@
     transition: height .2s ease-in-out, box-shadow .2s ease-in-out, background-color .2s ease-in-out, top .2s ease-in-out;
     z-index: 101;
     height: var(--header-height);
-}
-
-.nav-root-primary {
     background-color: transparent;
-}
 
-.nav-root-secondary {
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .nav-on-scroll {
@@ -52,15 +46,7 @@
     height: var(--header-height-expanded);
     position: fixed;
     top: 0;
-    backdrop-filter: saturate(180%) blur(10px);
-}
-
-.nav-on-scroll-primary {
-    background-color: #f8edeb;
-}
-
-.nav-on-scroll-secondary {
-    background-color: #171717dd;
+    backdrop-filter: saturate(180%) blur(13px);
 }
 
 .header-banner-root {

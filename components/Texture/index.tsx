@@ -3,6 +3,7 @@ import UiContext from "../Context/UiContext";
 import colors from '../../utils/colors';
 import anime from "animejs";
 import useId from "../../utils/useId";
+import hardwareAccStyle from '../../utils/hardwareAccStyle';
 
 interface ISingleTexture {
     variant: "light" | "dark";
@@ -84,7 +85,7 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
         if (id) {
             anime({
                 targets: `#dark-root-${id}`,
-                translateX: isDarkMode ? "0" : "-100vw",
+                opacity: isDarkMode ? "1" : "0",
                 duration: 650,
                 easing: "easeInOutQuad"
             });
@@ -116,7 +117,7 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
                 />
             )}
 
-            <div style={{ height: "100%", width: "100%", position: "absolute", zIndex: -5, transform: "translate3d(0, 0, 0) translateX(-100vw)", willChange: "transform", backfaceVisibility: "hidden" /** Force hardware acceleration */ }} id={`dark-root-${id}`}>
+            <div style={{ height: "100%", width: "100%", position: "absolute", zIndex: -5, opacity: 0, ...hardwareAccStyle }} id={`dark-root-${id}`}>
                 <SingleTexture variant="dark" id={id} />
                 {fadeIn && (
                     <div

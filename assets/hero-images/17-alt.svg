@@ -1,0 +1,7 @@
+<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="dddivided-clip1"><rect width="60%" height="100%" x="0" y="0"></rect></clipPath>
+      <clipPath id="dddivided-clip2"><rect width="40%" height="100%" x="60%" y="0"></rect></clipPath>
+    </defs> 
+    <path fill="#1f2d3d" clip-path="url(#dddivided-clip1)" transform="translate(-10,-10)" d="M153.221 143c-62.144-23.644-80.306-25.883-87 0 6.6-30.606-6.136-46.714-21.221-56.215C57.272 89.652 75.454 90.883 83.221 57c20.832 16.409 45.084 30.198 71.429 10.49-28.998 35.62-22.326 58.75-1.429 75.51Z"/><path clip-path="url(#dddivided-clip2)" d="M153.221 143c-62.144-23.644-80.306-25.883-87 0 6.6-30.606-6.136-46.714-21.221-56.215C57.272 89.652 75.454 90.883 83.221 57c20.832 16.409 45.084 30.198 71.429 10.49-28.998 35.62-22.326 58.75-1.429 75.51Z"/>
+</svg>

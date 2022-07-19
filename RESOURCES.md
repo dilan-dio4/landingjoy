@@ -13,6 +13,14 @@ background fractal: https://fffuel.co/nnnoise/
   5. Only copy defs over to index.tsx
   6. Rename the filter id to `fractal-a`
 
+background fractal alt: https://fffuel.co/dddivided/
+  1. Open console.
+  2. `const id = document.querySelector("#split")`
+  3. `id.value = '60'`
+  4. `id.dispatchEvent(new Event('input', { bubbles: true }))`
+  5. Color 1: #1f2d3d
+  6. Color 2: #ffb5a7
+
 Curve maker: https://yqnn.github.io/svg-path-editor/
   1. stroke="#fcd5ce"
   2. stroke-width="0.13"

@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import clsx from 'clsx';
-import heroDrawings from '../components/Hero/heroDrawings';
+import HeroDrawings from '../components/Hero/HeroDrawings';
 import useDeviceSize from '../utils/useDeviceSize';
 import Header from '../components/Header';
 import Bee from '../components/Hero/Bee';
 import Container from '../components/Container';
 import Layout from '../components/Layout/Layout';
-import { HeroPrimaryButton, SmallPrimaryButton } from '../components/Buttons';
+import { HeroPrimaryButton } from '../components/Buttons';
 import Pricing from '../components/Pricing';
 import SingleLine from '../components/Hero/SingleLine';
 import dict from '../components/dict';
@@ -37,11 +37,7 @@ const Home: NextPage = () => {
                 <h2 className='mt-12'>{dict.hero.subheader2}</h2>
               </Layout>
             </div>
-            <div className='absolute top-0 bottom-0 left-0 w-[100vw]'>
-              {heroDrawings[isMobile ? "mobile" : "desktop"].map(({ Component, size, ...position }, i) => (
-                <Component key={"hero-key-" + i} style={{ height: size, width: size, position: "absolute", opacity: 0.8, zIndex: 1, ...position }} />
-              ))}
-            </div>
+            <HeroDrawings />
           </Container>
           <Container fadeIn>
             <Layout>

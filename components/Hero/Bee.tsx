@@ -1,16 +1,15 @@
-import { useEffect, useRef, useContext } from "react";
+import { useContext } from "react";
 import { ReactComponent as LeftLine } from '../../assets/bee/hero-line-left.svg'
 import { ReactComponent as LineRight } from '../../assets/bee/hero-line-right.svg'
-import { ReactComponent as BeePath } from '../../assets/bee/bee-path.svg'
-import anime, { AnimeParams } from 'animejs';
+import anime, { AnimeInstance, AnimeParams } from 'animejs';
 import useAsyncEffect from "use-async-effect";
 import UiContext from "../Context/UiContext";
+import clsx from "clsx";
+import useDeviceSize from "../../utils/useDeviceSize";
 
 export default function Bee() {
-    const beeLineRef = useRef<HTMLDivElement>(null);
-    const beeLottieRef = useRef<HTMLDivElement>(null);
-
-    const { browserName } = useContext(UiContext);
+    const { browserName, isDarkMode } = useContext(UiContext);
+    const { isMobile } = useDeviceSize();
 
     const LINE_LEFT_DUR = 1150;
     const LINE_LEFT_DELAY = 200;
@@ -30,50 +29,71 @@ export default function Bee() {
         }),
     }
 
-    function setBeeLineCoordinates() {
-        const beeLineDOMRect = document.getElementById('beeLineDestination')!.getBoundingClientRect();
-        const top = beeLineDOMRect.top + (beeLineDOMRect.height / 2);
-        const left = beeLineDOMRect.right;
-        beeLineRef.current!.style.top = `${top}px`;
-        beeLineRef.current!.style.left = `${left}px`;
-        return { top, left };
-    }
+    // function setBeeLineCoordinates() {
+    //     const beeLineDOMRect = document.getElementById('beeLineDestination')!.getBoundingClientRect();
+    //     const top = beeLineDOMRect.top + (beeLineDOMRect.height / 2);
+    //     const left = beeLineDOMRect.right;
+    //     beeLineRef.current!.style.top = `${top}px`;
+    //     beeLineRef.current!.style.left = `${left}px`;
+    //     return { top, left };
+    // }
 
-    async function sendBee() {
-        // Draw bee
-        const beeLottieDestination = setBeeLineCoordinates()
-        await new Promise(resolve => setTimeout(resolve, BEE_DELAY));
-        sendLineAnimation("beePathSvg", 100, BEE_DUR, "drawReverse", "easeInOutSine");
-        beeLottieRef.current!.style.top = `${beeLottieDestination.top}px`;
-        beeLottieRef.current!.style.left = `${beeLottieDestination.left}px`;
-        const beePath = anime.path(`#beePathSvg path`)
-        anime({
-            ...DEFAULT_ANIM_OPTIONS,
-            targets: '#beeLottie',
-            translateX: beePath('x'),
-            translateY: beePath('y'),
-            rotate: beePath('angle'),
-            duration: BEE_DUR,
-            direction: 'reverse',
-            easing: "easeInOutSine"
-        });
-    }
+    // async function sendBee() {
+    //     const beeLottieDestination = setBeeLineCoordinates()
+    //     await new Promise(resolve => setTimeout(resolve, BEE_DELAY));
+    //     sendLineAnimation("beePathSvg", 100, BEE_DUR, "drawReverse", "easeInOutSine");
+    //     beeLottieRef.current!.style.top = `${beeLottieDestination.top}px`;
+    //     beeLottieRef.current!.style.left = `${beeLottieDestination.left}px`;
+    //     const beePath = anime.path(`#beePathSvg path`)
+    //     anime({
+    //         ...DEFAULT_ANIM_OPTIONS,
+    //         targets: '#beeLottie',
+    //         translateX: beePath('x'),
+    //         translateY: beePath('y'),
+    //         rotate: beePath('angle'),
+    //         duration: BEE_DUR,
+    //         direction: 'reverse',
+    //         easing: "easeInOutSine"
+    //     });
+    // }
 
     useAsyncEffect(async isActive => {
-        await sendLineAnimation("lineLeftSvg", LINE_LEFT_DELAY, LINE_LEFT_DUR, "drawReverse", "easeInSine").finished;
-        await sendLineAnimation("lineRightSvg", LINE_IN_BETWEEN_DELAY, LINE_RIGHT_DUR, "draw", "easeOutSine").finished;
+        let alive = true;
+        
+        const realIsActive = () => isActive() && alive;
 
-        // sendBee();
+        const running: AnimeInstance[] = [];
+        if (isDarkMode) {
+            running.push(sendLineAnimation("lineRightSvg", LINE_LEFT_DELAY, LINE_RIGHT_DUR, "undraw", "easeInSine"));
+            await running[0].finished;
+            if (!realIsActive()) return
+            running.push(sendLineAnimation("lineLeftSvg", LINE_IN_BETWEEN_DELAY, LINE_LEFT_DUR, "undrawReverse", "easeOutSine"));
+            await running[1].finished;
+            if (!realIsActive()) return
+        } else {
+            running.push(sendLineAnimation("lineLeftSvg", LINE_LEFT_DELAY, LINE_LEFT_DUR, "drawReverse", "easeInSine"));
+            await running[0].finished;
+            if (!realIsActive()) return
+            running.push(sendLineAnimation("lineRightSvg", LINE_IN_BETWEEN_DELAY, LINE_RIGHT_DUR, "draw", "easeOutSine"));
+            await running[1].finished;
+            if (!realIsActive()) return
+        }
 
+        // sendBee();   
         // Undraw them
         // await sendLineAnimation("lineRightSvg", UNDRAW_DELAY, LINE_RIGHT_DUR, "undraw", "easeInSine").finished;
         // await sendLineAnimation("lineLeftSvg", LINE_IN_BETWEEN_DELAY, LINE_LEFT_DUR, "undrawReverse", "easeOutSine").finished;
-    }, [])
+        return () => {
+            alive = false;
+            running.forEach(ele => ele.pause())
+        }
+    }, [isDarkMode])
 
-    useEffect(() => {
-        window.addEventListener('resize', setBeeLineCoordinates);
-        return () => window.removeEventListener('resize', setBeeLineCoordinates);
-    }, []);
+
+    // useEffect(() => {
+    //     window.addEventListener('resize', setBeeLineCoordinates);
+    //     return () => window.removeEventListener('resize', setBeeLineCoordinates);
+    // }, []);
 
     function pathAnimation(path: SVGGeometryElement) {
         return {
@@ -128,16 +148,16 @@ export default function Bee() {
 
     return (
         <div className="absolute overflow-hidden left-0 top-0 right-0 h-[100vh]">
-            <div className="absolute left-0 top-0 h-[400px] w-[400px] z-20">
+            <div className={clsx("absolute left-0 top-0 h-[400px] w-[400px] z-20", isMobile && "translate-y-[-255px] rotate-[31deg]")}>
                 <LeftLine id="lineLeftSvg" className="invisible" />
             </div>
-            <div className="absolute right-0 top-0 h-[400px] w-[400px] z-20">
+            <div className={clsx("absolute right-0 top-0 h-[400px] w-[400px] z-20", isMobile && "translate-y-[-110px] rotate-[300deg]")}>
                 <LineRight id="lineRightSvg" className="invisible" />
             </div>
-            <div className="absolute h-[400px] w-[400px] z-20 overflow-hidden" ref={beeLineRef}>
+            {/* <div className="absolute h-[400px] w-[400px] z-20 overflow-hidden" ref={beeLineRef}>
                 <BeePath id="beePathSvg" className="invisible" />
             </div>
-            <div className="absolute w-5 h-5 bg-black z-50 invisible" ref={beeLottieRef} id="beeLottie"></div>
+            <div className="absolute w-5 h-5 bg-black z-50 invisible" ref={beeLottieRef} id="beeLottie"></div> */}
         </div>
     )
 }

@@ -26,7 +26,7 @@ const dict = {
     },
 
     section2: {
-        header1: <>So&#8230; what's the catch?</>,
+        header1: <>So&#8230; what&apos;s the catch?</>,
         description1: (
             <>
                 We tend to only work with <em>ideal</em> SaaS companies. This is because we have limited time and like to keep a tight, trustworthy team. This allows us to be respectful to yourself and other potential clients while delivering the highest quality of work.
@@ -36,7 +36,7 @@ const dict = {
             </>
         ),
 
-        header2: <>What's an <em>ideal</em> company?</>,
+        header2: <>What&apos;s an <em>ideal</em> company?</>,
         description2: (
             <>
                 An ideal customer is typically defined by the following characteristics:

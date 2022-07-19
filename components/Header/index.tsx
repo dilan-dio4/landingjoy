@@ -59,7 +59,13 @@ export default function Header() {
                         <div className="flex basis-3/4 items-center justify-end">
                             {/* <NavPrimaryButton text="Log In" className='!w-[100px] !mr-3' /> */}
                             {/* <IoEllipsisVertical color='#fff' fontSize={"22px"} onClick={_ => setIsMobileMenuOpen(true)} /> */}
-                            test
+                            <DarkModeSwitch
+                                checked={isDarkMode}
+                                onChange={_ => setIsDarkMode(prev => !prev)}
+                                size={26}
+                                moonColor={colors.primary[100]}
+                                sunColor={colors.secondary[200]}
+                            />
                         </div>
                         :
                         <>
@@ -86,7 +92,7 @@ export default function Header() {
                                     <li itemProp="name" role="menuitem">
                                         <Link href="https://app.easybase.io"><a itemProp="url" title="Sign In" onClick={() => { }}>Log in</a></Link>
                                     </li>
-                                    <li className="align-bottom -mb-[1px]">
+                                    <li className="!inline-flex align-bottom">
                                         <DarkModeSwitch
                                             checked={isDarkMode}
                                             onChange={_ => setIsDarkMode(prev => !prev)}

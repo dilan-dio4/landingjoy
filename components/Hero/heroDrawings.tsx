@@ -186,6 +186,24 @@ const heroDrawings: { desktop: HeroSvg[], mobile: HeroSvg[] } = {
             size: 80,
             Component: (props) => <Icon14 {...props} />
         },
+        {
+            bottom: "-10%",
+            left: "5%",
+            size: 80,
+            Component: (props) => <Icon15 {...props} />
+        },
+        {
+            bottom: "-12%",
+            left: "72%",
+            size: 100,
+            Component: (props) => <Icon13 {...props} />
+        },
+        {
+            bottom: "-6%",
+            left: "36%",
+            size: 90,
+            Component: (props) => <Icon16 {...props} />
+        },
     ]
 }
 

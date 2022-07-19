@@ -7,7 +7,7 @@ import useId from "../../utils/useId";
 interface ISingleTexture {
     variant: "light" | "dark";
     id: number;
-    style: React.CSSProperties;
+    style?: React.CSSProperties;
 }
 
 function SingleTexture({ variant, id, style }: ISingleTexture) {
@@ -30,8 +30,8 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
             <defs>
                 <filter
                     id={`fractal-${variant}-${id}`}
-                    x="-20%"
-                    y="-20%"
+                    x="0%"
+                    y="0%"
                     width={browserName === "Apple Safari" ? "40%" : "140%"}
                     height={browserName === "Apple Safari" ? "40%" : "140%"}
                     filterUnits="objectBoundingBox"
@@ -71,16 +71,21 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
     )
 }
 
-export default function Texture() {
+interface ITexture {
+    fadeIn?: boolean;
+    fadeOut?: boolean;
+}
+
+export default function Texture({ fadeIn, fadeOut }: ITexture) {
     const id = useId();
     const { isDarkMode } = useContext(UiContext);
 
     useEffect(() => {
         if (id) {
             anime({
-                targets: `#svg-root-dark-${id}`,
-                translateX: isDarkMode ? "0" : "100vw",
-                duration: 800,
+                targets: `#dark-root-${id}`,
+                translateX: isDarkMode ? "0" : "-100vw",
+                duration: 650,
                 easing: "easeInOutQuad"
             });
         }
@@ -91,7 +96,47 @@ export default function Texture() {
     return (
         <>
             <SingleTexture style={{ zIndex: -10 }} id={id} variant="light" />
-            <SingleTexture style={{ zIndex: -5, transform: "translate3d(0, 0, 0) translateX(100vw)", backfaceVisibility: "hidden" /** Force hardware acceleration */ }} id={id} variant="dark" />
+            {fadeIn && (
+                <div
+                    className='absolute top-0 left-0 right-0 -z-10'
+                    style={{
+                        background: `linear-gradient(180deg, ${colors.primary[200] + "77"} 0%, transparent 100%)`,
+                        height: 150
+                    }}
+                />
+            )}
+
+            {fadeOut && (
+                <div
+                    className='absolute bottom-0 left-0 right-0 -z-10'
+                    style={{
+                        background: `linear-gradient(180deg, transparent 0%, ${colors.primary[200] + "77"} 100%)`,
+                        height: 150
+                    }}
+                />
+            )}
+
+            <div style={{ height: "100%", width: "100%", position: "absolute", zIndex: -5, transform: "translate3d(0, 0, 0) translateX(-100vw)", willChange: "transform", backfaceVisibility: "hidden" /** Force hardware acceleration */ }} id={`dark-root-${id}`}>
+                <SingleTexture variant="dark" id={id} />
+                {fadeIn && (
+                    <div
+                        className='absolute top-0 left-0 right-0'
+                        style={{
+                            background: `linear-gradient(180deg, ${colors.secondary[200] + "77"} 0%, transparent 100%)`,
+                            height: 150
+                        }}
+                    />
+                )}
+                {fadeOut && (
+                    <div
+                        className='absolute bottom-0 left-0 right-0'
+                        style={{
+                            background: `linear-gradient(180deg, transparent 0%, ${colors.secondary[200] + "77"} 100%)`,
+                            height: 150
+                        }}
+                    />
+                )}
+            </div>
         </>
     )
 }

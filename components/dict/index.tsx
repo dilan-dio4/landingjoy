@@ -1,5 +1,7 @@
 // type IDict = string | ((...strings: string[]) => string) | { [key: string]: IDict };
 
+import Link from "next/link";
+
 const dict = {
     hero: {
         header: (
@@ -65,6 +67,7 @@ const dict = {
                 3. &nbsp;&nbsp;Is excited to scale their growth
             </>
         ),
+        description2Subheader: <>To find out if your SaaS is a good fit, <Link href="asdf"><a>book a free strategy call</a></Link>.</>,
 
         header3: 'You just got a lot leaner',
     },

@@ -14,11 +14,12 @@ import colors from '../utils/colors';
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
 import UiContext from '../components/Context/UiContext';
-import { IoSync, IoEarth } from 'react-icons/io5';
+import { IoSync } from 'react-icons/io5';
 import { CgScreen } from 'react-icons/cg';
 import type { IconBaseProps } from 'react-icons';
 import anime from 'animejs';
 import Globe from '../components/Globe';
+import WithSingleLine from '../components/WithSingleLine';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -142,18 +143,12 @@ const Home: NextPage = () => {
                                         description: dict.section1.triad[1].description,
                                     },
                                     {
-                                        // Icon: (props: IconBaseProps) => (
-                                        //     <div className='relative'>
-                                        //         <IoEarth {...props} />
-                                        //         <div className='absolute -z-10 rounded-[50%] left-[4px] right-[4px] top-[4px] bottom-[4px]' />
-                                        //     </div>
-                                        // ),
                                         Icon: () => <Globe />,
                                         title: dict.section1.triad[2].title,
                                         description: dict.section1.triad[2].description,
                                     },
                                 ].map(({ Icon, ...ele }, i) => (
-                                    <div key={ele.title} className='flex flex-col basis-1/3 items-center text-center my-6'>
+                                    <div key={ele.title} className='flex flex-col basis-1/3 items-center text-center my-6 mx-0 sm:mx-3'>
                                         <Icon size={40} id={`triad-icon-${i}`} />
                                         <h4 className='my-2'>{ele.title}</h4>
                                         <p>{ele.description}</p>
@@ -165,8 +160,12 @@ const Home: NextPage = () => {
 
                             <h3 className='mt-28'>{dict.section2.header2}</h3>
                             <p className='text-center m-auto max-w-[600px] mt-10'>{dict.section2.description2}</p>
-                            <SingleLine />
                             <p className='flex justify-center text-left'>{dict.section2.bullets2}</p>
+                            <WithSingleLine>
+                                <p className='text-center m-auto max-w-[600px] mt-6'>{dict.section2.description2Subheader}</p>
+                            </WithSingleLine>
+                            {/* <SingleLine /> */}
+
                             <h3 className='mt-28'>{dict.section2.header3}</h3>
                         </Layout>
                     </Container>

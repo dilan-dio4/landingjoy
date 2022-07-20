@@ -4,7 +4,11 @@ import useId from '../../utils/useId';
 import { useContext } from 'react';
 import UiContext from '../Context/UiContext';
 
-export default function SingleLine() {
+interface ISingleLine {
+    rotation?: number;
+}
+
+export default function SingleLine({ rotation }: ISingleLine) {
     const id = useId();
     const { browserName } = useContext(UiContext);
 
@@ -41,7 +45,14 @@ export default function SingleLine() {
     }, [id]);
 
     return (
-        <svg className='absolute -bottom-[500px] left-0 min-w-[2000px] min-h-full invisible' viewBox='0 0 800 400' id={`line-${id}`}>
+        <svg 
+            className='invisible pointer-events-none'
+            viewBox='0 0 800 400' 
+            id={`line-${id}`}
+            style={{
+                transform: rotation ? `${rotation}deg` : undefined,
+            }}
+        >
             <path d='M0,200 Q250,160 400,200 T800 200' fill='none' stroke='#fcd5ce' strokeWidth='0.43' />
         </svg>
     );

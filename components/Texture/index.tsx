@@ -7,7 +7,7 @@ import hardwareAccStyle from '../../utils/hardwareAccStyle';
 
 interface ISingleTexture {
     variant: 'light' | 'dark';
-    id: number;
+    id: string;
     style?: React.CSSProperties;
 }
 

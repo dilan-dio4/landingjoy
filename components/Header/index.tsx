@@ -1,14 +1,19 @@
 import Link from "next/link";
 import clsx from 'clsx';
 import styles from '../../styles/components/Header.module.css';
-import { useEffect, useState, useRef, useContext } from 'react';
+import { useEffect, useState, useRef, useContext, FC } from 'react';
 import useDeviceSize from '../../utils/useDeviceSize'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import UiContext from '../Context/UiContext';
 import colors from "../../utils/colors";
+import Tooltip from "../Tooltip";
+import { Lottie } from '@alfonmga/react-lottie-light-ts';
+import planetJson from '../../assets/lottie/planet-and-stars.json';
+import { FloatingProps } from "../Tooltip/Floating";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+    const [isDarkModeTooltipOpen, setIsDarkModeTooltipOpen] = useState<boolean>(false);
     const { isDarkMode, setIsDarkMode } = useContext(UiContext);
     const headerRef = useRef<HTMLDivElement>(null);
     const { isMobile } = useDeviceSize();
@@ -29,7 +34,13 @@ export default function Header() {
             }
         }
         window.addEventListener("scroll", onScroll);
-        return () => document.removeEventListener("scroll", onScroll);
+
+        const showDarkModeTooltipTimeout = setTimeout(() => setIsDarkModeTooltipOpen(true), 2100)
+
+        return () => {
+            document.removeEventListener("scroll", onScroll);
+            clearTimeout(showDarkModeTooltipTimeout);
+        }
     }, [])
 
     useEffect(() => {
@@ -39,11 +50,31 @@ export default function Header() {
             document.body.classList.remove("overflow-hidden");
         }
     }, [isMobileMenuOpen])
-    // return (
-    //     <div className="fixed z-20 m-auto top-[20px] w-[70vw] h-10 rounded-[9px] bg-[#fcd5ce] left-0 right-0">
 
-    //     </div>
-    // )
+    const tooltipProps: FloatingProps = {
+        content: (
+            <div className="flex items-center pl-4 pr-3">
+                <p className="text-xs font-semibold tracking-wide text-primary-100 mr-0.5">
+                    Try me
+                </p>
+                <Lottie config={{ animationData: planetJson, loop: true }} width={"30px"} height={"30px"} />
+            </div>
+        ),
+        placement: isMobile ? "left" : "bottom",
+        trigger: "hover",
+        arrow: true,
+        style: "light",
+        open: isDarkModeTooltipOpen
+    }
+
+    const darkModeSwitchProps = {
+        checked: isDarkMode,
+        onChange: () => { setIsDarkMode(prev => !prev); setIsDarkModeTooltipOpen(false); },
+        size: 26,
+        moonColor: colors.primary[100],
+        sunColor: colors.secondary[200]
+    }
+
     return (
         <div className={""}>
             <div className={clsx("flex justify-center w-full", styles["nav-root"], "top-0")} ref={headerRef}>
@@ -59,13 +90,9 @@ export default function Header() {
                         <div className="flex basis-3/4 items-center justify-end">
                             {/* <NavPrimaryButton text="Log In" className='!w-[100px] !mr-3' /> */}
                             {/* <IoEllipsisVertical color='#fff' fontSize={"22px"} onClick={_ => setIsMobileMenuOpen(true)} /> */}
-                            <DarkModeSwitch
-                                checked={isDarkMode}
-                                onChange={_ => setIsDarkMode(prev => !prev)}
-                                size={26}
-                                moonColor={colors.primary[100]}
-                                sunColor={colors.secondary[200]}
-                            />
+                            <Tooltip {...tooltipProps}>
+                                <DarkModeSwitch {...darkModeSwitchProps} />
+                            </Tooltip>
                         </div>
                         :
                         <>
@@ -93,13 +120,9 @@ export default function Header() {
                                         <Link href="https://app.easybase.io"><a itemProp="url" title="Sign In" onClick={() => { }}>Log in</a></Link>
                                     </li>
                                     <li className="!inline-flex align-bottom">
-                                        <DarkModeSwitch
-                                            checked={isDarkMode}
-                                            onChange={_ => setIsDarkMode(prev => !prev)}
-                                            size={26}
-                                            moonColor={colors.primary[100]}
-                                            sunColor={colors.secondary[200]}
-                                        />
+                                        <Tooltip {...tooltipProps}>
+                                            <DarkModeSwitch {...darkModeSwitchProps} />
+                                        </Tooltip>
                                     </li>
                                 </ul>
                             </nav>

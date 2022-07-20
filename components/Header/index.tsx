@@ -62,7 +62,7 @@ export default function Header() {
                 <Lottie config={{ animationData: planetJson, loop: true }} width={'30px'} height={'30px'} />
             </div>
         ),
-        placement: isMobile ? 'left' : 'bottom',
+        placement: isMobile ? 'left' : 'right',
         trigger: 'hover',
         arrow: true,
         style: 'light',

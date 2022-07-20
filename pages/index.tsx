@@ -18,6 +18,7 @@ import { IoSync, IoEarth } from 'react-icons/io5';
 import { CgScreen } from 'react-icons/cg';
 import type { IconBaseProps } from 'react-icons';
 import anime from 'animejs';
+import Globe from '../components/Globe';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -47,24 +48,24 @@ const Home: NextPage = () => {
             },
         });
 
-        const target = {
-            percent: '0%',
-        };
-        anime({
-            targets: target,
-            percent: [
-                { value: '100%', duration: 5000 },
-                { value: '0%', duration: 5000, delay: 4000 },
-            ],
-            easing: 'linear',
-            endDelay: 4000,
-            loop: true,
-            update: function () {
-                document.querySelector<HTMLDivElement>(
-                    `#triad-icon-2 ~ div`,
-                )!.style.backgroundImage = `linear-gradient(to top, #C7EDF9 ${target.percent}, transparent 0)`;
-            },
-        });
+        // const target = {
+        //     percent: '0%',
+        // };
+        // anime({
+        //     targets: target,
+        //     percent: [
+        //         { value: '100%', duration: 5000 },
+        //         { value: '0%', duration: 5000, delay: 4000 },
+        //     ],
+        //     easing: 'linear',
+        //     endDelay: 4000,
+        //     loop: true,
+        //     update: function () {
+        //         document.querySelector<HTMLDivElement>(
+        //             `#triad-icon-2 ~ div`,
+        //         )!.style.backgroundImage = `linear-gradient(to top, #C7EDF9 ${target.percent}, transparent 0)`;
+        //     },
+        // });
     }, [isDarkMode]);
 
     const heroTextRoot = 'dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0';
@@ -141,12 +142,13 @@ const Home: NextPage = () => {
                                         description: dict.section1.triad[1].description,
                                     },
                                     {
-                                        Icon: (props: IconBaseProps) => (
-                                            <div className='relative'>
-                                                <IoEarth {...props} />
-                                                <div className='absolute -z-10 rounded-[50%] left-[4px] right-[4px] top-[4px] bottom-[4px]' />
-                                            </div>
-                                        ),
+                                        // Icon: (props: IconBaseProps) => (
+                                        //     <div className='relative'>
+                                        //         <IoEarth {...props} />
+                                        //         <div className='absolute -z-10 rounded-[50%] left-[4px] right-[4px] top-[4px] bottom-[4px]' />
+                                        //     </div>
+                                        // ),
+                                        Icon: () => <Globe />,
                                         title: dict.section1.triad[2].title,
                                         description: dict.section1.triad[2].description,
                                     },

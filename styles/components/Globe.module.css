@@ -1,0 +1,38 @@
+/** https://codepen.io/bluebie/pen/JjdoaLG */
+
+.notice {
+    font-size: 38px;
+    text-align: center;
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.world {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-image: url(#icon-world);
+    @apply border-secondary-200 fill-secondary-200 dark:border-primary-100 dark:fill-primary-100 border-2;
+}
+
+.world svg {
+    width: 4em;
+    height: 1em;
+    margin-top: calc(-2px + -0.78em);
+    display: inline;
+    animation: world-scroll 4s linear infinite;
+}
+
+@keyframes world-scroll {
+    from {
+        margin-left: -2.75em;
+    }
+
+    to {
+        margin-left: -1em;
+    }
+}

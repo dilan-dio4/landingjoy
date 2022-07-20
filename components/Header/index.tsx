@@ -72,7 +72,8 @@ export default function Header() {
         onChange: () => { setIsDarkMode(prev => !prev); setIsDarkModeTooltipOpen(false); },
         size: 26,
         moonColor: colors.primary[100],
-        sunColor: colors.secondary[200]
+        sunColor: colors.secondary[200],
+        className: '-mb-[1px]'
     }
 
     return (

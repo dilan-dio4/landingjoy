@@ -4,11 +4,12 @@ const dict = {
     hero: {
         header: <>Your SaaS needs landing pages<span id="beeLineDestination">&#8203;</span><br />and we <span className='font-extrabold'>love</span> building them</>,
         subheader: "Convert & retain your users with pages that make lasting impressions",
-        subheader2: "A SaaS landing page subscription that'll convert quickly",
+        tag: <>Book a strategy call &#8594;</>
     },
 
     section1: {
-        header: "The weight of converting, lifted off your shoulders",
+        // header: "The weight of converting, lifted off your shoulders",
+        header: "A SaaS landing page subscription that'll convert quickly",
         triad: [
             {
                 title: "Totally async",

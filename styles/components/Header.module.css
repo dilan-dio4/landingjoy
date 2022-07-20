@@ -1,10 +1,9 @@
 .nav-ul>li>a {
-    color: inherit;
+    @apply text-secondary-200 dark:text-primary-100 transition-colors duration-300 no-underline;
 }
 
 .nav-ul>li {
     display: inline-block;
-    text-decoration: none;
     color: var(--site-foreground);
     border: 0;
     font-size: 15px;
@@ -12,15 +11,10 @@
     font-weight: 500;
     margin-right: 5px;
     letter-spacing: -0.01em;
-    @apply text-secondary-200 dark:text-primary-100 transition-colors duration-500;
 }
 
 .nav-ul>li:last-of-type {
     margin-right: 0px;
-}
-
-.nav-ul>li:hover {
-    color: var(--site-foreground-active);
 }
 
 .nav-ul>li:active {

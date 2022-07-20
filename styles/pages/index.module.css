@@ -1,3 +1,13 @@
+/* .arrow-after::after {
+    content: "\2192";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: inherit;
+    margin-left: 5px;
+    font-size: 1.15em;
+} */
+
 /* .texture-blur {
     overflow: hidden;
     position: relative;

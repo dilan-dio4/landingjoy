@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import clsx from 'clsx';
 import HeroDrawings from '../components/Hero/HeroDrawings';
-import useDeviceSize from '../utils/useDeviceSize';
 import Header from '../components/Header';
 import Bee from '../components/Hero/Bee';
 import Container from '../components/Container';
@@ -12,9 +11,14 @@ import Pricing from '../components/Pricing';
 import SingleLine from '../components/Hero/SingleLine';
 import dict from '../components/dict';
 import colors from '../utils/colors';
+import Link from 'next/link';
+import { useContext } from 'react';
+import UiContext from '../components/Context/UiContext';
 
 const Home: NextPage = () => {
-  const { isMobile } = useDeviceSize();
+  const { isDarkMode } = useContext(UiContext);
+  const heroTextRoot = "dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0";
+  const heroTextShadowRoot = "absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 invisible dark:opacity-100 dark:visible";
 
   return (
     <>
@@ -34,17 +38,26 @@ const Home: NextPage = () => {
                 {/* <h1>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
                 {/* <h1 >Your SaaS needs a landing page<br />that will convert</h1> */}
                 <div className='relative'>
-                  <h1 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-1 dark:-translate-y-1'>{dict.hero.header}</h1>
-                  <h1 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.header}</h1>
+                  <h1 className={clsx(heroTextRoot, 'dark:-translate-x-1 dark:-translate-y-1')}>{dict.hero.header}</h1>
+                  <h1 className={heroTextShadowRoot}>{dict.hero.header}</h1>
                 </div>
                 <div className='relative mt-4'>
-                  <h2 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-0.5 dark:-translate-y-0.5'>{dict.hero.subheader}</h2>
-                  <h2 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.subheader}</h2>
+                  <h2 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5')}>{dict.hero.subheader}</h2>
+                  <h2 className={heroTextShadowRoot}>{dict.hero.subheader}</h2>
                 </div>
                 <HeroPrimaryButton text="See plans" className="min-w-[250px] px-[48px] py-[20px]" />
-                <div className='relative mt-12'>
-                  <h2 className='dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0 dark:-translate-x-0.5 dark:-translate-y-0.5'>{dict.hero.subheader2}</h2>
-                  <h2 className='absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100'>{dict.hero.subheader2}</h2>
+                <div className='relative mt-8'>
+                  {isDarkMode ?
+                    <>
+                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}>{dict.hero.tag}</h3>
+                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag}</a></Link></h3>
+                    </>
+                    :
+                    <>
+                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag}</a></Link></h3>
+                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}>{dict.hero.tag}</h3>
+                    </>
+                  }
                 </div>
               </Layout>
             </div>
@@ -52,7 +65,7 @@ const Home: NextPage = () => {
           </Container>
           <Container fadeIn>
             <Layout>
-              <h3 className='mt-20'>The weight of converting, lifted off your shoulders</h3>
+              <h3 className='mt-20'>{dict.section1.header}</h3>
               <div className="flex mt-36">
                 {[
                   {

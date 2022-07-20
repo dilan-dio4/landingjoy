@@ -1,4 +1,5 @@
-var colors = require('./utils/colors')
+var customColors = require('./utils/colors');
+var defaultColors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,7 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
-    colors
+    colors: {
+      ...defaultColors,
+      ...customColors
+    }
   },
   plugins: [
     require('@tailwindcss/typography'),

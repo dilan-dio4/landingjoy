@@ -11,11 +11,12 @@ export default function Pricing() {
             targets: '#pricing-grid > div',
             scale: [
                 { value: .8, easing: 'easeOutSine', duration: 300 },
-                { value: 1, easing: 'easeInOutQuad', duration: 800 }
+                { value: 1, easing: 'easeInOutQuad', duration: 500 }
             ],
             opacity: [
-                { value: 0.5, easing: 'easeOutSine', duration: 300 },
-                { value: 1, easing: 'easeInOutQuad', duration: 800 }
+                { value: 0, easing: 'easeOutSine', duration: 100 },
+                { value: 0.5, easing: 'easeOutSine', duration: 200 },
+                { value: 1, easing: 'easeInOutQuad', duration: 500 }
             ],
             delay: anime.stagger(185, { grid: [3, 3], from: 'first' })
         });

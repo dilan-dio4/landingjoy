@@ -1,5 +1,5 @@
-import clsx from "clsx"
-import Texture from "../Texture";
+import clsx from 'clsx';
+import Texture from '../Texture';
 
 interface IContainer {
     className?: string;
@@ -14,5 +14,5 @@ export default function Container({ className, children, fadeIn, fadeOut }: ICon
             <Texture fadeIn={fadeIn} fadeOut={fadeOut} />
             {children}
         </div>
-    )
+    );
 }

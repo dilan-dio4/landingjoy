@@ -1,20 +1,14 @@
 import type { PropsWithChildren } from 'react';
 import type { Middleware } from '@floating-ui/react-dom-interactions';
-import type { Placement } from "@floating-ui/react-dom";
-import type { RefObject } from "react";
+import type { Placement } from '@floating-ui/react-dom';
+import type { RefObject } from 'react';
 import { arrow, autoPlacement } from '@floating-ui/core';
 import { flip, offset } from '@floating-ui/react-dom-interactions';
 
 /**
  * @see https://floating-ui.com/docs/middleware
  */
-export const getMiddleware = ({
-    arrowRef,
-    placement,
-}: {
-    arrowRef: RefObject<HTMLDivElement>;
-    placement: 'auto' | Placement;
-}): Middleware[] => {
+export const getMiddleware = ({ arrowRef, placement }: { arrowRef: RefObject<HTMLDivElement>; placement: 'auto' | Placement }): Middleware[] => {
     const middleware = [];
 
     middleware.push(offset(8));

@@ -17,18 +17,9 @@ const Tooltip: FC<FloatingProps> = ({
     ...props
 }) => {
     const theirProps = excludeClassName(props);
-    
+
     return (
-        <Floating
-            content={content}
-            style={style}
-            animation={animation}
-            placement={placement}
-            arrow={arrow}
-            trigger={trigger}
-            open={open}
-            {...theirProps}
-        >
+        <Floating content={content} style={style} animation={animation} placement={placement} arrow={arrow} trigger={trigger} open={open} {...theirProps}>
             {children}
         </Floating>
     );

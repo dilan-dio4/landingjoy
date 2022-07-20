@@ -1,13 +1,5 @@
 import type { Placement } from '@floating-ui/core';
-import {
-    autoUpdate,
-    useClick,
-    useFloating,
-    useFocus,
-    useHover,
-    useInteractions,
-    useRole,
-} from '@floating-ui/react-dom-interactions';
+import { autoUpdate, useClick, useFloating, useFocus, useHover, useInteractions, useRole } from '@floating-ui/react-dom-interactions';
 import clsx from 'clsx';
 import type { ComponentProps, FC, PropsWithChildren, ReactNode, DependencyList } from 'react';
 import { useEffect, useRef } from 'react';
@@ -113,22 +105,17 @@ export const Floating: FC<FloatingProps> = ({
             },
             placement: '-2px',
         },
-    }
+    };
 
     return (
         <>
-            <div className={theme.target} {...getReferenceProps({ ref: reference })} data-testid="tooltip-target">
+            <div className={theme.target} {...getReferenceProps({ ref: reference })} data-testid='tooltip-target'>
                 {children}
             </div>
             <div
-                data-testid="tooltip"
+                data-testid='tooltip'
                 {...getFloatingProps({
-                    className: clsx(
-                        theme.base,
-                        animation && `${theme.animation} ${animation}`,
-                        !open && theme.hidden,
-                        theme.style[style],
-                    ),
+                    className: clsx(theme.base, animation && `${theme.animation} ${animation}`, !open && theme.hidden, theme.style[style]),
                     ref: floating,
                     style: {
                         position: strategy,
@@ -146,7 +133,7 @@ export const Floating: FC<FloatingProps> = ({
                             [theme.arrow.style.light]: style === 'light',
                             // [theme.arrow.style.auto]: style === 'auto',
                         })}
-                        data-testid="tooltip-arrow"
+                        data-testid='tooltip-arrow'
                         ref={arrowRef}
                         style={{
                             top: arrowY ?? ' ',

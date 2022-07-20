@@ -2,9 +2,15 @@
 
 const dict = {
     hero: {
-        header: <>Your SaaS needs landing pages<span id="beeLineDestination">&#8203;</span><br />and we <span className='font-extrabold'>love</span> building them</>,
-        subheader: "Convert & retain your users with pages that make lasting impressions",
-        tag: <>Book a strategy call</>
+        header: (
+            <>
+                Your SaaS needs landing pages<span id='beeLineDestination'>&#8203;</span>
+                <br />
+                and we <span className='font-extrabold'>love</span> building them
+            </>
+        ),
+        subheader: 'Convert & retain your users with pages that make lasting impressions',
+        tag: <>Book a strategy call</>,
     },
 
     section1: {
@@ -12,32 +18,37 @@ const dict = {
         header: "A SaaS landing page subscription that'll convert quickly",
         triad: [
             {
-                title: "Totally async",
-                description: "We deliver products directly to you"
+                title: 'Totally async',
+                description: 'We deliver products directly to you',
             },
             {
-                title: "Real-time updates",
-                description: "Our dev environment is accessible to you at all points of the process"
+                title: 'Real-time updates',
+                description: 'Our dev environment is accessible to you at all points of the process',
             },
             {
-                title: "100% ownership",
-                description: "All design, assets, and code are completely owned by you"
-            }
-        ]
+                title: '100% ownership',
+                description: 'All design, assets, and code are completely owned by you',
+            },
+        ],
     },
 
     section2: {
         header1: <>So&#8230; what&apos;s the catch?</>,
         description1: (
             <>
-                We tend to only work with <em>ideal</em> SaaS companies. This is because we have limited time and like to keep a tight, trustworthy team. This allows us to be respectful to yourself and other potential clients while delivering the highest quality of work.
+                We tend to only work with <em>ideal</em> SaaS companies. This is because we have limited time and like to keep a tight, trustworthy team. This
+                allows us to be respectful to yourself and other potential clients while delivering the highest quality of work.
                 <br />
                 <br />
                 Consider this a long term relationship.
             </>
         ),
 
-        header2: <>What&apos;s an <em>ideal</em> company?</>,
+        header2: (
+            <>
+                What&apos;s an <em>ideal</em> company?
+            </>
+        ),
         description2: (
             <>
                 An ideal customer is typically defined by the following characteristics:
@@ -55,28 +66,23 @@ const dict = {
             </>
         ),
 
-        header3: "You just got a lot leaner",
+        header3: 'You just got a lot leaner',
     },
     pricing: {
-        bookCall: "Book a call",
-        getStartedButton: "Get started",
+        bookCall: 'Book a call',
+        getStartedButton: 'Get started',
         monthly: {
-            header: "Monthly subscription",
-            subheader: "Pause or cancel at any time",
-            cost: "$0",
-            costSmall: "/ mo",
-            included: [
-                "Trello board",
-                "Daily updates",
-                "Copywriting",
-                "Assets included"
-            ]
+            header: 'Monthly subscription',
+            subheader: 'Pause or cancel at any time',
+            cost: '$0',
+            costSmall: '/ mo',
+            included: ['Trello board', 'Daily updates', 'Copywriting', 'Assets included'],
         },
         review: {
-            header: "Review my landing pages",
-            subheader: "One-time purchase"
-        }
-    }
-}
+            header: 'Review my landing pages',
+            subheader: 'One-time purchase',
+        },
+    },
+};
 
 export default dict;

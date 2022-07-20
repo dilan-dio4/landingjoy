@@ -16,12 +16,12 @@ const dict = {
                 description: "We deliver products directly to you"
             },
             {
-                title: "Totally async",
-                description: "We deliver products directly to you"
+                title: "Real-time updates",
+                description: "Our dev environment is accessible to you at all points of the process"
             },
             {
-                title: "Totally async",
-                description: "We deliver products directly to you"
+                title: "100% ownership",
+                description: "All design, assets, and code are completely owned by you"
             }
         ]
     },

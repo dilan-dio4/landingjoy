@@ -12,11 +12,59 @@ import SingleLine from '../components/Hero/SingleLine';
 import dict from '../components/dict';
 import colors from '../utils/colors';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import UiContext from '../components/Context/UiContext';
+import { IoSync, IoEarth } from 'react-icons/io5';
+import { CgScreen } from 'react-icons/cg';
+import type { IconBaseProps } from 'react-icons';
+import anime from 'animejs';
 
 const Home: NextPage = () => {
   const { isDarkMode } = useContext(UiContext);
+
+  useEffect(() => {
+    anime({
+      targets: `#triad-icon-0`,
+      rotate: {
+        value: '1turn',
+      },
+      loop: true,
+      duration: 2000,
+      easing: 'linear'
+    })
+    anime({
+      targets: `#triad-icon-1 path`,
+      loop: true,
+      easing: 'linear',
+      strokeDashoffset: [
+        { value: [anime.setDashoffset, 0], duration: 2500 },
+        { value: [0, anime.setDashoffset], duration: 2500 },
+      ],
+      endDelay: 800,
+      begin: function () {
+        document.querySelector('#triad-icon-1 path')!.setAttribute("stroke", "currentColor");
+        document.querySelector('#triad-icon-1 path')!.setAttribute("fill", "none");
+      },
+    })
+
+    const target = {
+      percent: '0%'
+    }
+    anime({
+      targets: target,
+      percent: [
+        { value: '100%', duration: 5000 },
+        { value: '0%', duration: 5000, delay: 4000 },
+      ],
+      easing: 'linear',
+      endDelay: 4000,
+      loop: true,
+      update: function () {
+        document.querySelector<HTMLDivElement>(`#triad-icon-2 ~ div`)!.style.backgroundImage = `linear-gradient(to top, #C7EDF9 ${target.percent}, transparent 0)`
+      }
+    })
+  }, [isDarkMode])
+
   const heroTextRoot = "dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0";
   const heroTextShadowRoot = "absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100";
 
@@ -69,25 +117,32 @@ const Home: NextPage = () => {
               <div className="flex mt-36">
                 {[
                   {
-                    icon: () => <div></div>,
+                    Icon: (props: IconBaseProps) => <IoSync {...props} />,
                     title: dict.section1.triad[0].title,
                     description: dict.section1.triad[0].description
                   },
                   {
-                    icon: () => <div></div>,
+                    Icon: (props: IconBaseProps) => <CgScreen {...props} strokeWidth="1" />,
                     title: dict.section1.triad[1].title,
                     description: dict.section1.triad[1].description
                   },
                   {
-                    icon: () => <div></div>,
+                    Icon: (props: IconBaseProps) => (
+                      <div className='relative'>
+                        <IoEarth {...props} />
+                        <div
+                          className='absolute -z-10 rounded-[50%] left-[4px] right-[4px] top-[4px] bottom-[4px]'
+                        />
+                      </div>
+                    ),
                     title: dict.section1.triad[2].title,
                     description: dict.section1.triad[2].description
                   }
-                ].map(ele => (
-                  <div key={ele.title} className='flex flex-col basis-1/3 items-center'>
-                    <>{ele.icon}</>
-                    <h4>{ele.title}</h4>
-                    <p className="mt-2">{ele.description}</p>
+                ].map(({ Icon, ...ele }, i) => (
+                  <div key={ele.title} className='flex flex-col basis-1/3 items-center text-center'>
+                    <Icon size={40} id={`triad-icon-${i}`} />
+                    <h4 className='my-2'>{ele.title}</h4>
+                    <p>{ele.description}</p>
                   </div>
                 ))}
               </div>

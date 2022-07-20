@@ -28,13 +28,15 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
 
     if (!browserName) return <></>;
 
+    const svgSize = 3000;
+
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='absolute -z-5'
+            className='-z-5'
             style={style}
             height='100%'
-            width='100vw'
+            width='100%'
             preserveAspectRatio='true'
             id={`svg-root-${variant}-${id}`}
         >
@@ -43,8 +45,8 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
                     id={`fractal-${variant}-${id}`}
                     x='0%'
                     y='0%'
-                    width={browserName === 'Apple Safari' ? '70%' : '140%'}
-                    height={browserName === 'Apple Safari' ? '70%' : '140%'}
+                    width={browserName === 'Apple Safari' ? '80%' : '140%'}
+                    height={browserName === 'Apple Safari' ? '80%' : '140%'}
                     filterUnits='objectBoundingBox'
                     primitiveUnits='userSpaceOnUse'
                     colorInterpolationFilters='linearRGB'
@@ -76,8 +78,8 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
                     </feSpecularLighting>
                 </filter>
             </defs>
-            <path fill={textureColors[variant].bg} d='M0 0h7000v7000H0z' />
-            <path fill={textureColors[variant].effect} filter={`url(#fractal-${variant}-${id})`} d='M0 0h7000v7000H0z' />
+            <path fill={textureColors[variant].bg} d={`M0 0h${svgSize}v${svgSize}H0z`} />
+            <path fill={textureColors[variant].effect} filter={`url(#fractal-${variant}-${id})`} d={`M0 0h${svgSize}v${svgSize}H0z`} />
         </svg>
     );
 }
@@ -106,47 +108,49 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
 
     return (
         <>
-            <SingleTexture style={{ zIndex: -10 }} id={id} variant='light' />
-            {fadeIn && (
-                <div
-                    className='absolute top-0 left-0 right-0 -z-10'
-                    style={{
-                        background: `linear-gradient(180deg, ${colors.primary[200] + '77'} 0%, transparent 100%)`,
-                        height: 150,
-                    }}
-                />
-            )}
-
-            {fadeOut && (
-                <div
-                    className='absolute bottom-0 left-0 right-0 -z-10'
-                    style={{
-                        background: `linear-gradient(180deg, transparent 0%, ${colors.primary[200] + '77'} 100%)`,
-                        height: 150,
-                    }}
-                />
-            )}
-
-            <div style={{ height: '100%', width: '100%', position: 'absolute', zIndex: -5, opacity: 0, ...hardwareAccStyle }} id={`dark-root-${id}`}>
-                <SingleTexture variant='dark' id={id} />
+            <div className='relative h-[100vh] w-[100vw]'>
+                <SingleTexture style={{ zIndex: -10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} id={id} variant='light' />
                 {fadeIn && (
                     <div
-                        className='absolute top-0 left-0 right-0'
+                        className='absolute top-0 left-0 right-0 -z-10'
                         style={{
-                            background: `linear-gradient(180deg, ${colors.secondary[200] + '77'} 0%, transparent 100%)`,
+                            background: `linear-gradient(180deg, ${colors.primary[200] + '77'} 0%, transparent 100%)`,
                             height: 150,
                         }}
                     />
                 )}
+
                 {fadeOut && (
                     <div
-                        className='absolute bottom-0 left-0 right-0'
+                        className='absolute bottom-0 left-0 right-0 -z-10'
                         style={{
-                            background: `linear-gradient(180deg, transparent 0%, ${colors.secondary[200] + '77'} 100%)`,
+                            background: `linear-gradient(180deg, transparent 0%, ${colors.primary[200] + '77'} 100%)`,
                             height: 150,
                         }}
                     />
                 )}
+
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, ...hardwareAccStyle }} id={`dark-root-${id}`}>
+                    <SingleTexture variant='dark' id={id} />
+                    {fadeIn && (
+                        <div
+                            className='absolute top-0 left-0 right-0'
+                            style={{
+                                background: `linear-gradient(180deg, ${colors.secondary[200] + '57'} 0%, transparent 100%)`,
+                                height: 150,
+                            }}
+                        />
+                    )}
+                    {fadeOut && (
+                        <div
+                            className='absolute bottom-0 left-0 right-0'
+                            style={{
+                                background: `linear-gradient(180deg, transparent 0%, ${colors.secondary[200] + '57'} 100%)`,
+                                height: 150,
+                            }}
+                        />
+                    )}
+                </div>
             </div>
         </>
     );

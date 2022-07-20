@@ -20,6 +20,7 @@ import type { IconBaseProps } from 'react-icons';
 import anime from 'animejs';
 import Globe from '../components/Globe';
 import WithSingleLine from '../components/WithSingleLine';
+import Texture from '../components/Texture';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -81,10 +82,23 @@ const Home: NextPage = () => {
                 <meta name='theme-color' content={colors.primary[100]} />
             </Head>
             <Header />
-            <main className={clsx('overflow-x-hidden')}>
+            <main className={clsx('overflow-x-hidden relative')}>
                 <>
+                    <div className='absolute top-0 bottom-0 left-0 right-0 overflow-hidden'>
+                        <Texture fadeIn fadeOut />
+                        <Texture fadeIn />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                        <Texture />
+                    </div>
                     <Bee />
-                    <Container className={clsx('h-[calc(100vh+50px)]')} fadeOut>
+                    <Container className={clsx('h-[calc(100vh+50px)]')}>
                         <div className='flex flex-col justify-center items-center text-center h-[75%] sm:h-[85%]'>
                             <Layout>
                                 {/* <h1>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
@@ -127,7 +141,7 @@ const Home: NextPage = () => {
                         </div>
                         <HeroDrawings />
                     </Container>
-                    <Container fadeIn>
+                    <Container>
                         <Layout>
                             <h3 className='mt-20'>{dict.section1.header}</h3>
                             <div className='flex mt-14 flex-col sm:flex-row'>

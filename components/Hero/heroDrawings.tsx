@@ -247,14 +247,14 @@ export default function HeroDrawing() {
 
     return (
         <>
-            <div className='absolute top-0 bottom-0 left-0 w-[100vw]'>
+            <div className='absolute top-0 bottom-0 left-0 w-[100vw]' style={{ zIndex: -7 }}>
                 {heroDrawingData(false)[isMobile ? 'mobile' : 'desktop'].map(({ Component, size, ...position }, i) => (
-                    <Component key={'hero-key-' + i} style={{ height: size, width: size, position: 'absolute', opacity: 0.8, zIndex: 1, ...position }} />
+                    <Component key={'hero-key-' + i} style={{ height: size, width: size, position: 'absolute', opacity: 0.8, ...position }} />
                 ))}
             </div>
             <div id='alt-hero-drawing-root' className='absolute top-0 bottom-0 left-0 w-[100vw]' style={{ opacity: '0', ...hardwareAccStyle }}>
                 {heroDrawingData(true)[isMobile ? 'mobile' : 'desktop'].map(({ Component, size, ...position }, i) => (
-                    <Component key={'hero-key-' + i} style={{ height: size, width: size, position: 'absolute', opacity: 0.8, zIndex: 1, ...position }} />
+                    <Component key={'hero-key-' + i} style={{ height: size, width: size, position: 'absolute', opacity: 0.8, ...position }} />
                 ))}
             </div>
         </>

@@ -12,7 +12,6 @@ export default function WithSingleLine({ children }: WithSingleLine) {
     placement: "bottom",
 
   });
-  return <></>
   return (
     <>
       <div ref={reference}>{children}</div>

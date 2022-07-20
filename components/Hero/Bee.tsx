@@ -6,10 +6,12 @@ import useAsyncEffect from 'use-async-effect';
 import UiContext from '../Context/UiContext';
 import clsx from 'clsx';
 import useDeviceSize from '../../utils/useDeviceSize';
+import useBrowserName from '../../utils/useBrowserName';
 
 export default function Bee() {
-    const { browserName, isDarkMode } = useContext(UiContext);
+    const { isDarkMode } = useContext(UiContext);
     const { isMobile } = useDeviceSize();
+    const browserName = useBrowserName();
 
     const LINE_LEFT_DUR = 1150;
     const LINE_LEFT_DELAY = 200;

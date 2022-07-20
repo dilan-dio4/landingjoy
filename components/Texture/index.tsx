@@ -4,6 +4,7 @@ import colors from '../../utils/colors';
 import anime from 'animejs';
 import useId from '../../utils/useId';
 import hardwareAccStyle from '../../utils/hardwareAccStyle';
+import useBrowserName from '../../utils/useBrowserName';
 
 interface ISingleTexture {
     variant: 'light' | 'dark';
@@ -12,7 +13,7 @@ interface ISingleTexture {
 }
 
 function SingleTexture({ variant, id, style }: ISingleTexture) {
-    const { browserName } = useContext(UiContext);
+    const browserName = useBrowserName();
 
     const textureColors = {
         light: {
@@ -24,6 +25,8 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
             effect: '#87615a',
         },
     };
+
+    if (!browserName) return <></>;
 
     return (
         <svg
@@ -40,8 +43,8 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
                     id={`fractal-${variant}-${id}`}
                     x='0%'
                     y='0%'
-                    width={browserName === 'Apple Safari' ? '40%' : '140%'}
-                    height={browserName === 'Apple Safari' ? '40%' : '140%'}
+                    width={browserName === 'Apple Safari' ? '70%' : '140%'}
+                    height={browserName === 'Apple Safari' ? '70%' : '140%'}
                     filterUnits='objectBoundingBox'
                     primitiveUnits='userSpaceOnUse'
                     colorInterpolationFilters='linearRGB'

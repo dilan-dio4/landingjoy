@@ -1,8 +1,7 @@
 import useAsyncEffect from 'use-async-effect';
 import anime from 'animejs';
 import useId from '../../utils/useId';
-import { useContext } from 'react';
-import UiContext from '../Context/UiContext';
+import useBrowserName from '../../utils/useBrowserName';
 
 interface ISingleLine {
     rotation?: number;
@@ -10,7 +9,7 @@ interface ISingleLine {
 
 export default function SingleLine({ rotation }: ISingleLine) {
     const id = useId();
-    const { browserName } = useContext(UiContext);
+    const browserName = useBrowserName();
 
     function animate() {
         anime({

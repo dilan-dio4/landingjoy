@@ -247,7 +247,7 @@ export default function HeroDrawing() {
 
     return (
         <>
-            <div className='absolute top-0 bottom-0 left-0 w-[100vw] -z-10'>
+            <div className='absolute top-0 bottom-0 left-0 w-[100vw]'>
                 {heroDrawingData(false)[isMobile ? 'mobile' : 'desktop'].map(({ Component, size, ...position }, i) => (
                     <Component key={'hero-key-' + i} style={{ height: size, width: size, position: 'absolute', opacity: 0.8, zIndex: 1, ...position }} />
                 ))}

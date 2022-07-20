@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import UiContext from './UiContext';
 import useIsMounted from '../../utils/useIsMounted';
-import getBrowserName from '../../utils/getBrowserName';
 import colors from '../../utils/colors';
 
 export default function UiProvider({ children }: { children: React.ReactChild | JSX.Element | JSX.Element[] }) {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
     const isMounted = useIsMounted();
-    const browserName = useMemo(getBrowserName, []);
 
     useEffect(() => {
         if (isMounted) {
@@ -23,7 +21,6 @@ export default function UiProvider({ children }: { children: React.ReactChild | 
             value={{
                 isDarkMode,
                 setIsDarkMode,
-                browserName,
             }}
         >
             {children}

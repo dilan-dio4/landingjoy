@@ -35,22 +35,22 @@ export default function Pricing() {
     }, [])
 
     return (
-        <div className="grid grid-cols-3 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36" id="pricing-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36" id="pricing-grid">
             {/** https://colordesigner.io/gradient-generator */}
-            <div className='bg-[#fcd5ceCA] plan-grid-ele py-[40px] flex flex-col justify-center'>
+            <div className='bg-[#fcd5ceCA] plan-grid-ele py-[40px] flex flex-col justify-center order-1 sm:order-none'>
                 <h4>{dict.pricing.monthly.header}</h4>
                 <p className='text-xs'>{dict.pricing.monthly.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='bg-[#fdcdc4CA] plan-grid-ele py-[40px] flex flex-col justify-center'>
+            <div className='bg-[#fdcdc4CA] plan-grid-ele py-[40px] flex flex-col justify-center order-3 sm:order-none'>
                 <h4>{dict.pricing.review.header}</h4>
                 <p className='text-xs'>{dict.pricing.review.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='row-span-3 bg-[#fec5baCA] plan-grid-ele'>
+            <div className='row-span-3 bg-[#fec5baCA] plan-grid-ele order-5 sm:order-none'>
 
             </div>
-            <div className='bg-[#fdcdc4CA] plan-grid-ele pt-[30px] pb-[60px]'>
+            <div className='bg-[#fdcdc4CA] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none'>
                 <span className="flex justify-center items-end mb-3">
                     <h4 className="text-2xl mr-[4px] font-bold">
                         {dict.pricing.monthly.cost}
@@ -72,10 +72,10 @@ export default function Pricing() {
                     </p>
                 ))}
             </div>
-            <div className='bg-[#fdcdc4CA] plan-grid-ele py-[150px]'>
+            <div className='bg-[#fdcdc4CA] plan-grid-ele py-[150px] order-4 sm:order-none'>
 
             </div>
-            <div className='col-span-2 bg-[#fec5baCA] plan-grid-ele py-[90px]'>
+            <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] plan-grid-ele py-[90px] order-6 sm:order-none'>
 
             </div>
         </div >

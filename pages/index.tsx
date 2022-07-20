@@ -37,10 +37,10 @@ const Home: NextPage = () => {
       loop: true,
       easing: 'linear',
       strokeDashoffset: [
-        { value: [anime.setDashoffset, 0], duration: 2500 },
-        { value: [0, anime.setDashoffset], duration: 2500 },
+        { value: [anime.setDashoffset, 0], duration: 4500 },
+        { value: [0, anime.setDashoffset], duration: 4500 },
       ],
-      endDelay: 800,
+      endDelay: 900,
       begin: function () {
         document.querySelector('#triad-icon-1 path')!.setAttribute("stroke", "currentColor");
         document.querySelector('#triad-icon-1 path')!.setAttribute("fill", "none");
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
           <Container fadeIn>
             <Layout>
               <h3 className='mt-20'>{dict.section1.header}</h3>
-              <div className="flex mt-36">
+              <div className="flex mt-14 flex-col sm:flex-row">
                 {[
                   {
                     Icon: (props: IconBaseProps) => <IoSync {...props} />,
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
                     description: dict.section1.triad[2].description
                   }
                 ].map(({ Icon, ...ele }, i) => (
-                  <div key={ele.title} className='flex flex-col basis-1/3 items-center text-center'>
+                  <div key={ele.title} className='flex flex-col basis-1/3 items-center text-center my-6'>
                     <Icon size={40} id={`triad-icon-${i}`} />
                     <h4 className='my-2'>{ele.title}</h4>
                     <p>{ele.description}</p>

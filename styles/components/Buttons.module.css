@@ -1,7 +1,7 @@
 .button-outline {
     display: inline-block;
     border-radius: 9px;
-    @apply bg-primary-200 dark:bg-secondary-100;
+    @apply bg-primary-200 dark:bg-secondary-100 transition-colors duration-500;
 }
 
 .hero-button {
@@ -30,7 +30,7 @@
 .button-outline-sm {
     display: inline-block;
     border-radius: 9px;
-    @apply bg-primary-100 dark:bg-secondary-200;
+    @apply bg-primary-100 dark:bg-secondary-200 transition-colors duration-500;
 }
 
 .hero-button-sm {

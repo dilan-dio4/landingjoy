@@ -4,7 +4,7 @@ const dict = {
     hero: {
         header: <>Your SaaS needs landing pages<span id="beeLineDestination">&#8203;</span><br />and we <span className='font-extrabold'>love</span> building them</>,
         subheader: "Convert & retain your users with pages that make lasting impressions",
-        tag: <>Book a strategy call &#8594;</>
+        tag: <>Book a strategy call</>
     },
 
     section1: {

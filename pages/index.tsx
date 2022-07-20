@@ -18,7 +18,7 @@ import UiContext from '../components/Context/UiContext';
 const Home: NextPage = () => {
   const { isDarkMode } = useContext(UiContext);
   const heroTextRoot = "dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0";
-  const heroTextShadowRoot = "absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 invisible dark:opacity-100 dark:visible";
+  const heroTextShadowRoot = "absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100";
 
   return (
     <>
@@ -46,16 +46,16 @@ const Home: NextPage = () => {
                   <h2 className={heroTextShadowRoot}>{dict.hero.subheader}</h2>
                 </div>
                 <HeroPrimaryButton text="See plans" className="min-w-[250px] px-[48px] py-[20px]" />
-                <div className='relative mt-8'>
+                <div className='relative mt-8 ml-1'>
                   {isDarkMode ?
                     <>
-                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}>{dict.hero.tag}</h3>
-                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag}</a></Link></h3>
+                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic pointer-events-none')}>{dict.hero.tag} &#8594;</h3>
+                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag} &#8594;</a></Link></h3>
                     </>
                     :
                     <>
-                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag}</a></Link></h3>
-                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}>{dict.hero.tag}</h3>
+                      <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}><Link href="https://google.com"><a>{dict.hero.tag} &#8594;</a></Link></h3>
+                      <h3 className={clsx(heroTextShadowRoot, 'text-xs italic pointer-events-none')}>{dict.hero.tag} &#8594;</h3>
                     </>
                   }
                 </div>

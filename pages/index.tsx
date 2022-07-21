@@ -19,7 +19,7 @@ import type { IconBaseProps } from 'react-icons';
 import anime from 'animejs';
 import Globe from '../components/Globe';
 import WithSingleLine from '../components/WithSingleLine';
-import Texture, { SingleTexture } from '../components/Texture';
+import Texture from '../components/Texture';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -100,8 +100,6 @@ const Home: NextPage = () => {
             <main className={clsx('overflow-x-hidden relative')}>
                 <>
                     <div className='absolute top-0 bottom-0 left-0 right-0 overflow-hidden'>
-                        <SingleTexture id='dark-root' variant='dark' style={{ position: 'absolute' }} />
-                        <SingleTexture id='dark-light' variant='light'  style={{ position: 'absolute' }} />
                         <Texture fadeIn fadeOut />
                         <Texture fadeIn />
                         <Texture />

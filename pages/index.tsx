@@ -68,12 +68,20 @@ const Home: NextPage = () => {
         //     },
         // });
 
+        if (!isDarkMode) {
+            document.querySelectorAll<SVGElement>('.light-texture-panel').forEach(ele => ele.style.display = 'block')
+        }
 
         anime({
             targets: `.dark-texture-panel`,
             opacity: isDarkMode ? '1' : '0',
             duration: 650,
             easing: 'easeInOutQuad',
+            complete() {
+                if (isDarkMode) {
+                    document.querySelectorAll<SVGElement>('.light-texture-panel').forEach(ele => ele.style.display = 'none')
+                }
+            }
         });
     }, [isDarkMode]);
 
@@ -95,7 +103,7 @@ const Home: NextPage = () => {
                         <SingleTexture id='dark-root' variant='dark' style={{ position: 'absolute' }} />
                         <SingleTexture id='dark-light' variant='light'  style={{ position: 'absolute' }} />
                         <Texture fadeIn fadeOut />
-                        <Texture fadeIn />
+                        {/* <Texture fadeIn />
                         <Texture />
                         <Texture />
                         <Texture />
@@ -104,7 +112,7 @@ const Home: NextPage = () => {
                         <Texture />
                         <Texture />
                         <Texture />
-                        <Texture />
+                        <Texture /> */}
                     </div>
                     <Bee />
                     <Container className={clsx('h-[calc(100vh+50px)]')}>

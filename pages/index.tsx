@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                         <SingleTexture id='dark-root' variant='dark' style={{ position: 'absolute' }} />
                         <SingleTexture id='dark-light' variant='light'  style={{ position: 'absolute' }} />
                         <Texture fadeIn fadeOut />
-                        {/* <Texture fadeIn />
+                        <Texture fadeIn />
                         <Texture />
                         <Texture />
                         <Texture />
@@ -112,7 +112,7 @@ const Home: NextPage = () => {
                         <Texture />
                         <Texture />
                         <Texture />
-                        <Texture /> */}
+                        <Texture />
                     </div>
                     <Bee />
                     <Container className={clsx('h-[calc(100vh+50px)]')}>

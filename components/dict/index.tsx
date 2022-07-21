@@ -71,19 +71,38 @@ const dict = {
 
         header3: 'You just got a lot leaner',
     },
-    pricing: {
-        bookCall: 'Book a call',
-        getStartedButton: 'Get started',
+    pricing: {        
         monthly: {
-            header: 'Monthly subscription',
+            buttonOne: 'Get in touch',
+            buttonTwo: 'Read the FAQs',
+            header: 'Full-stack design + development',
             subheader: 'Pause or cancel at any time',
-            cost: '$0',
+            cost: '$8,000',
             costSmall: '/ mo',
-            included: ['Trello board', 'Daily updates', 'Copywriting', 'Assets included'],
+            included: [
+                'UI/UX', 
+                'Copywriting', 
+                'Animations', 
+                'Graphic assets', 
+                'Real-time updates', 
+                { length: 1, key:"final", component: <small className="font-thin"><em>+ the services involved in creating a high</em></small> }
+            ],
         },
         review: {
+            buttonOne: 'Get started',
+            buttonTwo: 'Book a call',
             header: 'Review my landing pages',
             subheader: 'One-time purchase',
+            cost: '$1,000',
+            costSmall: '/ one-time',
+            included: [
+                'Competitor breakdown', 
+                'Low-fidelity plan', 
+                'Visual assets', 
+                'Copy audit', 
+                'SEO audit', 
+                'ICP research'
+            ],
         },
     },
 };

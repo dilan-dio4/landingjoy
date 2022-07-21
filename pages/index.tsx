@@ -67,6 +67,14 @@ const Home: NextPage = () => {
         //         )!.style.backgroundImage = `linear-gradient(to top, #C7EDF9 ${target.percent}, transparent 0)`;
         //     },
         // });
+
+
+        anime({
+            targets: `.dark-texture-panel`,
+            opacity: isDarkMode ? '1' : '0',
+            duration: 650,
+            easing: 'easeInOutQuad',
+        });
     }, [isDarkMode]);
 
     const heroTextRoot = 'dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0';
@@ -176,10 +184,9 @@ const Home: NextPage = () => {
                             <h3 className='mt-28'>{dict.section2.header2}</h3>
                             <p className='text-center m-auto max-w-[600px] mt-10'>{dict.section2.description2}</p>
                             <p className='flex justify-center text-left'>{dict.section2.bullets2}</p>
-                            <WithSingleLine>
+                            <WithSingleLine top={60} rotation={0}>
                                 <p className='text-center m-auto max-w-[600px] mt-6'>{dict.section2.description2Subheader}</p>
                             </WithSingleLine>
-                            {/* <SingleLine /> */}
 
                             <h3 className='mt-28'>{dict.section2.header3}</h3>
                         </Layout>

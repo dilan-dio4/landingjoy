@@ -5,28 +5,20 @@ import anime from 'animejs';
 import useAsyncEffect from 'use-async-effect';
 import dict from '../dict';
 
-interface ISinglePriceCard {
-    header: string;
-    subheader: string;
-    cost: string;
-    costSmall: string;
-    included: string[];
-}
-
-function SinglePriceCard(props: ISinglePriceCard) {
+function SinglePriceCard(props: typeof dict.pricing["monthly" | "review"]) {
     return (
         <>
             <span className='flex justify-center items-end mb-3'>
                 <h4 className='text-2xl mr-[4px] font-bold'>{props.cost}</h4>
                 <small className='font-thin text-lg'>{props.costSmall}</small>
             </span>
-            <SmallPrimaryButton text={dict.pricing.getStartedButton} className='min-w-[150px] px-[24px] py-[10px]' />
+            <SmallPrimaryButton text={props.buttonOne} className='min-w-[150px] px-[24px] py-[10px]' />
             <Link href='asdf'>
-                <a className='block mt-5 text-sm underline tracking-tight italic hover:text-neutral-600'>{dict.pricing.bookCall}</a>
+                <a className='block mt-5 text-sm underline tracking-tight italic hover:text-neutral-600'>{props.buttonTwo}</a>
             </Link>
-            {props.included.map((ele, i, arr) => (
-                <p key={ele} className={clsx(i === 0 && 'mt-8', i + 1 !== arr.length && 'border-b', 'text-sm border-[#1f2d3d20] dark:border-[#fcd5ce20] py-2 mx-12 font-semibold')}>
-                    {ele}
+            {props.included.sort((a, b) => b.length - a.length).map((ele, i, arr) => (
+                <p key={typeof ele === "string" ? ele : ele.key} className={clsx(i === 0 && 'mt-8', i + 1 !== arr.length && 'border-b', 'text-sm border-[#1f2d3d20] dark:border-[#fcd5ce20] py-2 mx-12 font-semibold')}>
+                    {typeof ele === "string" ? ele : ele.component}
                 </p>
             ))}
         </>
@@ -83,7 +75,7 @@ export default function Pricing() {
                 <SinglePriceCard {...dict.pricing.monthly} />
             </div>
             <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none'>
-                <SinglePriceCard {...dict.pricing.monthly} />
+                <SinglePriceCard {...dict.pricing.review} />
             </div>
             <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele py-[90px] order-6 sm:order-none'></div>
         </div>

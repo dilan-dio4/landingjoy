@@ -5,9 +5,10 @@ import SingleLine from '../Hero/SingleLine';
 interface WithSingleLine {
   children: ReactNode;
   rotation?: number;
+  top?: number;
 }
 
-export default function WithSingleLine({ children }: WithSingleLine) {
+export default function WithSingleLine({ children, top = 0, rotation }: WithSingleLine) {
   const {x, y, reference, floating, strategy} = useFloating({
     placement: "bottom",
 
@@ -19,10 +20,10 @@ export default function WithSingleLine({ children }: WithSingleLine) {
         ref={floating}
         style={{
           position: strategy,
-          top: y ?? 0,
+          top: y ? y + top : 0,
           left: 0,
           right: 0,
-          transform: 'translateY(-50%)',
+          transform: `translateY(-50%)` + (rotation ? ` rotateZ(${rotation}deg)` : ''),
           pointerEvents: 'none'
         }}
       >

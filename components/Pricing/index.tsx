@@ -2,8 +2,10 @@ import { SmallPrimaryButton } from '../Buttons';
 import Link from 'next/link';
 import clsx from 'clsx';
 import anime from 'animejs';
-import useAsyncEffect from 'use-async-effect';
 import dict from '../dict';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
+import styles from '../../styles/components/Pricing.module.css';
+import AnimatedBall from '../AnimatedBall';
 
 function SinglePriceCard(props: typeof dict.pricing["monthly" | "review"]) {
     return (
@@ -26,6 +28,11 @@ function SinglePriceCard(props: typeof dict.pricing["monthly" | "review"]) {
 }
 
 export default function Pricing() {
+    const attributes = dict.pricing.extraCard.categories;
+    type SingleAttribute = typeof attributes[number];
+    const [selectedAttribute, setSelectedAttribute] = useState<SingleAttribute>(attributes[0]);
+    const autoSwitchTriRef = useRef<NodeJS.Timer>();
+
     function animate() {
         anime({
             targets: '#pricing-grid > div',
@@ -38,10 +45,10 @@ export default function Pricing() {
                 { value: 0.5, easing: 'easeOutSine', duration: 200 },
                 { value: 1, easing: 'easeInOutQuad', duration: 500 },
             ],
-            delay: anime.stagger(185, { grid: [3, 3], from: 'first' }),
+            delay: anime.stagger(185, { grid: [2, 3], from: 'first' }),
         });
     }
-    useAsyncEffect(() => {
+    useEffect(() => {
         const observer = new IntersectionObserver(
             function (entries) {
                 // isIntersecting is true when element and viewport are overlapping
@@ -55,30 +62,104 @@ export default function Pricing() {
         );
 
         observer.observe(document.getElementById('pricing-grid')!);
+
+        autoSwitchTriRef.current = setInterval(() => {
+            setSelectedAttribute(prev => {
+                const indexOfNew = attributes.indexOf(prev) + 1;
+                if (indexOfNew > attributes.length - 1) {
+                    return attributes[0];
+                } else {
+                    return attributes[indexOfNew];
+                }
+            })
+        }, 5000)
+
+        return () => clearInterval(autoSwitchTriRef.current);
     }, []);
 
+    function handleTriClick(ele: SingleAttribute) {
+        clearInterval(autoSwitchTriRef.current);
+        setSelectedAttribute(ele);
+    }
+
+    useEffect(() => {
+        const activeIndex = attributes.indexOf(selectedAttribute);
+        anime({
+            targets: [`#tri-icon-${activeIndex}`, `#tri-text-${activeIndex}`],
+            duration: 650,
+            easing: 'easeInOutQuad',
+            opacity: 1
+        });
+        for (let i = 0; i < attributes.length; i++) {
+            if (i === activeIndex) {
+                continue;
+            }
+            anime({
+                targets: [`#tri-icon-${i}`, `#tri-text-${i}`],
+                duration: 650,
+                easing: 'easeInOutQuad',
+                opacity: 0
+            })
+        }
+    }, [selectedAttribute])
+
     return (
-        <div className='grid grid-cols-2 sm:grid-cols-5 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36 z-30' id='pricing-grid'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36 z-30' id='pricing-grid'>
             {/** https://colordesigner.io/gradient-generator */}
-            <div className='bg-[#fcd5ceCA] dark:bg-[#243446ca] plan-grid-ele py-[40px] flex flex-col justify-center order-1 sm:order-none col-span-2'>
+            <div className='bg-[#fcd5ceCA] dark:bg-[#243446ca] plan-grid-ele py-[40px] flex flex-col justify-center order-1 sm:order-none'>
                 <h4>{dict.pricing.monthly.header}</h4>
                 <p className='text-xs'>{dict.pricing.monthly.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele py-[40px] flex flex-col justify-center order-3 sm:order-none col-span-2'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele py-[40px] flex flex-col justify-center order-3 sm:order-none'>
                 <h4>{dict.pricing.review.header}</h4>
                 <p className='text-xs'>{dict.pricing.review.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='row-span-3 col-span-2 sm:col-span-1 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none py-[40px] flex flex-col justify-between items-center'>
-            </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none col-span-2'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none'>
                 <SinglePriceCard {...dict.pricing.monthly} />
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none col-span-2'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none'>
                 <SinglePriceCard {...dict.pricing.review} />
             </div>
-            <div className='col-span-2 sm:col-span-4 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele py-[90px] order-6 sm:order-none'></div>
+            <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none'>
+                <div className='w-full h-full border-[2px] border-[#1f2d3d20] dark:border-[#fcd5ce20] rounded-b-md flex flex-col items-center pl-20 py-5 relative overflow-hidden'>
+                    <AnimatedBall className='w-48 absolute left-[-40px] top-[-40px]' />
+                    {Object.values(dict.pricing.extraCard.attributeData).map(({ Icon, text }, i) => (
+                        <div key={text.slice(0, 10)} className='rounded-[50%] bg-primary-300 dark:bg-secondary-300 p-2 absolute top-3 right-3' id={`tri-icon-${i}`} style={{ opacity: 0 }}>
+                            <Icon size={30} />
+                        </div>
+                    ))}
+                    <div className='flex justify-center'>
+                        {attributes.map((ele, i) => (
+                            <>
+                                <button
+                                    className={clsx(
+                                        'font-semibold transition-all duration-300',
+                                        ele === selectedAttribute ?
+                                            styles['selectedTriColor']
+                                            :
+                                            styles['rootTriColor'],
+                                        ele === selectedAttribute ?
+                                            "text-secondary-200 dark:text-primary-100"
+                                            :
+                                            "text-gray-600"
+                                    )}
+                                    onClick={_ => handleTriClick(ele)}
+                                >
+                                    {ele}
+                                </button>
+                                {i + 1 !== attributes.length && <p className='text-2xl mx-2 font-bold'>/</p>}
+                            </>
+                        ))}
+                    </div>
+                    <div className='h-8 relative w-full mt-5'>
+                        {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
+                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='text-xs absolute left-0 right-0 text-center' style={{ opacity: 0 }}>{text}</p>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

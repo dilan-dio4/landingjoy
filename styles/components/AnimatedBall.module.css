@@ -1,0 +1,12 @@
+.sphere path {
+    fill: url(#sphereGradient);
+    stroke-width: 1px;
+    stroke: #50505059;
+    backface-visibility: hidden;
+}
+
+@media (min-width: 500px) {
+    .sphere path {
+        stroke-width: .4px;
+    }
+}

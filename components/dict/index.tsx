@@ -1,6 +1,8 @@
 // type IDict = string | ((...strings: string[]) => string) | { [key: string]: IDict };
 
 import Link from "next/link";
+import { RiMoneyDollarCircleLine, RiMoneyDollarCircleFill, RiTimeLine, RiTimeFill, RiDvdLine, RiDvdFill, RiEmotion2Line, RiEmotion2Fill } from 'react-icons/ri';
+import type { IconBaseProps } from 'react-icons';
 
 const dict = {
     hero: {
@@ -104,6 +106,23 @@ const dict = {
                 'ICP research'
             ],
         },
+        extraCard: {
+            categories: ["Speed", "Quality", "Cost"] as const,
+            attributeData: {
+                Cost: {
+                    text: "asd",
+                    Icon: (props: IconBaseProps) => <RiMoneyDollarCircleLine {...props} />,
+                },
+                Quality: {
+                    text: "asdfgsadgas",
+                    Icon: (props: IconBaseProps) => <RiEmotion2Line {...props} />,
+                },
+                Speed: {
+                    text: 'Get daily updates to your design tasks. With 24 hour turnaround and interactive',
+                    Icon: (props: IconBaseProps) => <RiTimeLine {...props} />,
+                }
+            }
+        }
     },
 };
 

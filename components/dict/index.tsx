@@ -1,7 +1,7 @@
 // type IDict = string | ((...strings: string[]) => string) | { [key: string]: IDict };
 
 import Link from "next/link";
-import { RiMoneyDollarCircleLine, RiMoneyDollarCircleFill, RiTimeLine, RiTimeFill, RiDvdLine, RiDvdFill, RiEmotion2Line, RiEmotion2Fill } from 'react-icons/ri';
+import { RiMoneyDollarCircleLine, RiTimeLine, RiEmotion2Line } from 'react-icons/ri';
 import type { IconBaseProps } from 'react-icons';
 
 const dict = {
@@ -109,18 +109,19 @@ const dict = {
         extraCard: {
             categories: ["Speed", "Quality", "Cost"] as const,
             attributeData: {
-                Cost: {
-                    text: "asd",
-                    Icon: (props: IconBaseProps) => <RiMoneyDollarCircleLine {...props} />,
+                // Order matters
+                Speed: {
+                    text: 'Get real-time updates to your development tasks with 24-hour access to our development environment.',
+                    Icon: (props: IconBaseProps) => <RiTimeLine {...props} />,
                 },
                 Quality: {
-                    text: "asdfgsadgas",
+                    text: "All work is done in-house. We take pride in our pages & deliverables to be sure that our deliverables are production-ready and impactful.",
                     Icon: (props: IconBaseProps) => <RiEmotion2Line {...props} />,
                 },
-                Speed: {
-                    text: 'Get daily updates to your design tasks. With 24 hour turnaround and interactive',
-                    Icon: (props: IconBaseProps) => <RiTimeLine {...props} />,
-                }
+                Cost: {
+                    text: "Forget hiring more designers, developers, and QA. You could save up to $9k every month with our cost-efficient models",
+                    Icon: (props: IconBaseProps) => <RiMoneyDollarCircleLine {...props} />,
+                },
             }
         }
     },

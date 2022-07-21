@@ -88,7 +88,7 @@ export default function Pricing() {
             targets: [`#tri-icon-${activeIndex}`, `#tri-text-${activeIndex}`],
             duration: 650,
             easing: 'easeInOutQuad',
-            opacity: 1
+            opacity: 0.9
         });
         for (let i = 0; i < attributes.length; i++) {
             if (i === activeIndex) {
@@ -155,7 +155,7 @@ export default function Pricing() {
                     </div>
                     <div className='h-36 sm:h-8 relative w-full mt-5'>
                         {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
-                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='text-xs absolute left-4 right-4 text-center' style={{ opacity: 0 }}>{text}</p>
+                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute left-4 right-4 sm:left-14 sm:right-14 text-center' style={{ opacity: 0 }}>{text}</p>
                         ))}
                     </div>
                 </div>

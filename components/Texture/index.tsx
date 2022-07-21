@@ -128,7 +128,7 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
                     />
                 )}
 
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, ...hardwareAccStyle }} className="dark-texture-panel">
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, display: 'none', ...hardwareAccStyle }} className="dark-texture-panel">
                     <SingleTexture variant='dark' id={id} />
                     {fadeIn && (
                         <div

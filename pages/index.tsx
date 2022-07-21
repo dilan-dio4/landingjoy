@@ -11,7 +11,7 @@ import Pricing from '../components/Pricing';
 import dict from '../components/dict';
 import colors from '../utils/colors';
 import Link from 'next/link';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import UiContext from '../components/Context/UiContext';
 import { IoSync } from 'react-icons/io5';
 import { CgScreen } from 'react-icons/cg';
@@ -23,6 +23,7 @@ import Texture from '../components/Texture';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
+    const displayNoneTimeoutRect = useRef<NodeJS.Timeout>();
 
     useEffect(() => {
         anime({
@@ -68,19 +69,16 @@ const Home: NextPage = () => {
         //     },
         // });
 
-        if (!isDarkMode) {
-            document.querySelectorAll<SVGElement>('.light-texture-panel').forEach(ele => ele.style.display = 'block')
-        }
-
+        const TEXTURE_DUR = 650;
         anime({
             targets: `.dark-texture-panel`,
             opacity: isDarkMode ? '1' : '0',
-            duration: 650,
+            duration: TEXTURE_DUR,
             easing: 'easeInOutQuad',
-            complete() {
-                if (isDarkMode) {
-                    document.querySelectorAll<SVGElement>('.light-texture-panel').forEach(ele => ele.style.display = 'none')
-                }
+            begin() {
+                clearTimeout(displayNoneTimeoutRect.current);
+                document.querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel').forEach(ele => ele.style.display = 'block')
+                displayNoneTimeoutRect.current = setTimeout(() => document.querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel').forEach(ele => ele.style.display = 'none'), TEXTURE_DUR);
             }
         });
     }, [isDarkMode]);

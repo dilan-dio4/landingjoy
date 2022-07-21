@@ -8,7 +8,6 @@ import Container from '../components/Container';
 import Layout from '../components/Layout/Layout';
 import { HeroPrimaryButton } from '../components/Buttons';
 import Pricing from '../components/Pricing';
-import SingleLine from '../components/Hero/SingleLine';
 import dict from '../components/dict';
 import colors from '../utils/colors';
 import Link from 'next/link';
@@ -20,7 +19,7 @@ import type { IconBaseProps } from 'react-icons';
 import anime from 'animejs';
 import Globe from '../components/Globe';
 import WithSingleLine from '../components/WithSingleLine';
-import Texture from '../components/Texture';
+import Texture, { SingleTexture } from '../components/Texture';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -85,6 +84,8 @@ const Home: NextPage = () => {
             <main className={clsx('overflow-x-hidden relative')}>
                 <>
                     <div className='absolute top-0 bottom-0 left-0 right-0 overflow-hidden'>
+                        <SingleTexture id='dark-root' variant='dark' style={{ position: 'absolute' }} />
+                        <SingleTexture id='dark-light' variant='light'  style={{ position: 'absolute' }} />
                         <Texture fadeIn fadeOut />
                         <Texture fadeIn />
                         <Texture />

@@ -5,6 +5,7 @@ import anime from 'animejs';
 import useId from '../../utils/useId';
 import hardwareAccStyle from '../../utils/hardwareAccStyle';
 import useBrowserName from '../../utils/useBrowserName';
+import useDeviceSize from '../../utils/useDeviceSize';
 
 interface ISingleTexture {
     variant: 'light' | 'dark';
@@ -12,8 +13,9 @@ interface ISingleTexture {
     style?: React.CSSProperties;
 }
 
-function SingleTexture({ variant, id, style }: ISingleTexture) {
+export function SingleTexture({ variant, id, style }: ISingleTexture) {
     const browserName = useBrowserName();
+    const { height, width } = useDeviceSize();
 
     const textureColors = {
         light: {
@@ -28,58 +30,59 @@ function SingleTexture({ variant, id, style }: ISingleTexture) {
 
     if (!browserName) return <></>;
 
-    const svgSize = 3000;
+    const svgSize = Math.max(height, width);
 
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='-z-5'
+            preserveAspectRatio='none'
+            id={`svg-root-${variant}`}
+            height={"140vh"}
+            width={"100vw"}
             style={style}
-            height='100%'
-            width='100%'
-            preserveAspectRatio='true'
-            id={`svg-root-${variant}-${id}`}
         >
             <defs>
-                <filter
-                    id={`fractal-${variant}-${id}`}
-                    x='0%'
-                    y='0%'
-                    width={browserName === 'Apple Safari' ? '80%' : '140%'}
-                    height={browserName === 'Apple Safari' ? '80%' : '140%'}
-                    filterUnits='objectBoundingBox'
-                    primitiveUnits='userSpaceOnUse'
-                    colorInterpolationFilters='linearRGB'
-                >
-                    <feTurbulence
-                        baseFrequency={0.151}
-                        numOctaves={4}
-                        seed={15}
-                        stitchTiles='stitch'
+                <g id={`svg-root-g-${variant}`}>
+                    <filter
+                        id={`fractal-filter-${variant}`}
                         x='0%'
                         y='0%'
-                        width='100%'
-                        height='100%'
-                        result='turbulence'
-                    />
-                    <feSpecularLighting
-                        surfaceScale={15}
-                        specularConstant={0.75}
-                        specularExponent={20}
-                        lightingColor={textureColors[variant].effect}
-                        x='0%'
-                        y='0%'
-                        width='100%'
-                        height='100%'
-                        in='turbulence'
-                        result='specularLighting'
+                        width={browserName === 'Apple Safari' ? '100%' : '140%'}
+                        height={browserName === 'Apple Safari' ? '100%' : '140%'}
+                        filterUnits='objectBoundingBox'
+                        primitiveUnits='userSpaceOnUse'
+                        colorInterpolationFilters='linearRGB'
                     >
-                        <feDistantLight azimuth={3} elevation={100} />
-                    </feSpecularLighting>
-                </filter>
+                        <feTurbulence
+                            baseFrequency={0.151}
+                            numOctaves={4}
+                            seed={15}
+                            stitchTiles='stitch'
+                            x='0%'
+                            y='0%'
+                            width='100%'
+                            height='100%'
+                            result='turbulence'
+                        />
+                        <feSpecularLighting
+                            surfaceScale={15}
+                            specularConstant={0.75}
+                            specularExponent={20}
+                            lightingColor={textureColors[variant].effect}
+                            x='0%'
+                            y='0%'
+                            width='100%'
+                            height='100%'
+                            in='turbulence'
+                            result='specularLighting'
+                        >
+                            <feDistantLight azimuth={3} elevation={100} />
+                        </feSpecularLighting>
+                    </filter>
+                    <path fill={textureColors[variant].bg} d={`M0 0h${svgSize}v${svgSize}H0z`} />
+                    <path fill={textureColors[variant].effect} filter={`url(#fractal-filter-${variant})`} d={`M0 0h${svgSize}v${svgSize}H0z`} />
+                </g>
             </defs>
-            <path fill={textureColors[variant].bg} d={`M0 0h${svgSize}v${svgSize}H0z`} />
-            <path fill={textureColors[variant].effect} filter={`url(#fractal-${variant}-${id})`} d={`M0 0h${svgSize}v${svgSize}H0z`} />
         </svg>
     );
 }
@@ -109,7 +112,9 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
     return (
         <>
             <div className='relative h-[100vh] w-[100vw]'>
-                <SingleTexture style={{ zIndex: -10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} id={id} variant='light' />
+                <svg style={{ zIndex: -10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} height='100%' width='100%' preserveAspectRatio='none'>
+                    <use xlinkHref="#svg-root-g-light" x="0" y="0" href="#svg-root-g-light" />
+                </svg>
                 {fadeIn && (
                     <div
                         className='absolute top-0 left-0 right-0 -z-10'
@@ -131,7 +136,9 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
                 )}
 
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, ...hardwareAccStyle }} id={`dark-root-${id}`}>
-                    <SingleTexture variant='dark' id={id} />
+                    <svg height='100%' width='100%' preserveAspectRatio='true'>
+                        <use xlinkHref="#svg-root-g-dark" x="0" y="0" />
+                    </svg>
                     {fadeIn && (
                         <div
                             className='absolute top-0 left-0 right-0'

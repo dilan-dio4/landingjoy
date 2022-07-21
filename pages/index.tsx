@@ -199,7 +199,15 @@ const Home: NextPage = () => {
                     <Container>
                         <Layout>
                             <h3 className='mb-10'>Plans</h3>
-                            <Pricing />
+                            <WithSingleLine rotation={-10} top={-200} left={-20} right={-20}>
+                                <Pricing />
+                            </WithSingleLine>
+                            <h3 className='mb-10'>Plans</h3>
+                            <h3 className='mb-10'>Plans</h3>
+                            <h3 className='mb-10'>Plans</h3>
+                            <h3 className='mb-10'>Plans</h3>
+                            <h3 className='mb-10'>Plans</h3>
+
                         </Layout>
                     </Container>
                 </>

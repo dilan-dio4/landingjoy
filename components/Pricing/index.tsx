@@ -58,26 +58,27 @@ export default function Pricing() {
     }, []);
 
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36' id='pricing-grid'>
+        <div className='grid grid-cols-2 sm:grid-cols-5 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36 z-30' id='pricing-grid'>
             {/** https://colordesigner.io/gradient-generator */}
-            <div className='bg-[#fcd5ceCA] dark:bg-[#243446ca] plan-grid-ele py-[40px] flex flex-col justify-center order-1 sm:order-none'>
+            <div className='bg-[#fcd5ceCA] dark:bg-[#243446ca] plan-grid-ele py-[40px] flex flex-col justify-center order-1 sm:order-none col-span-2'>
                 <h4>{dict.pricing.monthly.header}</h4>
                 <p className='text-xs'>{dict.pricing.monthly.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele py-[40px] flex flex-col justify-center order-3 sm:order-none'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele py-[40px] flex flex-col justify-center order-3 sm:order-none col-span-2'>
                 <h4>{dict.pricing.review.header}</h4>
                 <p className='text-xs'>{dict.pricing.review.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='row-span-3 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none'></div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none'>
+            <div className='row-span-3 col-span-2 sm:col-span-1 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none py-[40px] flex flex-col justify-between items-center'>
+            </div>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none col-span-2'>
                 <SinglePriceCard {...dict.pricing.monthly} />
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none col-span-2'>
                 <SinglePriceCard {...dict.pricing.review} />
             </div>
-            <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele py-[90px] order-6 sm:order-none'></div>
+            <div className='col-span-2 sm:col-span-4 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele py-[90px] order-6 sm:order-none'></div>
         </div>
     );
 }

@@ -77,7 +77,7 @@ const dict = {
             buttonTwo: 'Read the FAQs',
             header: 'Full-stack design + development',
             subheader: 'Pause or cancel at any time',
-            cost: '$8,000',
+            cost: '$8,500',
             costSmall: '/ mo',
             included: [
                 'UI/UX', 
@@ -85,7 +85,7 @@ const dict = {
                 'Animations', 
                 'Graphic assets', 
                 'Real-time updates', 
-                { length: 1, key:"final", component: <small className="font-thin"><em>+ the services involved in creating a high</em></small> }
+                { length: 1, key:"final", component: <small className="font-thin"><em>+ Development services</em></small> }
             ],
         },
         review: {

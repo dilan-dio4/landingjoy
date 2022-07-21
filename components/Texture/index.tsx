@@ -135,7 +135,7 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
                     />
                 )}
 
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, ...hardwareAccStyle }} id={`dark-root-${id}`}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, ...hardwareAccStyle }} className='dark-texture-panel'>
                     <svg height='100%' width='100%' preserveAspectRatio='true'>
                         <use xlinkHref="#svg-root-g-dark" x="0" y="0" />
                     </svg>

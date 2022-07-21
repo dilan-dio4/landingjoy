@@ -123,10 +123,10 @@ export default function Pricing() {
                 <SinglePriceCard {...dict.pricing.review} />
             </div>
             <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none'>
-                <div className='w-full h-full border-[2px] border-[#1f2d3d20] dark:border-[#fcd5ce20] rounded-b-md flex flex-col items-center pl-20 py-5 relative overflow-hidden'>
-                    <AnimatedBall className='w-48 absolute left-[-40px] top-[-40px]' />
+                <div className='w-full h-full border-[2px] border-[#1f2d3d20] dark:border-[#fcd5ce20] rounded-b-md flex flex-col items-center sm:pl-20 py-5 relative overflow-hidden'>
+                    <AnimatedBall className='w-48 absolute left-[-40px] bottom-[-100px] sm:bottom-[unset] sm:top-[-40px]' />
                     {Object.values(dict.pricing.extraCard.attributeData).map(({ Icon, text }, i) => (
-                        <div key={text.slice(0, 10)} className='rounded-[50%] bg-primary-300 dark:bg-secondary-300 p-2 absolute top-3 right-3' id={`tri-icon-${i}`} style={{ opacity: 0 }}>
+                        <div key={text.slice(0, 10)} className='rounded-[50%] bg-primary-300 dark:bg-secondary-300 p-2 absolute bottom-3 sm:bottom-[unset] sm:top-3 right-3' id={`tri-icon-${i}`} style={{ opacity: 0 }}>
                             <Icon size={30} />
                         </div>
                     ))}
@@ -153,9 +153,9 @@ export default function Pricing() {
                             </>
                         ))}
                     </div>
-                    <div className='h-8 relative w-full mt-5'>
+                    <div className='h-36 sm:h-8 relative w-full mt-5'>
                         {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
-                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='text-xs absolute left-0 right-0 text-center' style={{ opacity: 0 }}>{text}</p>
+                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='text-xs absolute left-4 right-4 text-center' style={{ opacity: 0 }}>{text}</p>
                         ))}
                     </div>
                 </div>

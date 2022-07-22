@@ -137,8 +137,65 @@ const dict = {
     FAQs: [
         {
             summary: 'What technologies do you use?',
-            content: <>asdf</>,
+            content: (
+                <>
+                    Every project has a different set of requirements.
+                    Those requirements distaste the particular technology stack we opt for.
+                    Whether it be based on the tools that a team is already familiar with, or is aiming to use, the stack that is choosen will be up to the highest web standards now, and in the future.
+                    That being said our typical tech stack looks as follows:
+                    <br />
+                    <br />
+                    &#8226; &nbsp;&nbsp;React with Next.js
+                    <br />
+                    &#8226; &nbsp;&nbsp;TailwindCSS
+                    <br />
+                    &#8226; &nbsp;&nbsp;[P]NPM
+                    <br />
+                    &#8226; &nbsp;&nbsp;Anime.js
+                    <br />
+                    &#8226; &nbsp;&nbsp;Lottie
+                </>
+            ),
         },
+        {
+            summary: "How long does it take?",
+            content: <>
+                There is a wide array of factors that go into the deliver time of our pages. 
+                For us to be confident in the direction of the project that we take, we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
+                <br />
+                <br />
+                That being said, we like to move fast. This allows us to keep the service cost-effective and gives the time to iterate if needed. So to use to go from zero to jaw-dropping, a month at the very least needs to be spent on the initial page.
+                Once the design principles and infrastructure from the first page is completely, subsequent pages can be delivered relatively quickly.
+            </>
+        },
+        {
+            summary: "How many pages do I get?",
+            content: <>
+                As many as you need!
+                <br />
+                <br />
+                During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages is based on your discretion.
+            </>
+        },
+        {
+            summary: "How will we coordinate between teams?",
+            content: (<>
+                Task management is performed with Trello, which is updated throughout the day.
+                This is where you will be able to observer and collaborate on the to-dos of the day.
+                <br />
+                <br />
+                Communication can be done with whatever platform your team is using (e.g. Slack, discord, email, etc.).
+                <br />
+                <br />
+                Finally, we will provide you with a private development URL for 24-hour access to the pages as they are integrated in real-time.
+            </>)
+        },
+        {
+            summary: "Do I get to keep the code?"
+        },
+        {
+            summary: "Do I get to keep the assets"
+        }
     ],
 };
 

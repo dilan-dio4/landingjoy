@@ -169,32 +169,84 @@ const dict = {
             </>
         },
         {
-            summary: "How many pages do I get?",
-            content: <>
-                As many as you need!
-                <br />
-                <br />
-                During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages is based on your discretion.
-            </>
-        },
-        {
             summary: "How will we coordinate between teams?",
             content: (<>
                 Task management is performed with Trello, which is updated throughout the day.
-                This is where you will be able to observer and collaborate on the to-dos of the day.
+                This is where you will be able to observe and collaborate on the to-dos of the day.
                 <br />
                 <br />
                 Communication can be done with whatever platform your team is using (e.g. Slack, discord, email, etc.).
+                We typically aim to have a formal meeting (Zoom, Google Meet, Teams) at least once a week for ~30 minutes.
                 <br />
                 <br />
                 Finally, we will provide you with a private development URL for 24-hour access to the pages as they are integrated in real-time.
             </>)
         },
         {
-            summary: "Do I get to keep the code?"
+            summary: "How many pages will I get?",
+            content: <>
+                As many as you need!
+                <br />
+                <br />
+                During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages is based on your discretion.
+                <br />
+                <br />
+                Note that the initial landing page take will take the longest, since it's at this stage where we are manipulate and trying different design principles. After that, subsequent pages can be delivered much quicker.
+            </>
         },
         {
-            summary: "Do I get to keep the assets"
+            summary: "Do I get to keep the code?",
+            content: (
+                <>
+                    <b>Yes!</b>
+                    <br />
+                    <br />
+                    During the development process, all code is accessible any point via a private GitHub repo and is 100% owned by you. Upon the completion of your pages, we will
+                    transfer the project and relevant dependencies over to your team.
+                </>
+            )
+        },
+        {
+            summary: "Do I get to keep the assets?",
+            content: (
+                <>
+                    <b>Yes!</b>
+                    <br />
+                    <br />
+                    Any visual assets included in your project are either created on-demand or licensed under permissible conditions
+                    with commercial application. An example of such license is the <Link href="https://choosealicense.com/licenses/mit/"><a>MIT License</a></Link>.
+                </>
+            )
+        },
+        {
+            summary: "What analytics tools do you work with?",
+            content: (
+                <>
+                    Landing pages are powerful, not only because they are at the top of the user journey funnel in your SasS, but it also can teach us a lot about your potential users with analytics on-page activity tracking.
+                    <br />
+                    <br />
+                    The analytics platform that we most often work with are:
+                    <br />
+                    <br />
+                    &#8226; &nbsp;&nbsp;Google Analytics
+                    <br />
+                    &#8226; &nbsp;&nbsp;Mixpanel
+                    <br />
+                    &#8226; &nbsp;&nbsp;Hotjar
+                    <br />
+                    &#8226; &nbsp;&nbsp;Matomo
+                    <br />
+                    &#8226; &nbsp;&nbsp;Fathom
+                    <br />
+                    &#8226; &nbsp;&nbsp;Plausible
+                    <br />
+                    &#8226; &nbsp;&nbsp;<em>... and more</em>
+                    <br />
+                    <br />
+                    We will also setup your front-end to leverage open-source A/B testing framework <Link href="https://www.growthbook.io/"><a>Growthbook</a></Link>.
+                    This is a tool we work very closely with to help us iterate and continuously improve the conversation rate of your website.
+                </>
+            )
         }
     ],
 };

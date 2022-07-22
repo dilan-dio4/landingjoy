@@ -125,6 +125,12 @@ const dict = {
             }
         }
     },
+    FAQs: [
+        {
+            summary: "What technologies do you use?",
+            content: <>asdf</>
+        }       
+    ]
 };
 
 export default dict;

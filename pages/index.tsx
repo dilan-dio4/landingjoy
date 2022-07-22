@@ -20,6 +20,7 @@ import anime from 'animejs';
 import Globe from '../components/Globe';
 import WithSingleLine from '../components/WithSingleLine';
 import Texture from '../components/Texture';
+import FAQs from '../components/FAQs';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -49,25 +50,6 @@ const Home: NextPage = () => {
                 document.querySelector('#triad-icon-1 path')!.setAttribute('fill', 'none');
             },
         });
-
-        // const target = {
-        //     percent: '0%',
-        // };
-        // anime({
-        //     targets: target,
-        //     percent: [
-        //         { value: '100%', duration: 5000 },
-        //         { value: '0%', duration: 5000, delay: 4000 },
-        //     ],
-        //     easing: 'linear',
-        //     endDelay: 4000,
-        //     loop: true,
-        //     update: function () {
-        //         document.querySelector<HTMLDivElement>(
-        //             `#triad-icon-2 ~ div`,
-        //         )!.style.backgroundImage = `linear-gradient(to top, #C7EDF9 ${target.percent}, transparent 0)`;
-        //     },
-        // });
 
         const TEXTURE_DUR = 650;
         anime({
@@ -202,12 +184,12 @@ const Home: NextPage = () => {
                             <WithSingleLine rotation={-10} top={-200} left={-20} right={-20}>
                                 <Pricing />
                             </WithSingleLine>
-                            <h3 className='mb-10'>Plans</h3>
-                            <h3 className='mb-10'>Plans</h3>
-                            <h3 className='mb-10'>Plans</h3>
-                            <h3 className='mb-10'>Plans</h3>
-                            <h3 className='mb-10'>Plans</h3>
-
+                        </Layout>
+                    </Container>
+                    <Container>
+                        <Layout>
+                            <h3 className='mb-10'>FAQs</h3>
+                            <FAQs />
                         </Layout>
                     </Container>
                 </>

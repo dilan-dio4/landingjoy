@@ -3,7 +3,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import anime from 'animejs';
 import dict from '../dict';
-import React, { useRef, useState, useEffect, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode, Fragment } from 'react';
 import styles from '../../styles/components/Pricing.module.css';
 import AnimatedBall from '../AnimatedBall';
 
@@ -132,7 +132,7 @@ export default function Pricing() {
                     ))}
                     <div className='flex justify-center'>
                         {attributes.map((ele, i) => (
-                            <>
+                            <Fragment key={ele}>
                                 <button
                                     className={clsx(
                                         'font-semibold transition-all duration-300',
@@ -150,12 +150,12 @@ export default function Pricing() {
                                     {ele}
                                 </button>
                                 {i + 1 !== attributes.length && <p className='text-2xl mx-2 font-bold'>/</p>}
-                            </>
+                            </Fragment>
                         ))}
                     </div>
                     <div className='h-32 sm:h-8 relative w-full mt-5'>
                         {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
-                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute mx-8 sm:mx-20 text-center' style={{ opacity: 0 }}>{text}</p>
+                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute mx-8 sm:mx-28 text-center' style={{ opacity: 0 }}>{text}</p>
                         ))}
                     </div>
                 </div>

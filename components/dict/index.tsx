@@ -111,15 +111,15 @@ const dict = {
             attributeData: {
                 // Order matters
                 Speed: {
-                    text: 'Get real-time updates to your development tasks with 24-hour access to our development environment.',
+                    text: 'Get real-time updates on your deliverable tasks with 24-hour access to our development environment.',
                     Icon: (props: IconBaseProps) => <RiTimeLine {...props} />,
                 },
                 Quality: {
-                    text: "All work is done in-house. We take pride in our pages & deliverables to be sure that our deliverables are production-ready and impactful.",
+                    text: "All work is done in-house with an emphasis on attention to detail and due diligence. The deliverables are impactful and production-ready.",
                     Icon: (props: IconBaseProps) => <RiEmotion2Line {...props} />,
                 },
                 Cost: {
-                    text: "Forget hiring more designers, developers, and QA. You could save up to $9k every month with our cost-efficient models",
+                    text: "Forget hiring more designers, developers, and QA. You could save up to $9k every month with our cost-efficient project models.",
                     Icon: (props: IconBaseProps) => <RiMoneyDollarCircleLine {...props} />,
                 },
             }

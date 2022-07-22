@@ -116,10 +116,10 @@ export default function Pricing() {
                 <p className='text-xs'>{dict.pricing.review.subheader}</p>
                 <h4>&#8595;</h4>
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] pb-[60px] order-2 sm:order-none'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[40px] pb-[60px] order-2 sm:order-none'>
                 <SinglePriceCard {...dict.pricing.monthly} />
             </div>
-            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[30px] order-4 sm:order-none'>
+            <div className='bg-[#fdcdc4CA] dark:bg-[#213041ca] plan-grid-ele pt-[40px] pb-[60px] order-4 sm:order-none'>
                 <SinglePriceCard {...dict.pricing.review} />
             </div>
             <div className='col-span-1 sm:col-span-2 bg-[#fec5baCA] dark:bg-[#1f2d3dca] plan-grid-ele order-5 sm:order-none'>
@@ -153,9 +153,9 @@ export default function Pricing() {
                             </>
                         ))}
                     </div>
-                    <div className='h-36 sm:h-8 relative w-full mt-5'>
+                    <div className='h-32 sm:h-8 relative w-full mt-5'>
                         {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
-                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute left-4 right-4 sm:left-14 sm:right-14 text-center' style={{ opacity: 0 }}>{text}</p>
+                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute mx-8 sm:mx-20 text-center' style={{ opacity: 0 }}>{text}</p>
                         ))}
                     </div>
                 </div>

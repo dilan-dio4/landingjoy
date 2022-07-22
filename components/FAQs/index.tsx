@@ -9,7 +9,7 @@ export default function FAQs() {
             {dict.FAQs.map((ele) => (
                 <details
                     key={ele.summary}
-                    className={clsx(styles['faqs-details'], 'bg-neutral-900 relative text-white border-[1px] border-solid border-neutral-800 max-w-[820px]')}
+                    className={clsx(styles['faqs-details'], 'bg-primary-200 dark:bg-neutral-900 relative border-[1px] border-solid border-primary-300 dark:border-secondary-300 max-w-[820px]')}
                 >
                     <summary className={clsx(styles['faqs-summary'], 'text-md md:text-xl leading-snug')}>
                         {ele.summary}
@@ -27,7 +27,7 @@ export default function FAQs() {
                         />
                     </summary>
                     <br />
-                    {ele.content}
+                    <div className={styles['d-f']}>{ele.content}</div>
                 </details>
             ))}
         </div>

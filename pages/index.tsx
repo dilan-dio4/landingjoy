@@ -21,6 +21,7 @@ import Globe from '../components/Globe';
 import WithSingleLine from '../components/WithSingleLine';
 import Texture from '../components/Texture';
 import FAQs from '../components/FAQs';
+import Footer from '../components/Footer';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -198,6 +199,11 @@ const Home: NextPage = () => {
                         <Layout>
                             <h3 className='mb-10'>FAQs</h3>
                             <FAQs />
+                        </Layout>
+                    </Container>
+                    <Container className='bg-black dark:bg-white text-white dark:text-black'>
+                        <Layout>
+                            <Footer />
                         </Layout>
                     </Container>
                 </>

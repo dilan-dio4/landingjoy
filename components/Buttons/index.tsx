@@ -10,18 +10,19 @@ interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: (_: any) => any;
     className?: string;
     style?: React.CSSProperties;
+    fullWidth?: boolean;
 }
 
 const ROOT_BUTTON_STYLE = 'text-primary-100 dark:text-secondary-100 p-0 leading-none font-bold tracking-wide transition-all duration-500';
 
-function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon, className, style }: IButton) {
+function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon, className, style }: IButton, fullWidth?: boolean) {
     const allClassnames = rootClassname.split(' ').map((singleClassname) => styles[singleClassname]);
 
     if (href) {
         return (
-            <div className={clsx(styles['button-outline'], 'mt-10 z-10')}>
+            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && "w-full")}>
                 <Link href={href}>
-                    <a className={clsx(...allClassnames, className)} role='button' type='text' onClick={onClick} style={style}>
+                    <a className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' type='text' onClick={onClick} style={style}>
                         <p className={clsx('text-lg', ROOT_BUTTON_STYLE)}>{text}</p>
                         {endIcon || ''}
                     </a>
@@ -30,8 +31,8 @@ function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon,
         );
     } else {
         return (
-            <div className={clsx(styles['button-outline'], 'mt-10 z-10')}>
-                <button className={clsx(...allClassnames, className)} role='button' onClick={onClick} style={style}>
+            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && "w-full")}>
+                <button className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' onClick={onClick} style={style}>
                     <p className={clsx('text-lg', ROOT_BUTTON_STYLE)}>{text}</p>
                     {endIcon || ''}
                 </button>
@@ -40,14 +41,14 @@ function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon,
     }
 }
 
-function _smallButtonGenerator(rootClassname: string, { href, onClick, text, endIcon, className, style }: IButton) {
+function _smallButtonGenerator(rootClassname: string, { href, onClick, text, endIcon, className, style }: IButton, fullWidth?: boolean) {
     const allClassnames = rootClassname.split(' ').map((singleClassname) => styles[singleClassname]);
 
     if (href) {
         return (
-            <div className={clsx(styles['button-outline-sm'], 'z-10')}>
+            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && "w-full")}>
                 <Link href={href}>
-                    <a className={clsx(...allClassnames, className)} role='button' type='text' onClick={onClick} style={style}>
+                    <a className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' type='text' onClick={onClick} style={style}>
                         <p className={clsx('text-sm', ROOT_BUTTON_STYLE)}>{text}</p>
                         {endIcon || ''}
                     </a>
@@ -56,8 +57,8 @@ function _smallButtonGenerator(rootClassname: string, { href, onClick, text, end
         );
     } else {
         return (
-            <div className={clsx(styles['button-outline-sm'], 'z-10')}>
-                <button className={clsx(...allClassnames, className)} role='button' onClick={onClick} style={style}>
+            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && "w-full")}>
+                <button className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' onClick={onClick} style={style}>
                     <p className={clsx('text-sm', ROOT_BUTTON_STYLE)}>{text}</p>
                     {endIcon || ''}
                 </button>
@@ -66,5 +67,5 @@ function _smallButtonGenerator(rootClassname: string, { href, onClick, text, end
     }
 }
 
-export const HeroPrimaryButton = (props: IButton) => _buttonGenerator('hero-button', props);
-export const SmallPrimaryButton = (props: IButton) => _smallButtonGenerator('hero-button-sm', props);
+export const HeroPrimaryButton = ({ fullWidth, ...props }: IButton) => _buttonGenerator('hero-button', props, fullWidth);
+export const SmallPrimaryButton = ({ fullWidth, ...props }: IButton) => _smallButtonGenerator('hero-button-sm', props, fullWidth);

@@ -40,7 +40,29 @@ const nextConfig = {
     });
 
     return config;
-  }
+  },
+  redirects: () => [
+    {
+      source: "/pm/lib.min.js",
+      destination: "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+      permanent: false,
+    },
+    {
+      source: "/pm/lib.js",
+      destination: "https://cdn.mxpnl.com/libs/mixpanel-2-latest.js",
+      permanent: false,
+    },
+    {
+      source: "/pm/decide",
+      destination: "https://decide.mixpanel.com/decide",
+      permanent: false,
+    },
+    {
+      source: "/pm/:slug",
+      destination: "https://api.mixpanel.com/:slug",
+      permanent: false,
+    }
+  ]
 }
 
 module.exports = withSvgr({

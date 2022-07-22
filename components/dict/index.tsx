@@ -1,6 +1,6 @@
 // type IDict = string | ((...strings: string[]) => string) | { [key: string]: IDict };
 
-import Link from "next/link";
+import Link from 'next/link';
 import { RiMoneyDollarCircleLine, RiTimeLine, RiEmotion2Line } from 'react-icons/ri';
 import type { IconBaseProps } from 'react-icons';
 
@@ -69,11 +69,19 @@ const dict = {
                 3. &nbsp;&nbsp;Is excited to scale their growth
             </>
         ),
-        description2Subheader: <>To find out if your SaaS is a good fit, <Link href="asdf"><a>book a free strategy call</a></Link>.</>,
+        description2Subheader: (
+            <>
+                To find out if your SaaS is a good fit,{' '}
+                <Link href='asdf'>
+                    <a>book a free strategy call</a>
+                </Link>
+                .
+            </>
+        ),
 
         header3: 'You just got a lot leaner',
     },
-    pricing: {        
+    pricing: {
         monthly: {
             buttonOne: 'Get in touch',
             buttonTwo: 'Read the FAQs',
@@ -82,12 +90,20 @@ const dict = {
             cost: '$8,500',
             costSmall: '/ mo',
             included: [
-                'UI/UX', 
-                'Copywriting', 
-                'Animations', 
-                'Graphic assets', 
-                'Real-time updates', 
-                { length: 1, key:"final", component: <small className="font-thin"><em>+ Development services</em></small> }
+                'UI/UX',
+                'Copywriting',
+                'Animations',
+                'Graphic assets',
+                'Real-time updates',
+                {
+                    length: 1,
+                    key: 'final',
+                    component: (
+                        <small className='font-thin'>
+                            <em>+ Development services</em>
+                        </small>
+                    ),
+                },
             ],
         },
         review: {
@@ -97,17 +113,10 @@ const dict = {
             subheader: 'One-time purchase',
             cost: '$1,000',
             costSmall: '/ one-time',
-            included: [
-                'Competitor breakdown', 
-                'Low-fidelity plan', 
-                'Visual assets', 
-                'Copy audit', 
-                'SEO audit', 
-                'ICP research'
-            ],
+            included: ['Competitor breakdown', 'Low-fidelity plan', 'Visual assets', 'Copy audit', 'SEO audit', 'ICP research'],
         },
         extraCard: {
-            categories: ["Speed", "Quality", "Cost"] as const,
+            categories: ['Speed', 'Quality', 'Cost'] as const,
             attributeData: {
                 // Order matters
                 Speed: {
@@ -115,22 +124,22 @@ const dict = {
                     Icon: (props: IconBaseProps) => <RiTimeLine {...props} />,
                 },
                 Quality: {
-                    text: "All work is done in-house with an emphasis on attention to detail and due diligence. The deliverables are impactful and production-ready.",
+                    text: 'All work is done in-house with an emphasis on attention to detail and due diligence. The deliverables are impactful and production-ready.',
                     Icon: (props: IconBaseProps) => <RiEmotion2Line {...props} />,
                 },
                 Cost: {
-                    text: "Forget hiring more designers, developers, and QA. You could save up to $9k every month with our cost-efficient project models.",
+                    text: 'Forget hiring more designers, developers, and QA. You could save up to $9k every month with our cost-efficient project models.',
                     Icon: (props: IconBaseProps) => <RiMoneyDollarCircleLine {...props} />,
                 },
-            }
-        }
+            },
+        },
     },
     FAQs: [
         {
-            summary: "What technologies do you use?",
-            content: <>asdf</>
-        }       
-    ]
+            summary: 'What technologies do you use?',
+            content: <>asdf</>,
+        },
+    ],
 };
 
 export default dict;

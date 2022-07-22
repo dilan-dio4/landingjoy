@@ -59,9 +59,17 @@ const Home: NextPage = () => {
             easing: 'easeInOutQuad',
             begin() {
                 clearTimeout(displayNoneTimeoutRect.current);
-                document.querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel').forEach(ele => ele.style.display = 'block')
-                displayNoneTimeoutRect.current = setTimeout(() => document.querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel').forEach(ele => ele.style.display = 'none'), TEXTURE_DUR);
-            }
+                document
+                    .querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel')
+                    .forEach((ele) => (ele.style.display = 'block'));
+                displayNoneTimeoutRect.current = setTimeout(
+                    () =>
+                        document
+                            .querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel')
+                            .forEach((ele) => (ele.style.display = 'none')),
+                    TEXTURE_DUR,
+                );
+            },
         });
     }, [isDarkMode]);
 

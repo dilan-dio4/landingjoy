@@ -6,9 +6,5 @@ interface IContainer {
 }
 
 export default function Container({ className, children }: IContainer) {
-    return (
-        <div className={clsx(className, 'relative w-[100vw] max-w-[100vw] inline-block')}>
-            {children}
-        </div>
-    );
+    return <div className={clsx(className, 'relative w-[100vw] max-w-[100vw] inline-block')}>{children}</div>;
 }

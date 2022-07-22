@@ -44,8 +44,8 @@ function SingleTexture({ variant, id, style, className }: ISingleTexture) {
                     id={`fractal-${variant}-${id}`}
                     x='0%'
                     y='0%'
-                    width={"100%"}
-                    height={"100%"}
+                    width={'100%'}
+                    height={'100%'}
                     filterUnits='objectBoundingBox'
                     primitiveUnits='userSpaceOnUse'
                     colorInterpolationFilters='linearRGB'
@@ -107,7 +107,12 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
     return (
         <>
             <div className='relative h-[100vh] w-[100vw]'>
-                <SingleTexture style={{ zIndex: -10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} id={id} className="light-texture-panel" variant='light' />
+                <SingleTexture
+                    style={{ zIndex: -10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+                    id={id}
+                    className='light-texture-panel'
+                    variant='light'
+                />
                 {fadeIn && (
                     <div
                         className='absolute top-0 left-0 right-0 -z-10'
@@ -128,7 +133,10 @@ export default function Texture({ fadeIn, fadeOut }: ITexture) {
                     />
                 )}
 
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, display: 'none', ...hardwareAccStyle }} className="dark-texture-panel">
+                <div
+                    style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -5, opacity: 0, display: 'none', ...hardwareAccStyle }}
+                    className='dark-texture-panel'
+                >
                     <SingleTexture variant='dark' id={id} />
                     {fadeIn && (
                         <div

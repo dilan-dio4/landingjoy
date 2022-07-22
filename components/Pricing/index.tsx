@@ -7,7 +7,7 @@ import React, { useRef, useState, useEffect, ReactNode, Fragment } from 'react';
 import styles from '../../styles/components/Pricing.module.css';
 import AnimatedBall from '../AnimatedBall';
 
-function SinglePriceCard(props: typeof dict.pricing["monthly" | "review"]) {
+function SinglePriceCard(props: typeof dict.pricing['monthly' | 'review']) {
     return (
         <>
             <span className='flex justify-center items-end mb-3'>
@@ -18,13 +18,22 @@ function SinglePriceCard(props: typeof dict.pricing["monthly" | "review"]) {
             <Link href='asdf'>
                 <a className='block mt-5 text-sm underline tracking-tight italic hover:text-neutral-600'>{props.buttonTwo}</a>
             </Link>
-            {props.included.sort((a, b) => b.length - a.length).map((ele, i, arr) => (
-                <p key={typeof ele === "string" ? ele : ele.key} className={clsx(i === 0 && 'mt-8', i + 1 !== arr.length && 'border-b', 'text-sm border-[#1f2d3d20] dark:border-[#fcd5ce20] py-2 mx-12 font-semibold')}>
-                    {typeof ele === "string" ? ele : ele.component}
-                </p>
-            ))}
+            {props.included
+                .sort((a, b) => b.length - a.length)
+                .map((ele, i, arr) => (
+                    <p
+                        key={typeof ele === 'string' ? ele : ele.key}
+                        className={clsx(
+                            i === 0 && 'mt-8',
+                            i + 1 !== arr.length && 'border-b',
+                            'text-sm border-[#1f2d3d20] dark:border-[#fcd5ce20] py-2 mx-12 font-semibold',
+                        )}
+                    >
+                        {typeof ele === 'string' ? ele : ele.component}
+                    </p>
+                ))}
         </>
-    )
+    );
 }
 
 export default function Pricing() {
@@ -64,15 +73,15 @@ export default function Pricing() {
         observer.observe(document.getElementById('pricing-grid')!);
 
         autoSwitchTriRef.current = setInterval(() => {
-            setSelectedAttribute(prev => {
+            setSelectedAttribute((prev) => {
                 const indexOfNew = attributes.indexOf(prev) + 1;
                 if (indexOfNew > attributes.length - 1) {
                     return attributes[0];
                 } else {
                     return attributes[indexOfNew];
                 }
-            })
-        }, 5000)
+            });
+        }, 5000);
 
         return () => clearInterval(autoSwitchTriRef.current);
     }, []);
@@ -88,7 +97,7 @@ export default function Pricing() {
             targets: [`#tri-icon-${activeIndex}`, `#tri-text-${activeIndex}`],
             duration: 650,
             easing: 'easeInOutQuad',
-            opacity: 0.9
+            opacity: 0.9,
         });
         for (let i = 0; i < attributes.length; i++) {
             if (i === activeIndex) {
@@ -98,10 +107,10 @@ export default function Pricing() {
                 targets: [`#tri-icon-${i}`, `#tri-text-${i}`],
                 duration: 650,
                 easing: 'easeInOutQuad',
-                opacity: 0
-            })
+                opacity: 0,
+            });
         }
-    }, [selectedAttribute])
+    }, [selectedAttribute]);
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-[2px] rounded-md overflow-hidden mx-0 lg:mx-36 z-30' id='pricing-grid'>
@@ -126,7 +135,12 @@ export default function Pricing() {
                 <div className='w-full h-full border-[2px] border-[#1f2d3d20] dark:border-[#fcd5ce20] rounded-b-md flex flex-col items-center sm:pl-20 py-5 relative overflow-hidden'>
                     <AnimatedBall className='w-48 absolute left-[-40px] bottom-[-100px] sm:bottom-[unset] sm:top-[-40px]' />
                     {Object.values(dict.pricing.extraCard.attributeData).map(({ Icon, text }, i) => (
-                        <div key={text.slice(0, 10)} className='rounded-[50%] bg-primary-300 dark:bg-secondary-300 p-2 absolute bottom-3 sm:bottom-[unset] sm:top-3 right-3' id={`tri-icon-${i}`} style={{ opacity: 0 }}>
+                        <div
+                            key={text.slice(0, 10)}
+                            className='rounded-[50%] bg-primary-300 dark:bg-secondary-300 p-2 absolute bottom-3 sm:bottom-[unset] sm:top-3 right-3'
+                            id={`tri-icon-${i}`}
+                            style={{ opacity: 0 }}
+                        >
                             <Icon size={30} />
                         </div>
                     ))}
@@ -136,16 +150,10 @@ export default function Pricing() {
                                 <button
                                     className={clsx(
                                         'font-semibold transition-all duration-300',
-                                        ele === selectedAttribute ?
-                                            styles['selectedTriColor']
-                                            :
-                                            styles['rootTriColor'],
-                                        ele === selectedAttribute ?
-                                            "text-secondary-200 dark:text-primary-100"
-                                            :
-                                            "text-gray-600"
+                                        ele === selectedAttribute ? styles['selectedTriColor'] : styles['rootTriColor'],
+                                        ele === selectedAttribute ? 'text-secondary-200 dark:text-primary-100' : 'text-gray-600',
                                     )}
-                                    onClick={_ => handleTriClick(ele)}
+                                    onClick={(_) => handleTriClick(ele)}
                                 >
                                     {ele}
                                 </button>
@@ -155,7 +163,14 @@ export default function Pricing() {
                     </div>
                     <div className='h-32 sm:h-8 relative w-full mt-5'>
                         {Object.values(dict.pricing.extraCard.attributeData).map(({ text }, i) => (
-                            <p id={`tri-text-${i}`} key={text.slice(0, 10)} className='tracking-wide text-xs absolute mx-8 sm:mx-28 text-center' style={{ opacity: 0 }}>{text}</p>
+                            <p
+                                id={`tri-text-${i}`}
+                                key={text.slice(0, 10)}
+                                className='tracking-wide text-xs absolute mx-8 sm:mx-28 text-center'
+                                style={{ opacity: 0 }}
+                            >
+                                {text}
+                            </p>
                         ))}
                     </div>
                 </div>

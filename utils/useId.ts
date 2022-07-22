@@ -9,8 +9,8 @@ import { useId } from 'react';
 // };
 
 const _useId = () => {
-    const id = useId().replaceAll(":", "a")
-    return id
-}
+    const id = useId().replaceAll(':', 'a');
+    return id;
+};
 
 export default _useId;

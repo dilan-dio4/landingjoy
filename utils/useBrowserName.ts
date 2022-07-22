@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export type BrowserType =
     | 'Mozilla Firefox'
@@ -15,12 +15,12 @@ export default function useBrowserName() {
     useEffect(() => {
         const getBrowserName = () => {
             // https://blog.devgenius.io/how-to-easily-detect-the-user-browser-in-react-b4cd0290f257
-        
+
             let sBrowser: BrowserType;
             const sUsrAg = navigator.userAgent;
-        
+
             // The order matters here, and this may report false positives for unlisted browsers.
-        
+
             if (sUsrAg.indexOf('Firefox') > -1) {
                 sBrowser = 'Mozilla Firefox';
                 // "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
@@ -48,7 +48,7 @@ export default function useBrowserName() {
             return sBrowser;
         };
         setBrowserName(getBrowserName());
-    }, [])
+    }, []);
 
     return browserName;
-};
+}

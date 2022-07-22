@@ -44,9 +44,9 @@ export default function SingleLine({ rotation }: ISingleLine) {
     }, [id]);
 
     return (
-        <svg 
+        <svg
             className='invisible pointer-events-none'
-            viewBox='0 0 800 400' 
+            viewBox='0 0 800 400'
             id={`line-${id}`}
             style={{
                 transform: rotation ? `${rotation}deg` : undefined,

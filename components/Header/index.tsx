@@ -10,6 +10,7 @@ import Tooltip from '../Tooltip';
 import { Lottie } from '@alfonmga/react-lottie-light-ts';
 import planetJson from '../../assets/lottie/planet-and-stars.json';
 import { FloatingProps } from '../Tooltip/Floating';
+import { ReactComponent as Logo2 } from '../../assets/logo/2.svg';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -110,6 +111,7 @@ export default function Header() {
                                     {/* <li itemProp="name" role="menuitem" >
                                         <Link href="https://docs.easybase.io/microstacks/what-is-a-microstack"><a itemProp="url" title="What is a Microstack?">What is a Microstack?</a></Link>
                                     </li> */}
+                                    <li><Logo2 /></li>
                                     <li itemProp='name' role='menuitem'>
                                         <a href='#methodology' itemProp='url' title='Methodology'>
                                             Methodology

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SmallPrimaryButton, HeroPrimaryButton } from '../Buttons';
+import { SmallPrimaryButton } from '../Buttons';
 import { useForm } from '@formcarry/react';
 import clsx from 'clsx';
 import styles from '../../styles/components/Footer.module.css';
@@ -9,25 +9,6 @@ export default function Footer() {
         id: 'GjRHZyrwrN'
     });
 
-
-    const resources = [
-        {
-            "title": "Report an issue",
-            "link": "/report-an-issue"
-        },
-        {
-            "title": "Blog",
-            "link": "/blog"
-        },
-        {
-            "title": "Github",
-            "link": "https://github.com/easybase"
-        },
-        {
-            "title": "Sign In",
-            "link": "https://app.easybase.io"
-        }
-    ]
     return (
         <div>
             <div className="flex flex-col md:flex-row">
@@ -71,7 +52,7 @@ export default function Footer() {
                                         className={clsx(
                                             formState.submitted ? "bg-green-500" : "bg-slate-900",
                                             formState.submitted ? "text-black" : "text-slate-500",
-                                            "rounded-lg h-[34px] flex items-center justify-center text-sm font-bold",
+                                            "rounded-lg h-[34px] flex-center text-sm font-bold",
                                         )}
                                     >
                                         <p>{formState.submitted ? "Thanks, you'll hear back soon!" : `Submitting${String.fromCharCode(8230)}`}</p>
@@ -85,10 +66,10 @@ export default function Footer() {
                 </div>
                 <div className="basis-6/12 py-8 md:py-0 pl-0 md:pl-4 pr-8 sm:pr-0">
                     <div className={clsx('h-full w-full m-4 shadow-lg rounded-lg', styles['rainbow-block'])}>
-                        <div className={clsx('z-10 absolute left-0 right-0 top-0 bottom-0 m-0.5 rounded-lg flex flex-col justify-center items-center', styles['svg-pattern'])}>
+                        <div className={clsx('z-10 absolute-center m-0.5 rounded-lg flex-col flex-center', styles['svg-pattern'])}>
                             <p className='text-xl font-bold tracking-tight text-center leading-snug'>A couple of landing page pros<br />added to your team</p>
                             <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
-                                <button className='bg-secondary-300 left-0 right-0 top-0 bottom-0 absolute z-20 rounded-[11px] flex justify-center items-center'>
+                                <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] flex-center'>
                                     <p className='text-sm font-bold'>Get started</p>
                                 </button>
                             </div>
@@ -97,7 +78,7 @@ export default function Footer() {
                 </div>
             </div>
             <hr className="my-4" />
-            <div className="flex justify-center items-center flex-col md:flex-row">
+            <div className="flex-center flex-col md:flex-row">
                 <p className="text-sm">© 2022 LandingJoy Inc.</p>
             </div>
         </div>

@@ -636,3 +636,11 @@ a {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.absolute-center {
+  @apply absolute left-0 right-0 top-0 bottom-0;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}

@@ -88,7 +88,7 @@ const Home: NextPage = () => {
             <Header />
             <main className={clsx('overflow-x-hidden relative')}>
                 <>
-                    <div className='absolute top-0 bottom-0 left-0 right-0 overflow-hidden'>
+                    <div className='absolute-center overflow-hidden'>
                         <Texture fadeIn fadeOut />
                         <Texture fadeIn />
                         <Texture />
@@ -103,7 +103,7 @@ const Home: NextPage = () => {
                     </div>
                     <Bee />
                     <Container className={clsx('h-[calc(100vh+50px)]')}>
-                        <div className='flex flex-col justify-center items-center text-center h-[75%] sm:h-[85%]'>
+                        <div className='flex-center flex-col text-center h-[75%] sm:h-[85%]'>
                             <Layout>
                                 {/* <h1>Beautiful SaaS landing pages<br />that'll convert quickly</h1> */}
                                 {/* <h1 >Your SaaS needs a landing page<br />that will convert</h1> */}

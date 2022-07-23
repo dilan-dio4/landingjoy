@@ -111,42 +111,19 @@ export default function Header() {
                                         <Link href="https://docs.easybase.io/microstacks/what-is-a-microstack"><a itemProp="url" title="What is a Microstack?">What is a Microstack?</a></Link>
                                     </li> */}
                                     <li itemProp='name' role='menuitem'>
-                                        <Link href='/plans'>
-                                            <a itemProp='url' title='Plans'>
-                                                Methodology
-                                            </a>
-                                        </Link>
+                                        <a href='#methodology' itemProp='url' title='Methodology'>
+                                            Methodology
+                                        </a>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <Link href='/plans'>
-                                            <a itemProp='url' title='Plans'>
-                                                Plans
-                                            </a>
-                                        </Link>
+                                        <a href='#plans' itemProp='url' title='Plans'>
+                                            Plans
+                                        </a>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <Link href='/what-you-get'>
-                                            <a itemProp='url' title='What you get'>
-                                                What you get
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    <li itemProp='name' role='menuitem'>
-                                        <Link href='/faqs'>
-                                            <a itemProp='url' title='FAQs'>
-                                                FAQs
-                                            </a>
-                                        </Link>
-                                    </li>
-                                    {/* <li itemProp="name" role="menuitem" >
-                                                <a itemProp="url" title="Blog" href="/blog/">Blog</a>
-                                            </li> TODO: LINK SOMEWHERE ELSE */}
-                                    <li itemProp='name' role='menuitem'>
-                                        <Link href='https://app.easybase.io'>
-                                            <a itemProp='url' title='Sign In' onClick={() => {}}>
-                                                Log in
-                                            </a>
-                                        </Link>
+                                        <a href='#faqs' itemProp='url' title='FAQs'>
+                                            FAQs
+                                        </a>
                                     </li>
                                     <li className='!inline-flex align-bottom'>
                                         <Tooltip {...tooltipProps}>

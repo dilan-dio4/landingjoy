@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import anime, { AnimeInstance } from 'animejs';
 import styles from '../../styles/components/AnimatedBall.module.css';
+import { HTMLProps } from '../../utils/types';
 
 const SvgComponent = (props: React.SVGProps<SVGSVGElement>) => (
     <svg className={styles['sphere']} viewBox='0 0 440 440' stroke='rgba(80,80,80,.35)' {...props}>
@@ -35,7 +36,7 @@ const SvgComponent = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-export default function AnimatedBall(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>) {
+export default function AnimatedBall(props: HTMLProps<HTMLDivElement>) {
     useEffect(() => {
         const sphereEl = document.querySelector<HTMLDivElement>('#sphere-animation')!;
         const spherePathEls = sphereEl.querySelectorAll('svg path');

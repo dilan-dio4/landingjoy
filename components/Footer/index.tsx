@@ -19,8 +19,8 @@ export default function Footer() {
                         <hr className="my-4" />
                         <p className="mb-1"><b>Contact us</b></p>
                         <a href="mailto:hello@landingjoy.com" className="mb-1 text-inherit hover:text-neutral-300 transition"><p>hello@landingjoy.com</p></a>
-                        <a href="tel:8145030670" className="text-inherit hover:text-neutral-300 transition"><p>814-503-0670</p></a>
-                        <Link href="/sitemap.xml"><a><p>Sitemap</p></a></Link>
+                        <a href="tel:8145030670" className="mb-1 text-inherit hover:text-neutral-300 transition"><p>814-503-0670</p></a>
+                        <Link href="/sitemap.xml"><a className="mb-1 text-inherit hover:text-neutral-300 transition"><p>sitemap</p></a></Link>
                     </div>
                 </div>
                 <div className="basis-3/12 py-3 md:py-0 pr-0 md:pr-4">

@@ -17,6 +17,7 @@
 	z-index: 1;
 	animation: steam 20s linear infinite;
     border-radius: 12px;
+	transform: translate3d(0, 0, 0); /** Force hardware acceleration */
 }
 
 @keyframes steam {

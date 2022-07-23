@@ -201,7 +201,7 @@ const Home: NextPage = () => {
                             <FAQs />
                         </Layout>
                     </Container>
-                    <Container className='bg-black dark:bg-white text-white dark:text-black'>
+                    <Container className='bg-black text-white'>
                         <Layout>
                             <Footer />
                         </Layout>

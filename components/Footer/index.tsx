@@ -1,12 +1,8 @@
 import Link from 'next/link';
-import { FiLink2 } from 'react-icons/fi';
-import {
-    IoLogoGithub, IoLogoLinkedin, IoLogoTwitter, IoNewspaperOutline,
-} from 'react-icons/io5';
-import { SiCrunchbase } from 'react-icons/si';
-import { SmallPrimaryButton } from '../Buttons';
+import { SmallPrimaryButton, HeroPrimaryButton } from '../Buttons';
 import { useForm } from '@formcarry/react';
 import clsx from 'clsx';
+import styles from '../../styles/components/Footer.module.css';
 
 export default function Footer() {
     const { state: formState, submit } = useForm({
@@ -41,12 +37,13 @@ export default function Footer() {
                         <p className="mt-4">4120 Schenley Drive<br />Pittsburgh, PA<br />15260</p>
                         <hr className="my-4" />
                         <p className="mb-1"><b>Contact us</b></p>
-                        <a href="mailto:hello@easybase.io" className="text-inherit hover:text-neutral-300 transition"><p>hello@landingjoy.com</p></a>
-                        <a href="tel:4129450510" className="text-inherit hover:text-neutral-300 transition"><p>814-503-0670</p></a>
+                        <a href="mailto:hello@landingjoy.com" className="mb-1 text-inherit hover:text-neutral-300 transition"><p>hello@landingjoy.com</p></a>
+                        <a href="tel:8145030670" className="text-inherit hover:text-neutral-300 transition"><p>814-503-0670</p></a>
+                        <Link href="/sitemap.xml"><a><p>Sitemap</p></a></Link>
                     </div>
                 </div>
                 <div className="basis-3/12 py-3 md:py-0 pr-0 md:pr-4">
-                    <div className="flex flex-col justify-start">
+                    <div className="flex flex-col justify-start mb-2">
                         <form onSubmit={submit} acceptCharset="UTF-8">
                             <p className="mb-3"><b>Leave us a message</b></p>
                             <fieldset disabled={formState.submitted || formState.submitting}>
@@ -74,7 +71,7 @@ export default function Footer() {
                                         className={clsx(
                                             formState.submitted ? "bg-green-500" : "bg-slate-900",
                                             formState.submitted ? "text-black" : "text-slate-500",
-                                            " rounded-lg h-[34px] flex items-center justify-center text-sm font-bold",
+                                            "rounded-lg h-[34px] flex items-center justify-center text-sm font-bold",
                                         )}
                                     >
                                         <p>{formState.submitted ? "Thanks, you'll hear back soon!" : `Submitting${String.fromCharCode(8230)}`}</p>
@@ -86,75 +83,22 @@ export default function Footer() {
                         </form>
                     </div>
                 </div>
-                <div className="basis-4/12 py-3 md:py-0 pl-0 md:pl-4">
-                    <div className="flex flex-col">
-                        <IoNewspaperOutline className="text-3xl mb-7 mt-1" />
-                    </div>
-                </div>
-                <div className="basis-2/12 py-3 md:py-0 pl-0 md:pl-4">
-                    <div className="flex flex-col">
-                        <FiLink2 className="text-3xl mb-7 mt-1" />
-                        {resources.map(ele => (
-                            <Link href={ele.link} key={ele.link}>
-                                <a className="text-inherit hover:text-neutral-300 transition mb-5">
-                                    <p>{ele.title}</p>
-                                </a>
-                            </Link>
-                        ))}
+                <div className="basis-6/12 py-8 md:py-0 pl-0 md:pl-4 pr-8 sm:pr-0">
+                    <div className={clsx('h-full w-full m-4 shadow-lg rounded-lg', styles['rainbow-block'])}>
+                        <div className={clsx('z-10 absolute left-0 right-0 top-0 bottom-0 m-0.5 rounded-lg flex flex-col justify-center items-center', styles['svg-pattern'])}>
+                            <p className='text-xl font-bold tracking-tight text-center leading-snug'>A couple of landing page pros<br />added to your team</p>
+                            <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
+                                <button className='bg-secondary-300 left-0 right-0 top-0 bottom-0 absolute z-20 rounded-[11px] flex justify-center items-center'>
+                                    <p className='text-sm font-bold'>Get started</p>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr className="mt-2 mb-4" />
-            <div className="flex items-center flex-col md:flex-row">
-                <div className="flex basis-1/3 justify-start py-2 md:py-0">
-                    {[
-                        {
-                            icon: <IoLogoTwitter />,
-                            link: "https://www.twitter.com/easybase_io"
-                        },
-                        {
-                            icon: <IoLogoLinkedin />,
-                            link: "https://www.linkedin.com/company/easybase"
-                        },
-                        {
-                            icon: <IoLogoGithub />,
-                            link: "https://www.github.com/easybase"
-                        },
-                        {
-                            icon: <SiCrunchbase />,
-                            link: "https://www.crunchbase.com/organization/easybase"
-                        }
-                    ].map(ele => (
-                        <Link key={ele.link} href={ele.link}>
-                            <a className="ml-2.5 md:ml-0 mr-2.5 px-5 py-2 md:px-3.5 md:py-1.5 bg-neutral-100 dark:bg-neutral-900 text-black dark:text-white rounded-md text-2xl md:text-xl opacity-100 hover:opacity-80 transition">{ele.icon}</a>
-                        </Link>
-                    ))}
-                </div>
-                <div className="flex basis-1/3 justify-center py-2 md:py-0">
-                    <p className="text-sm">© 2022 LandingJoy Inc.</p>
-                </div>
-                <div className="flex basis-1/3 justify-end py-2 md:py-0">
-                    {[
-                        {
-                            text: "Sitemap",
-                            link: "/sitemap.xml"
-                        },
-                        {
-                            text: "Terms",
-                            link: "/terms"
-                        },
-                        {
-                            text: "Privacy",
-                            link: "/privacy"
-                        }
-                    ].map(ele => (
-                        <Link key={ele.link} href={ele.link}>
-                            <a className="ml-2.5 md:ml-0 mr-2.5 text-white dark:text-black rounded-md opacity-100 hover:opacity-80 transition text-sm">
-                                <p>{ele.text}</p>
-                            </a>
-                        </Link>
-                    ))}
-                </div>
+            <hr className="my-4" />
+            <div className="flex justify-center items-center flex-col md:flex-row">
+                <p className="text-sm">© 2022 LandingJoy Inc.</p>
             </div>
         </div>
     )

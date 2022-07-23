@@ -9,6 +9,8 @@ import Tooltip from '../Tooltip';
 import { Lottie } from '@alfonmga/react-lottie-light-ts';
 import planetJson from '../../assets/lottie/planet-and-stars.json';
 import { FloatingProps } from '../Tooltip/Floating';
+import { FiMenu } from 'react-icons/fi'
+import { IoCloseCircleOutline } from 'react-icons/io5';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -84,26 +86,37 @@ export default function Header() {
         fontFamily: '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
         fontSize: 22,
         maxHeight: 0,
-        marginLeft: -20,
-        lineHeight: 0
+        marginLeft: isMobile ? 0 : -20,
+        lineHeight: 0,
+        textDecoration: 'none'
+    }
+
+    const mobileNavLogoStyle: React.CSSProperties = {
+        fontFamily: '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+        fontSize: 32,
+        lineHeight: 0,
+        textDecoration: 'none'
     }
 
     return (
         <div className={''}>
             <div className={clsx('flex justify-center w-full', styles['nav-root'], 'top-0')} ref={headerRef}>
                 <div className='flex flex-row w-[1360px] max-w-full md:px-[48px] px-6'>
-                    <div className='flex basis-1/4' />
                     {isMobile ? (
-                        <div className='flex basis-3/4 items-center justify-end'>
-                            {/* <NavPrimaryButton text="Log In" className='!w-[100px] !mr-3' /> */}
-                            {/* <IoEllipsisVertical color='#fff' fontSize={"22px"} onClick={_ => setIsMobileMenuOpen(true)} /> */}
-                            <Tooltip {...tooltipProps}>
-                                <DarkModeSwitch {...darkModeSwitchProps} />
-                            </Tooltip>
+                        <div className='flex w-full items-center justify-between'>
+                            <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle} >
+                                Landingjoy
+                            </a>
+                            <span className='flex-center'>
+                                <Tooltip {...tooltipProps}>
+                                    <DarkModeSwitch {...darkModeSwitchProps} />
+                                </Tooltip>
+                                <FiMenu size={24} className="ml-4" onClick={_ => setIsMobileMenuOpen(true)} />
+                            </span>
                         </div>
                     ) : (
                         <>
-                            <nav className='flex-center basis-2/4'>
+                            <nav className='flex-center w-full'>
                                 <ul
                                     itemScope
                                     itemType='https://schema.org/SiteNavigationElement'
@@ -118,7 +131,7 @@ export default function Header() {
                                     <div className='inline-block align-middle mx-1'>
                                         <svg
                                             stroke="currentColor"
-                                            fill="none" 
+                                            fill="none"
                                             strokeWidth="1"
                                             viewBox="0 0 24 24"
                                             strokeLinecap="round"
@@ -126,6 +139,7 @@ export default function Header() {
                                             width="32px"
                                             opacity="0.8"
                                             xmlns="http://www.w3.org/2000/svg"
+                                            className='duration-300'
                                         >
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 5v14"></path>
                                         </svg>
@@ -157,11 +171,42 @@ export default function Header() {
                                     </li>
                                 </ul>
                             </nav>
-                            <div className='flex basis-1/4' />
                         </>
                     )}
                 </div>
             </div>
+            {isMobile &&
+                <nav className={clsx("flex justify-between flex-col py-10 px-10 transition-all duration-300 bg-primary-100 dark:bg-secondary-300", isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none -z-40", styles['mobile-nav'])}>
+                    <IoCloseCircleOutline onClick={_ => setIsMobileMenuOpen(false)} className={clsx(styles['mobile-nav-close'], "mt-11")} fontSize={"2rem"} />
+                    <div className="flex flex-col items-start">
+                        <a href='#' aria-disabled itemProp='url' onClick={_ => setIsMobileMenuOpen(false)} title='Methodology' style={mobileNavLogoStyle} className="mt-5 mb-20">
+                            Landingjoy
+                        </a>
+                        <ul className={clsx(styles["mobile-nav-route"], "tracking-tight")}>
+                            <li>
+                                <a href='#methodology' onClick={_ => setIsMobileMenuOpen(false)}>
+                                    Methodology
+                                </a>
+                            </li>
+                            <li>
+                                <a href='#plans' onClick={_ => setIsMobileMenuOpen(false)}>
+                                    Plans
+                                </a>
+                            </li>
+                            <li>
+                                <a href='#faqs' onClick={_ => setIsMobileMenuOpen(false)}>
+                                    FAQs
+                                </a>
+                            </li>
+                            <li>
+                                <a href='#contact-us' onClick={_ => setIsMobileMenuOpen(false)}>
+                                    Contact us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            }
         </div>
     );
 }

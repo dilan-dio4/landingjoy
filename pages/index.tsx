@@ -195,7 +195,9 @@ const Home: NextPage = () => {
                     </Container>
                     <Container id="faqs">
                         <Layout header={"FAQs"}>
-                            <FAQs />
+                            <WithSingleLine rotation={20} top={-170} left={-40} right={-20}>
+                                <FAQs />
+                            </WithSingleLine>
                         </Layout>
                     </Container>
                     <Container className='bg-black text-white'>

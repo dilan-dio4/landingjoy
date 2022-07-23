@@ -63,9 +63,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background: #fff;
     overflow: touch;
-    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
 }
 
 .mobile-nav-close {
@@ -73,16 +71,8 @@
     position: fixed;
     top: 0px;
     right: 19px;
-    opacity: .4;
+    opacity: .8;
     transition: opacity .3s;
-    z-index: 2;
-}
-
-.mobile-nav-system-status {
-    cursor: pointer;
-    position: fixed;
-    bottom: 0px;
-    right: 19px;
     z-index: 2;
 }
 

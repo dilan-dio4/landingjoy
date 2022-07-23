@@ -69,7 +69,7 @@ export default function Footer() {
                         <div className={clsx('z-10 absolute-center m-0.5 rounded-lg flex-col flex-center', styles['svg-pattern'])}>
                             <p className='text-xl font-bold tracking-tight text-center leading-snug'>A couple of landing page pros<br />added to your team</p>
                             <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
-                                <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] flex-center'>
+                                <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] w-full'>
                                     <p className='text-sm font-bold'>Get started</p>
                                 </button>
                             </div>

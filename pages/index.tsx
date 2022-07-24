@@ -134,9 +134,6 @@ const Home: NextPage = () => {
                         <Texture />
                         <Texture />
                         <Texture />
-                        <Texture />
-                        <Texture />
-                        <Texture />
                     </div>
                     <Bee />
                     <Container className={clsx('h-[calc(100vh+50px)]')}>
@@ -183,8 +180,8 @@ const Home: NextPage = () => {
                         <HeroDrawings />
                     </Container>
                     <Container id='methodology'>
-                        <Layout header={dict.section1.header}>
-                            <div className='flex mt-14 flex-col sm:flex-row'>
+                        <Layout header={dict.section1.header} className="mt-14">
+                            <div className='flex flex-col sm:flex-row'>
                                 {[
                                     {
                                         Icon: (props: IconBaseProps) => <IoSync {...props} />,

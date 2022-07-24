@@ -1,5 +1,3 @@
-// type IDict = string | ((...strings: string[]) => string) | { [key: string]: IDict };
-
 import Link from 'next/link';
 import { RiMoneyDollarCircleLine, RiTimeLine, RiEmotion2Line } from 'react-icons/ri';
 import type { IconBaseProps } from 'react-icons';
@@ -18,20 +16,22 @@ const dict = {
     },
 
     section1: {
-        // header: "The weight of converting, lifted off your shoulders",
-        header: "A SaaS landing page subscription that'll convert quickly",
+        header: `A SaaS landing page subscription that\nconverts quickly`,
         triad: [
             {
-                title: 'Totally async',
-                description: 'We deliver products directly to you',
+                title: 'We build async',
+                // description: 'Deliverables are concurrently directly to you',
+                // description: 'While you\'re building your SaaS, we\'ll be works on pages concurrently',
+                // description: 'Ship quickly, while building your SaaS as',
+                description: 'Ship quickly – while you\'re growing your SaaS, we\'re building concurrently',
             },
             {
                 title: 'Real-time updates',
-                description: 'Our dev environment is accessible to you at all points of the process',
+                description: 'Progress – our development environment is made accessible to you around-the-clock',
             },
             {
                 title: '100% ownership',
-                description: 'All design, assets, and code are completely owned by you',
+                description: 'Control – all design, assets, and code are completely owned by you',
             },
         ],
     },
@@ -40,8 +40,9 @@ const dict = {
         header1: <>So&#8230; what&apos;s the catch?</>,
         description1: (
             <>
-                We tend to only work with <em>ideal</em> SaaS companies. This is because we have limited time and like to keep a tight, trustworthy team. This
-                allows us to be respectful to yourself and other potential clients while delivering the highest quality of work.
+                We tend to work with <em>ideal</em> SaaS companies. This is because time is scarce and we chose to keep a tight, trustworthy team.
+                To be respectful to yourself and other potential clients while delivering the highest quality of work, Landingjoy has certain
+                characteristics that we look for in potential partners.
                 <br />
                 <br />
                 Consider this a long term relationship.
@@ -64,6 +65,8 @@ const dict = {
             <>
                 1. &nbsp;&nbsp;Has a platform that we believe in
                 <br />
+                1. &nbsp;&nbsp;Notable growth relative to size
+                <br />
                 2. &nbsp;&nbsp;Has a team that we mesh with
                 <br />
                 3. &nbsp;&nbsp;Is excited to scale their growth
@@ -72,7 +75,7 @@ const dict = {
         description2Subheader: (
             <>
                 To find out if your SaaS is a good fit,{' '}
-                <Link href='asdf'>
+                <Link href='/book/3'>
                     <a>book a free strategy call</a>
                 </Link>
                 .
@@ -151,9 +154,12 @@ const dict = {
             summary: 'What technologies do you use?',
             content: (
                 <>
-                    Every project has a different set of requirements. Those requirements distaste the particular technology stack we opt for. Whether it be
-                    based on the tools that a team is already familiar with, or is aiming to use, the stack that is choosen will be up to the highest web
-                    standards now, and in the future. That being said our typical tech stack looks as follows:
+                    Each project has a different set of requirements. Those requirements dictate the particular technology stack that we opt for. Whether it be
+                    based on the tools that a team is already familiar with, or is aiming to use, the stack that is assembled will be up to the highest web
+                    standards.
+                    <br />
+                    <br />
+                    That being said, our typical tech stack is as follows:
                     <br />
                     <br />
                     &#8226; &nbsp;&nbsp;React with Next.js
@@ -165,6 +171,8 @@ const dict = {
                     &#8226; &nbsp;&nbsp;Anime.js
                     <br />
                     &#8226; &nbsp;&nbsp;Lottie
+                    <br />
+                    &#8226; &nbsp;&nbsp;Vercel/Netlify
                 </>
             ),
         },
@@ -172,13 +180,13 @@ const dict = {
             summary: 'How long does it take?',
             content: (
                 <>
-                    There is a wide array of factors that go into the deliver time of our pages. For us to be confident in the direction of the project that we
+                    There is a wide array of factors that determine the delivery time of our pages. For us to be confident in the direction of the projects we
                     take, we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
                     <br />
                     <br />
-                    That being said, we like to move fast. This allows us to keep the service cost-effective and gives the time to iterate if needed. So to use
-                    to go from zero to jaw-dropping, a month at the very least needs to be spent on the initial page. Once the design principles and
-                    infrastructure from the first page is completely, subsequent pages can be delivered relatively quickly.
+                    That being said, we like to move <em>fast</em> in order to be cost-effective and have the time to iterate. So, to go from zero to <em>jaw-dropping</em>, a month 
+                    and a half needs to be spent on the initial page at the very least. Once the design principles and
+                    infrastructure from the first page is completed, subsequent pages can be delivered much quicker.
                 </>
             ),
         },
@@ -190,11 +198,11 @@ const dict = {
                     the to-dos of the day.
                     <br />
                     <br />
-                    Communication can be done with whatever platform your team is using (e.g. Slack, discord, email, etc.). We typically aim to have a formal
+                    Communication can be done through whatever platform your team is comfortable with (e.g. Slack, discord, email, etc.). We typically aim to have a formal
                     meeting (Zoom, Google Meet, Teams) at least once a week for ~30 minutes.
                     <br />
                     <br />
-                    Finally, we will provide you with a private development URL for 24-hour access to the pages as they are integrated in real-time.
+                    Finally, you will be given a private development URL for 24-hour access to the pages as they are integrated in real-time.
                 </>
             ),
         },
@@ -207,10 +215,6 @@ const dict = {
                     <br />
                     During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages
                     is based on your discretion.
-                    <br />
-                    <br />
-                    Note that the initial landing page take will take the longest, since it&apos;s at this stage where we are manipulate and trying different design
-                    principles. After that, subsequent pages can be delivered much quicker.
                 </>
             ),
         },
@@ -242,8 +246,8 @@ const dict = {
             summary: 'What analytics tools do you work with?',
             content: (
                 <>
-                    Landing pages are powerful, not only because they are at the top of the user journey funnel in your SasS, but it also can teach us a lot
-                    about your potential users with analytics on-page activity tracking.
+                    Landing pages are powerful, not only because they are at the top of the user-journey, but it also can teach a lot
+                    about your potential users with analytics and on-page activity tracking.
                     <br />
                     <br />
                     The analytics platform that we most often work with are:
@@ -292,9 +296,9 @@ const dict = {
         block: {
             content: (
                 <>
-                    A couple of landing page pros
+                    The highest quality landing pages to
                     <br />
-                    added to your team
+                    triple SaaS conversion rates
                 </>
             ),
             cta: {

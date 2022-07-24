@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import colors from '../../utils/colors'
 
 interface ITags {
     description: string;
@@ -35,6 +36,7 @@ export default function Tags({ title, ogImage, description }: ITags) {
             <meta name="twitter:description" content={truncatedDescription} />
             <meta name="twitter:image" content={socialImage} />
             <meta name="color-scheme" content="dark light" />
+            <meta name='theme-color' content={colors.primary[100]} />
 
             <link rel="icon" type="image/svg+xml" href={`${rootUrl}/favicon/favicon.svg`} />
             <link rel="icon" type="image/png" href={`${rootUrl}/favicon/favicon.png`} />

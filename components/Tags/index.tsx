@@ -35,7 +35,7 @@ export default function Tags({ title, ogImage, description }: ITags) {
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={truncatedDescription} />
             <meta name="twitter:image" content={socialImage} />
-            <meta name="color-scheme" content="dark light" />
+            {/* <meta name="color-scheme" content="dark light" /> Makes scroll bars dark */}
             <meta name='theme-color' content={colors.primary[100]} />
 
             <link rel="icon" type="image/svg+xml" href={`${rootUrl}/favicon/favicon.svg`} />

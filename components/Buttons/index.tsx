@@ -20,9 +20,9 @@ function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon,
 
     if (href) {
         return (
-            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && "w-full")}>
+            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && 'w-full')}>
                 <Link href={href}>
-                    <a className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' type='text' onClick={onClick} style={style}>
+                    <a className={clsx(...allClassnames, className, fullWidth && 'w-full')} role='button' type='text' onClick={onClick} style={style}>
                         <p className={clsx('text-lg', ROOT_BUTTON_STYLE)}>{text}</p>
                         {endIcon || ''}
                     </a>
@@ -31,8 +31,8 @@ function _buttonGenerator(rootClassname: string, { href, onClick, text, endIcon,
         );
     } else {
         return (
-            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && "w-full")}>
-                <button className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' onClick={onClick} style={style}>
+            <div className={clsx(styles['button-outline'], 'mt-10 z-10', fullWidth && 'w-full')}>
+                <button className={clsx(...allClassnames, className, fullWidth && 'w-full')} role='button' onClick={onClick} style={style}>
                     <p className={clsx('text-lg', ROOT_BUTTON_STYLE)}>{text}</p>
                     {endIcon || ''}
                 </button>
@@ -46,9 +46,9 @@ function _smallButtonGenerator(rootClassname: string, { href, onClick, text, end
 
     if (href) {
         return (
-            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && "w-full")}>
+            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && 'w-full')}>
                 <Link href={href}>
-                    <a className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' type='text' onClick={onClick} style={style}>
+                    <a className={clsx(...allClassnames, className, fullWidth && 'w-full')} role='button' type='text' onClick={onClick} style={style}>
                         <p className={clsx('text-sm', ROOT_BUTTON_STYLE)}>{text}</p>
                         {endIcon || ''}
                     </a>
@@ -57,8 +57,8 @@ function _smallButtonGenerator(rootClassname: string, { href, onClick, text, end
         );
     } else {
         return (
-            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && "w-full")}>
-                <button className={clsx(...allClassnames, className, fullWidth && "w-full")} role='button' onClick={onClick} style={style}>
+            <div className={clsx(styles['button-outline-sm'], 'z-10', fullWidth && 'w-full')}>
+                <button className={clsx(...allClassnames, className, fullWidth && 'w-full')} role='button' onClick={onClick} style={style}>
                     <p className={clsx('text-sm', ROOT_BUTTON_STYLE)}>{text}</p>
                     {endIcon || ''}
                 </button>

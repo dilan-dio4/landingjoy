@@ -7,5 +7,9 @@ interface IContainer extends HTMLProps<HTMLDivElement> {
 }
 
 export default function Container({ className, children, ...props }: IContainer) {
-    return <div className={clsx(className, 'relative w-[100vw] max-w-[100vw] inline-block')} {...props}>{children}</div>;
+    return (
+        <div className={clsx(className, 'relative w-[100vw] max-w-[100vw] inline-block')} {...props}>
+            {children}
+        </div>
+    );
 }

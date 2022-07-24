@@ -9,7 +9,7 @@ import Tooltip from '../Tooltip';
 import { Lottie } from '@alfonmga/react-lottie-light-ts';
 import planetJson from '../../assets/lottie/planet-and-stars.json';
 import { FloatingProps } from '../Tooltip/Floating';
-import { FiMenu } from 'react-icons/fi'
+import { FiMenu } from 'react-icons/fi';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 
 export default function Header() {
@@ -83,20 +83,22 @@ export default function Header() {
     };
 
     const logoStyle: React.CSSProperties = {
-        fontFamily: '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+        fontFamily:
+            '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
         fontSize: 22,
         maxHeight: 0,
         marginLeft: isMobile ? 0 : -20,
         lineHeight: 0,
-        textDecoration: 'none'
-    }
+        textDecoration: 'none',
+    };
 
     const mobileNavLogoStyle: React.CSSProperties = {
-        fontFamily: '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+        fontFamily:
+            '"Lobster Two", "Ubuntu", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
         fontSize: 32,
         lineHeight: 0,
-        textDecoration: 'none'
-    }
+        textDecoration: 'none',
+    };
 
     return (
         <div className={''}>
@@ -104,14 +106,14 @@ export default function Header() {
                 <div className='flex flex-row w-[1360px] max-w-full md:px-[48px] px-6'>
                     {isMobile ? (
                         <div className='flex w-full items-center justify-between'>
-                            <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle} >
+                            <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
                                 Landingjoy
                             </a>
                             <span className='flex-center'>
                                 <Tooltip {...tooltipProps}>
                                     <DarkModeSwitch {...darkModeSwitchProps} />
                                 </Tooltip>
-                                <FiMenu size={24} className="ml-4" onClick={_ => setIsMobileMenuOpen(true)} />
+                                <FiMenu size={24} className='ml-4' onClick={(_) => setIsMobileMenuOpen(true)} />
                             </span>
                         </div>
                     ) : (
@@ -124,24 +126,25 @@ export default function Header() {
                                     className={clsx('list-none inline-block whitespace-nowrap', styles['nav-ul'])}
                                 >
                                     <li itemProp='name' role='menuitem' className=''>
-                                        <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle} >
+                                        <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
                                             Landingjoy
                                         </a>
                                     </li>
                                     <div className='inline-block align-middle mx-1'>
                                         <svg
-                                            stroke="currentColor"
-                                            fill="none"
-                                            strokeWidth="1"
-                                            viewBox="0 0 24 24"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            width="32px"
-                                            opacity="0.8"
-                                            xmlns="http://www.w3.org/2000/svg"
+                                            stroke='currentColor'
+                                            fill='none'
+                                            strokeWidth='1'
+                                            viewBox='0 0 24 24'
+                                            strokeLinecap='round'
+                                            strokeLinejoin='round'
+                                            width='32px'
+                                            opacity='0.8'
+                                            xmlns='http://www.w3.org/2000/svg'
                                             className='duration-300'
                                         >
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 5v14"></path>
+                                            <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+                                            <path d='M12 5v14'></path>
                                         </svg>
                                     </div>
                                     <li itemProp='name' role='menuitem'>
@@ -175,38 +178,52 @@ export default function Header() {
                     )}
                 </div>
             </div>
-            {isMobile &&
-                <nav className={clsx("flex justify-between flex-col py-10 px-10 transition-all duration-300 bg-primary-100 dark:bg-secondary-300", isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none -z-40", styles['mobile-nav'])}>
-                    <IoCloseCircleOutline onClick={_ => setIsMobileMenuOpen(false)} className={clsx(styles['mobile-nav-close'], "mt-11")} fontSize={"2rem"} />
-                    <div className="flex flex-col items-start">
-                        <a href='#' aria-disabled itemProp='url' onClick={_ => setIsMobileMenuOpen(false)} title='Methodology' style={mobileNavLogoStyle} className="mt-5 mb-20">
+            {isMobile && (
+                <nav
+                    className={clsx(
+                        'flex justify-between flex-col py-10 px-10 transition-all duration-300 bg-primary-100 dark:bg-secondary-300',
+                        isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none -z-40',
+                        styles['mobile-nav'],
+                    )}
+                >
+                    <IoCloseCircleOutline onClick={(_) => setIsMobileMenuOpen(false)} className={clsx(styles['mobile-nav-close'], 'mt-11')} fontSize={'2rem'} />
+                    <div className='flex flex-col items-start'>
+                        <a
+                            href='#'
+                            aria-disabled
+                            itemProp='url'
+                            onClick={(_) => setIsMobileMenuOpen(false)}
+                            title='Methodology'
+                            style={mobileNavLogoStyle}
+                            className='mt-5 mb-20'
+                        >
                             Landingjoy
                         </a>
-                        <ul className={clsx(styles["mobile-nav-route"], "tracking-tight")}>
+                        <ul className={clsx(styles['mobile-nav-route'], 'tracking-tight')}>
                             <li>
-                                <a href='#methodology' onClick={_ => setIsMobileMenuOpen(false)}>
+                                <a href='#methodology' onClick={(_) => setIsMobileMenuOpen(false)}>
                                     Methodology
                                 </a>
                             </li>
                             <li>
-                                <a href='#plans' onClick={_ => setIsMobileMenuOpen(false)}>
+                                <a href='#plans' onClick={(_) => setIsMobileMenuOpen(false)}>
                                     Plans
                                 </a>
                             </li>
                             <li>
-                                <a href='#faqs' onClick={_ => setIsMobileMenuOpen(false)}>
+                                <a href='#faqs' onClick={(_) => setIsMobileMenuOpen(false)}>
                                     FAQs
                                 </a>
                             </li>
                             <li>
-                                <a href='#contact-us' onClick={_ => setIsMobileMenuOpen(false)}>
+                                <a href='#contact-us' onClick={(_) => setIsMobileMenuOpen(false)}>
                                     Contact us
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
-            }
+            )}
         </div>
     );
 }

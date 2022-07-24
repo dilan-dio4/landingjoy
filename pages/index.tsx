@@ -22,7 +22,7 @@ import WithSingleLine from '../components/WithSingleLine';
 import Texture from '../components/Texture';
 import FAQs from '../components/FAQs';
 import Footer from '../components/Footer';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
@@ -117,7 +117,7 @@ const Home: NextPage = () => {
                                     <h2 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5')}>{dict.hero.subheader}</h2>
                                     <h2 className={heroTextShadowRoot}>{dict.hero.subheader}</h2>
                                 </div>
-                                <HeroPrimaryButton onClick={_ => router.push("#plans")} text='See plans' className='min-w-[250px] px-[48px] py-[20px]' />
+                                <HeroPrimaryButton onClick={(_) => router.push('#plans')} text='See plans' className='min-w-[250px] px-[48px] py-[20px]' />
                                 <div className='relative mt-8 ml-1'>
                                     {isDarkMode ? (
                                         <>
@@ -147,7 +147,7 @@ const Home: NextPage = () => {
                         </div>
                         <HeroDrawings />
                     </Container>
-                    <Container id="methodology">
+                    <Container id='methodology'>
                         <Layout header={dict.section1.header}>
                             <div className='flex mt-14 flex-col sm:flex-row'>
                                 {[
@@ -187,14 +187,14 @@ const Home: NextPage = () => {
                     </Container>
 
                     <Container id='plans'>
-                        <Layout header={"Plans"}>
+                        <Layout header={'Plans'}>
                             <WithSingleLine rotation={-15} top={-170} left={-40} right={-20}>
                                 <Pricing />
                             </WithSingleLine>
                         </Layout>
                     </Container>
-                    <Container id="faqs">
-                        <Layout header={"FAQs"}>
+                    <Container id='faqs'>
+                        <Layout header={'FAQs'}>
                             <WithSingleLine rotation={15} top={-280} left={-30} right={-50}>
                                 <FAQs />
                             </WithSingleLine>

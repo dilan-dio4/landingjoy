@@ -9,7 +9,10 @@ export default function FAQs() {
             {dict.FAQs.map((ele) => (
                 <details
                     key={ele.summary}
-                    className={clsx(styles['faqs-details'], 'bg-primary-100 dark:bg-neutral-900 transition-colors duration-300 relative border-[1px] border-solid border-primary-300 dark:border-secondary-300 max-w-[820px]')}
+                    className={clsx(
+                        styles['faqs-details'],
+                        'bg-primary-100 dark:bg-neutral-900 transition-colors duration-300 relative border-[1px] border-solid border-primary-300 dark:border-secondary-300 max-w-[820px]',
+                    )}
                 >
                     <summary className={clsx(styles['faqs-summary'], 'text-md md:text-xl leading-snug')}>
                         {ele.summary}

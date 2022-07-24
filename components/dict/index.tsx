@@ -139,10 +139,9 @@ const dict = {
             summary: 'What technologies do you use?',
             content: (
                 <>
-                    Every project has a different set of requirements.
-                    Those requirements distaste the particular technology stack we opt for.
-                    Whether it be based on the tools that a team is already familiar with, or is aiming to use, the stack that is choosen will be up to the highest web standards now, and in the future.
-                    That being said our typical tech stack looks as follows:
+                    Every project has a different set of requirements. Those requirements distaste the particular technology stack we opt for. Whether it be
+                    based on the tools that a team is already familiar with, or is aiming to use, the stack that is choosen will be up to the highest web
+                    standards now, and in the future. That being said our typical tech stack looks as follows:
                     <br />
                     <br />
                     &#8226; &nbsp;&nbsp;React with Next.js
@@ -158,71 +157,81 @@ const dict = {
             ),
         },
         {
-            summary: "How long does it take?",
-            content: <>
-                There is a wide array of factors that go into the deliver time of our pages. 
-                For us to be confident in the direction of the project that we take, we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
-                <br />
-                <br />
-                That being said, we like to move fast. This allows us to keep the service cost-effective and gives the time to iterate if needed. So to use to go from zero to jaw-dropping, a month at the very least needs to be spent on the initial page.
-                Once the design principles and infrastructure from the first page is completely, subsequent pages can be delivered relatively quickly.
-            </>
+            summary: 'How long does it take?',
+            content: (
+                <>
+                    There is a wide array of factors that go into the deliver time of our pages. For us to be confident in the direction of the project that we
+                    take, we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
+                    <br />
+                    <br />
+                    That being said, we like to move fast. This allows us to keep the service cost-effective and gives the time to iterate if needed. So to use
+                    to go from zero to jaw-dropping, a month at the very least needs to be spent on the initial page. Once the design principles and
+                    infrastructure from the first page is completely, subsequent pages can be delivered relatively quickly.
+                </>
+            ),
         },
         {
-            summary: "How will we coordinate between teams?",
-            content: (<>
-                Task management is performed with Trello, which is updated throughout the day.
-                This is where you will be able to observe and collaborate on the to-dos of the day.
-                <br />
-                <br />
-                Communication can be done with whatever platform your team is using (e.g. Slack, discord, email, etc.).
-                We typically aim to have a formal meeting (Zoom, Google Meet, Teams) at least once a week for ~30 minutes.
-                <br />
-                <br />
-                Finally, we will provide you with a private development URL for 24-hour access to the pages as they are integrated in real-time.
-            </>)
+            summary: 'How will we coordinate between teams?',
+            content: (
+                <>
+                    Task management is performed with Trello, which is updated throughout the day. This is where you will be able to observe and collaborate on
+                    the to-dos of the day.
+                    <br />
+                    <br />
+                    Communication can be done with whatever platform your team is using (e.g. Slack, discord, email, etc.). We typically aim to have a formal
+                    meeting (Zoom, Google Meet, Teams) at least once a week for ~30 minutes.
+                    <br />
+                    <br />
+                    Finally, we will provide you with a private development URL for 24-hour access to the pages as they are integrated in real-time.
+                </>
+            ),
         },
         {
-            summary: "How many pages will I get?",
-            content: <>
-                As many as you need!
-                <br />
-                <br />
-                During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages is based on your discretion.
-                <br />
-                <br />
-                Note that the initial landing page take will take the longest, since it's at this stage where we are manipulate and trying different design principles. After that, subsequent pages can be delivered much quicker.
-            </>
+            summary: 'How many pages will I get?',
+            content: (
+                <>
+                    As many as you need!
+                    <br />
+                    <br />
+                    During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages
+                    is based on your discretion.
+                    <br />
+                    <br />
+                    Note that the initial landing page take will take the longest, since it's at this stage where we are manipulate and trying different design
+                    principles. After that, subsequent pages can be delivered much quicker.
+                </>
+            ),
         },
         {
-            summary: "Do I get to keep the code?",
+            summary: 'Do I get to keep the code?',
             content: (
                 <>
                     <b>Yes!</b>
                     <br />
                     <br />
-                    During the development process, all code is accessible any point via a private GitHub repo and is 100% owned by you. Upon the completion of your pages, we will
-                    transfer the project and relevant dependencies over to your team.
+                    During the development process, all code is accessible any point via a private GitHub repo and is 100% owned by you. Upon the completion of
+                    your pages, we will transfer the project and relevant dependencies over to your team.
                 </>
-            )
+            ),
         },
         {
-            summary: "Do I get to keep the assets?",
+            summary: 'Do I get to keep the assets?',
             content: (
                 <>
                     <b>Yes!</b>
                     <br />
                     <br />
-                    Any visual assets included in your project are either created on-demand or licensed under permissible conditions
-                    with commercial application. An example of such license is the MIT License.
+                    Any visual assets included in your project are either created on-demand or licensed under permissible conditions with commercial
+                    application. An example of such license is the MIT License.
                 </>
-            )
+            ),
         },
         {
-            summary: "What analytics tools do you work with?",
+            summary: 'What analytics tools do you work with?',
             content: (
                 <>
-                    Landing pages are powerful, not only because they are at the top of the user journey funnel in your SasS, but it also can teach us a lot about your potential users with analytics on-page activity tracking.
+                    Landing pages are powerful, not only because they are at the top of the user journey funnel in your SasS, but it also can teach us a lot
+                    about your potential users with analytics on-page activity tracking.
                     <br />
                     <br />
                     The analytics platform that we most often work with are:
@@ -243,11 +252,14 @@ const dict = {
                     &#8226; &nbsp;&nbsp;<em>... and more</em>
                     <br />
                     <br />
-                    We will also setup your front-end to leverage open-source A/B testing framework <Link href="https://www.growthbook.io/"><a>Growthbook</a></Link>.
-                    This is a tool we work very closely with to help us iterate and continuously improve the conversation rate of your website.
+                    We will also setup your front-end to leverage open-source A/B testing framework{' '}
+                    <Link href='https://www.growthbook.io/'>
+                        <a>Growthbook</a>
+                    </Link>
+                    . This is a tool we work very closely with to help us iterate and continuously improve the conversation rate of your website.
                 </>
-            )
-        }
+            ),
+        },
     ],
 };
 

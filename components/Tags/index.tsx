@@ -9,7 +9,7 @@ interface ITags {
 
 export default function Tags({ title, ogImage, description }: ITags) {
     const router = useRouter();
-    const rootUrl = process.env.NODE_ENV === 'development' ? "http://localhost:3003" : "https://landingjoy.com";
+    const rootUrl = process.env.NODE_ENV === 'development' ? "http://localhost:3000" : "https://landingjoy.com";
     const truncatedDescription = description.substring(0, 155)
     let socialImage = `${rootUrl}/og.png`;
     if (ogImage) {

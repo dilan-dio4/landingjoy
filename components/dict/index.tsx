@@ -209,7 +209,7 @@ const dict = {
                     is based on your discretion.
                     <br />
                     <br />
-                    Note that the initial landing page take will take the longest, since it's at this stage where we are manipulate and trying different design
+                    Note that the initial landing page take will take the longest, since it&apos;s at this stage where we are manipulate and trying different design
                     principles. After that, subsequent pages can be delivered much quicker.
                 </>
             ),

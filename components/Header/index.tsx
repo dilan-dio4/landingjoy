@@ -45,7 +45,11 @@ export default function Header() {
         };
         window.addEventListener('scroll', onScroll);
 
-        const showDarkModeTooltipTimeout = setTimeout(() => setIsDarkModeTooltipOpen(true), 2100);
+        const showDarkModeTooltipTimeout = setTimeout(() => {
+            if (!window.localStorage.getItem('did-dark-mode')) {
+                setIsDarkModeTooltipOpen(true);
+            }
+        }, 2100);
 
         return () => {
             document.removeEventListener('scroll', onScroll);
@@ -78,6 +82,7 @@ export default function Header() {
     const darkModeSwitchProps = {
         checked: isDarkMode,
         onChange: () => {
+            window.localStorage.setItem('did-dark-mode', 'true');
             setIsDarkMode((prev) => !prev);
             setIsDarkModeTooltipOpen(false);
         },

@@ -36,12 +36,8 @@ export default function Tags({ title, ogImage, description }: ITags) {
             <meta name="twitter:image" content={socialImage} />
             <meta name="color-scheme" content="dark light" />
 
-            <link rel="manifest" href={`${rootUrl}/favicon/site.webmanifest`} />
-            <link rel="apple-touch-icon" sizes="180x180" href={`${rootUrl}/favicon/apple-touch-icon.png`} />
-            {/* <link rel="icon" type="image/png" sizes="16x16" href={`${rootUrl}/favicon/favicon-16x16.png`} />
-            <link rel="icon" type="image/png" sizes="32x32" href={`${rootUrl}/favicon/favicon-32x32.png`} /> */}
-            <link rel="shortcut icon" href={`${rootUrl}/favicon.ico`} type="image/x-icon" />
-            <meta name="msapplication-config" content={`${rootUrl}/favicon/browserconfig.xml`} />
+            <link rel="icon" type="image/svg+xml" href={`${rootUrl}/favicon/favicon.svg`} />
+            <link rel="icon" type="image/png" href={`${rootUrl}/favicon/favicon.png`} />
             <meta name="application-name" content="Landingjoy" />
         </Head>
     )

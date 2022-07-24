@@ -14,9 +14,11 @@ function SinglePriceCard(props: typeof dict.pricing['monthly' | 'review']) {
                 <h4 className='text-2xl mr-[4px] font-bold'>{props.cost}</h4>
                 <small className='font-thin text-lg'>{props.costSmall}</small>
             </span>
-            <SmallPrimaryButton text={props.buttonOne} className='min-w-[150px] px-[24px] py-[10px]' />
-            <Link href='asdf'>
-                <a className='block mt-5 text-sm underline tracking-tight italic hover:text-neutral-600'>{props.buttonTwo}</a>
+            <Link href={props.buttonOne.link}>
+                <SmallPrimaryButton text={props.buttonOne.text} className='min-w-[150px] px-[24px] py-[10px]' />
+            </Link>
+            <Link href={props.buttonTwo.link}>
+                <a className='block mt-5 text-sm underline tracking-tight italic hover:text-neutral-600'>{props.buttonTwo.text}</a>
             </Link>
             {props.included
                 .sort((a, b) => b.length - a.length)

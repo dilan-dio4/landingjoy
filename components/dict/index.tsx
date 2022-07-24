@@ -14,7 +14,7 @@ const dict = {
             </>
         ),
         subheader: 'Convert & retain your users with pages that make lasting impressions',
-        tag: <>Book a strategy call</>,
+        tag: <>Book a strategy call &#8594;</>,
     },
 
     section1: {
@@ -83,8 +83,14 @@ const dict = {
     },
     pricing: {
         monthly: {
-            buttonOne: 'Get in touch',
-            buttonTwo: 'Read the FAQs',
+            buttonOne: {
+                text: "Get started",
+                link: "/book/1"
+            },
+            buttonTwo: {
+                text: "Read the FAQs",
+                link: "/#faqs"
+            },
             header: 'Full-stack design + development',
             subheader: 'Pause or cancel at any time',
             cost: '$8,500',
@@ -107,8 +113,14 @@ const dict = {
             ],
         },
         review: {
-            buttonOne: 'Get started',
-            buttonTwo: 'Book a call',
+            buttonOne: {
+                text: "Get started",
+                link: "/book/2"
+            },
+            buttonTwo: {
+                text: "Read the FAQs",
+                link: "/#faqs"
+            },
             header: 'Review my landing pages',
             subheader: 'One-time purchase',
             cost: '$1,000',

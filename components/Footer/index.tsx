@@ -98,7 +98,7 @@ export default function Footer() {
                                 )}
                             </fieldset>
                             <input name='_gotcha' className='hidden' id='message-gotcha' />
-                            <input name='type' className='hidden' value='footer-contact' onChange={() => {} /** This to avoid warning */} id='message-type' />
+                            <input name='type' className='hidden' value='footer-contact' onChange={() => { } /** This to avoid warning */} id='message-type' />
                         </form>
                     </div>
                 </div>
@@ -111,9 +111,11 @@ export default function Footer() {
                                 added to your team
                             </p>
                             <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
-                                <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] w-full'>
-                                    <p className='text-sm font-bold'>Get started</p>
-                                </button>
+                                <Link href="/book/3">
+                                    <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] w-full'>
+                                        <p className='text-sm font-bold'>Get started</p>
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

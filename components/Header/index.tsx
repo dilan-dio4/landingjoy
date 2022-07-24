@@ -11,6 +11,8 @@ import planetJson from '../../assets/lottie/planet-and-stars.json';
 import { FloatingProps } from '../Tooltip/Floating';
 import { FiMenu } from 'react-icons/fi';
 import { IoCloseCircleOutline } from 'react-icons/io5';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -18,6 +20,9 @@ export default function Header() {
     const { isDarkMode, setIsDarkMode } = useContext(UiContext);
     const headerRef = useRef<HTMLDivElement>(null);
     const { isMobile } = useDeviceSize();
+    const { pathname } = useRouter();
+
+    const isIndexPage = pathname === "/" || pathname.startsWith("/#");
 
     const getScrollY = function () {
         return (window.pageYOffset || window.document.documentElement.scrollTop) - (window.document.documentElement.clientTop || 0);
@@ -106,9 +111,11 @@ export default function Header() {
                 <div className='flex flex-row w-[1360px] max-w-full md:px-[48px] px-6'>
                     {isMobile ? (
                         <div className='flex w-full items-center justify-between'>
-                            <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
-                                Landingjoy
-                            </a>
+                            <Link href='/#'>
+                                <a aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
+                                    Landingjoy
+                                </a>
+                            </Link>
                             <span className='flex-center'>
                                 <Tooltip {...tooltipProps}>
                                     <DarkModeSwitch {...darkModeSwitchProps} />
@@ -126,9 +133,11 @@ export default function Header() {
                                     className={clsx('list-none inline-block whitespace-nowrap', styles['nav-ul'])}
                                 >
                                     <li itemProp='name' role='menuitem' className=''>
-                                        <a href='#' aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
-                                            Landingjoy
-                                        </a>
+                                        <Link href='/#'>
+                                            <a aria-disabled itemProp='url' title='Landingjoy' style={logoStyle}>
+                                                Landingjoy
+                                            </a>
+                                        </Link>
                                     </li>
                                     <div className='inline-block align-middle mx-1'>
                                         <svg
@@ -148,24 +157,32 @@ export default function Header() {
                                         </svg>
                                     </div>
                                     <li itemProp='name' role='menuitem'>
-                                        <a href='#methodology' itemProp='url' title='Methodology'>
-                                            Methodology
-                                        </a>
+                                        <Link href='/#methodology'>
+                                            <a itemProp='url' title='Methodology'>
+                                                Methodology
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <a href='#plans' itemProp='url' title='Plans'>
-                                            Plans
-                                        </a>
+                                        <Link href='/#plans'>
+                                            <a itemProp='url' title='Plans'>
+                                                Plans
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <a href='#faqs' itemProp='url' title='FAQs'>
-                                            FAQs
-                                        </a>
+                                        <Link href='/#faqs'>
+                                            <a itemProp='url' title='FAQs'>
+                                                FAQs
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <a href='#contact-us' itemProp='url' title='Contact us'>
-                                            Contact us
-                                        </a>
+                                        <Link href='/book/3'>
+                                            <a itemProp='url' title='Get started'>
+                                                Get started
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li className='!inline-flex align-bottom'>
                                         <Tooltip {...tooltipProps}>
@@ -188,37 +205,39 @@ export default function Header() {
                 >
                     <IoCloseCircleOutline onClick={(_) => setIsMobileMenuOpen(false)} className={clsx(styles['mobile-nav-close'], 'mt-11')} fontSize={'2rem'} />
                     <div className='flex flex-col items-start'>
-                        <a
-                            href='#'
-                            aria-disabled
-                            itemProp='url'
-                            onClick={(_) => setIsMobileMenuOpen(false)}
-                            title='Methodology'
-                            style={mobileNavLogoStyle}
-                            className='mt-5 mb-20'
-                        >
-                            Landingjoy
-                        </a>
+                        <Link href="/#">
+                            <a
+                                aria-disabled
+                                itemProp='url'
+                                onClick={(_) => setIsMobileMenuOpen(false)}
+                                style={mobileNavLogoStyle}
+                                title='Landingjoy'
+                                className='mt-5 mb-20'
+                            >
+                                Landingjoy
+                            </a>
+                        </Link>
                         <ul className={clsx(styles['mobile-nav-route'], 'tracking-tight')}>
                             <li>
-                                <a href='#methodology' onClick={(_) => setIsMobileMenuOpen(false)}>
-                                    Methodology
-                                </a>
+                                <Link href='/#methodology'>
+                                    <a onClick={(_) => setIsMobileMenuOpen(false)}>
+                                        Methodology
+                                    </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href='#plans' onClick={(_) => setIsMobileMenuOpen(false)}>
-                                    Plans
-                                </a>
+                                <Link href='/#plans'>
+                                    <a onClick={(_) => setIsMobileMenuOpen(false)}>
+                                        Plans
+                                    </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href='#faqs' onClick={(_) => setIsMobileMenuOpen(false)}>
-                                    FAQs
-                                </a>
-                            </li>
-                            <li>
-                                <a href='#contact-us' onClick={(_) => setIsMobileMenuOpen(false)}>
-                                    Contact us
-                                </a>
+                                <Link href='/#faqs'>
+                                    <a onClick={(_) => setIsMobileMenuOpen(false)}>
+                                        FAQs
+                                    </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

@@ -29,52 +29,71 @@ const Home: NextPage = () => {
     const displayNoneTimeoutRect = useRef<NodeJS.Timeout>();
     const router = useRouter();
 
-    useEffect(() => {
-        anime({
-            targets: `#triad-icon-0`,
-            rotate: {
-                value: '1turn',
-            },
-            loop: true,
-            duration: 2000,
-            easing: 'linear',
-        });
-        anime({
-            targets: `#triad-icon-1 path`,
-            loop: true,
-            easing: 'linear',
-            strokeDashoffset: [
-                { value: [anime.setDashoffset, 0], duration: 4500 },
-                { value: [0, anime.setDashoffset], duration: 4500 },
-            ],
-            endDelay: 900,
-            begin: function () {
-                document.querySelector('#triad-icon-1 path')!.setAttribute('stroke', 'currentColor');
-                document.querySelector('#triad-icon-1 path')!.setAttribute('fill', 'none');
-            },
-        });
+    /**
+     * For some reason all of this is necessary for properly
+     * restarting the animations when the hash changes
+     */
+    function runTriadAnimations() {
+        setTimeout(() => {
+            anime({
+                targets: `#triad-icon-0`,
+                rotate: {
+                    value: '1turn',
+                },
+                loop: true,
+                duration: 2000,
+                easing: 'linear',
+            });
+            anime({
+                targets: `#triad-icon-1 path`,
+                loop: true,
+                easing: 'linear',
+                strokeDashoffset: [
+                    { value: [anime.setDashoffset, 0], duration: 4500 },
+                    { value: [0, anime.setDashoffset], duration: 4500 },
+                ],
+                endDelay: 900,
+                begin: function () {
+                    document.querySelector('#triad-icon-1 path')!.setAttribute('stroke', 'currentColor');
+                    document.querySelector('#triad-icon-1 path')!.setAttribute('fill', 'none');
+                },
+            });
 
-        const TEXTURE_DUR = 650;
-        anime({
-            targets: `.dark-texture-panel`,
-            opacity: isDarkMode ? '1' : '0',
-            duration: TEXTURE_DUR,
-            easing: 'easeInOutQuad',
-            begin() {
-                clearTimeout(displayNoneTimeoutRect.current);
-                document
-                    .querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel')
-                    .forEach((ele) => (ele.style.display = 'block'));
-                displayNoneTimeoutRect.current = setTimeout(
-                    () =>
-                        document
-                            .querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel')
-                            .forEach((ele) => (ele.style.display = 'none')),
-                    TEXTURE_DUR,
-                );
-            },
-        });
+            const TEXTURE_DUR = 650;
+            anime({
+                targets: `.dark-texture-panel`,
+                opacity: isDarkMode ? '1' : '0',
+                duration: TEXTURE_DUR,
+                easing: 'easeInOutQuad',
+                begin() {
+                    clearTimeout(displayNoneTimeoutRect.current);
+                    document
+                        .querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel')
+                        .forEach((ele) => (ele.style.display = 'block'));
+                    displayNoneTimeoutRect.current = setTimeout(
+                        () =>
+                            document
+                                .querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel')
+                                .forEach((ele) => (ele.style.display = 'none')),
+                        TEXTURE_DUR,
+                    );
+                },
+            });
+        }, 100)
+
+    }
+
+    useEffect(() => {
+        runTriadAnimations();
     }, [isDarkMode]);
+
+    useEffect(() => {
+        router.events.on("hashChangeStart", runTriadAnimations);
+
+        return () => {
+            router.events.off("hashChangeStart", runTriadAnimations);
+        };
+    }, [router.events])
 
     const heroTextRoot = 'dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0';
     const heroTextShadowRoot = 'absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100';
@@ -124,22 +143,22 @@ const Home: NextPage = () => {
                                             <h3
                                                 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic pointer-events-none')}
                                             >
-                                                {dict.hero.tag} &#8594;
+                                                {dict.hero.tag}
                                             </h3>
                                             <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}>
-                                                <Link href='https://google.com'>
-                                                    <a>{dict.hero.tag} &#8594;</a>
+                                                <Link href='/book/3'>
+                                                    <a>{dict.hero.tag}</a>
                                                 </Link>
                                             </h3>
                                         </>
                                     ) : (
                                         <>
                                             <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}>
-                                                <Link href='https://google.com'>
-                                                    <a>{dict.hero.tag} &#8594;</a>
+                                                <Link href='/book/3'>
+                                                    <a>{dict.hero.tag}</a>
                                                 </Link>
                                             </h3>
-                                            <h3 className={clsx(heroTextShadowRoot, 'text-xs italic pointer-events-none')}>{dict.hero.tag} &#8594;</h3>
+                                            <h3 className={clsx(heroTextShadowRoot, 'text-xs italic pointer-events-none')}>{dict.hero.tag}</h3>
                                         </>
                                     )}
                                 </div>

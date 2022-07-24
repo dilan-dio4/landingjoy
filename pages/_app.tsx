@@ -24,10 +24,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         mixpanel.track('page_view', { url });
     };
 
+    const handleHashChange = (url: string) => {
+        mixpanel.track('hash_change', { url });
+    };
+
     useEffect(() => {
         router.events.on('routeChangeComplete', handleRouteChange);
+        router.events.on("hashChangeStart", handleHashChange);
+
         return () => {
             router.events.off('routeChangeComplete', handleRouteChange);
+            router.events.off("hashChangeStart", handleHashChange);
         };
     }, [router.events]);
 

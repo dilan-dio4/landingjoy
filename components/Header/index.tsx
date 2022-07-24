@@ -160,7 +160,7 @@ export default function Header() {
                                         </a>
                                     </li>
                                     <li itemProp='name' role='menuitem'>
-                                        <a href='#contact-us' itemProp='url' title='Contact Us'>
+                                        <a href='#contact-us' itemProp='url' title='Contact us'>
                                             Contact us
                                         </a>
                                     </li>

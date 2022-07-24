@@ -195,7 +195,7 @@ const Home: NextPage = () => {
                     </Container>
                     <Container id="faqs">
                         <Layout header={"FAQs"}>
-                            <WithSingleLine rotation={20} top={-170} left={-40} right={-20}>
+                            <WithSingleLine rotation={15} top={-280} left={-30} right={-50}>
                                 <FAQs />
                             </WithSingleLine>
                         </Layout>

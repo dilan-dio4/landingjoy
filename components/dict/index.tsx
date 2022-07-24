@@ -214,7 +214,7 @@ const dict = {
                     <br />
                     <br />
                     Any visual assets included in your project are either created on-demand or licensed under permissible conditions
-                    with commercial application. An example of such license is the <Link href="https://choosealicense.com/licenses/mit/"><a>MIT License</a></Link>.
+                    with commercial application. An example of such license is the MIT License.
                 </>
             )
         },

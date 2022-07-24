@@ -3,6 +3,7 @@ import { SmallPrimaryButton } from '../Buttons';
 import { useForm } from '@formcarry/react';
 import clsx from 'clsx';
 import styles from '../../styles/components/Footer.module.css';
+import dict from '../dict';
 
 export default function Footer() {
     const { state: formState, submit } = useForm({
@@ -15,22 +16,16 @@ export default function Footer() {
                 <div className='basis-3/12 py-3 md:py-0 pr-0 md:pr-4'>
                     <div className='flex flex-col justify-start'>
                         <></>
-                        <p className='mt-4'>
-                            4120 Schenley Drive
-                            <br />
-                            Pittsburgh, PA
-                            <br />
-                            15260
-                        </p>
+                        <p className='mt-4'>{dict.footer.contact.address}</p>
                         <hr className='my-4' />
                         <p className='mb-1'>
-                            <b>Contact us</b>
+                            <b>{dict.footer.contact.contactUs}</b>
                         </p>
-                        <a href='mailto:hello@landingjoy.com' className='mb-1 text-inherit hover:text-neutral-300 transition'>
-                            <p>hello@landingjoy.com</p>
+                        <a href={`mailto:${dict.footer.contact.email}`} className='mb-1 text-inherit hover:text-neutral-300 transition'>
+                            <p>{dict.footer.contact.email}</p>
                         </a>
-                        <a href='tel:8145030670' className='mb-1 text-inherit hover:text-neutral-300 transition'>
-                            <p>814-503-0670</p>
+                        <a href={`tel:${dict.footer.contact.phoneNumber.replaceAll("", "")}`} className='mb-1 text-inherit hover:text-neutral-300 transition'>
+                            <p>{dict.footer.contact.phoneNumber}</p>
                         </a>
                         <Link href='/sitemap.xml'>
                             <a className='mb-1 text-inherit hover:text-neutral-300 transition'>
@@ -43,7 +38,7 @@ export default function Footer() {
                     <div className='flex flex-col justify-start mb-2'>
                         <form onSubmit={submit} acceptCharset='UTF-8'>
                             <p className='mb-3'>
-                                <b>Leave us a message</b>
+                                <b>{dict.footer.leaveUsAMessage}</b>
                             </p>
                             <fieldset disabled={formState.submitted || formState.submitting}>
                                 <input
@@ -105,15 +100,11 @@ export default function Footer() {
                 <div className='basis-6/12 py-8 md:py-0 pl-0 md:pl-4 pr-8 sm:pr-0'>
                     <div className={clsx('h-full w-full m-4 shadow-lg rounded-lg', styles['rainbow-block'])}>
                         <div className={clsx('z-10 absolute-center m-0.5 rounded-lg flex-col flex-center', styles['svg-pattern'])}>
-                            <p className='text-xl font-bold tracking-tight text-center leading-snug'>
-                                A couple of landing page pros
-                                <br />
-                                added to your team
-                            </p>
+                            <p className='text-xl font-bold tracking-tight text-center leading-snug'>{dict.footer.block.content}</p>
                             <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
-                                <Link href="/book/3">
+                                <Link href={dict.footer.block.cta.link}>
                                     <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] w-full'>
-                                        <p className='text-sm font-bold'>Get started</p>
+                                        <p className='text-sm font-bold'>{dict.footer.block.cta.text}</p>
                                     </button>
                                 </Link>
                             </div>
@@ -123,7 +114,7 @@ export default function Footer() {
             </div>
             <hr className='my-4' />
             <div className='flex-center flex-col md:flex-row'>
-                <p className='text-sm'>© 2022 LandingJoy Inc.</p>
+                <p className='text-sm'>{dict.footer.legal}</p>
             </div>
         </div>
     );

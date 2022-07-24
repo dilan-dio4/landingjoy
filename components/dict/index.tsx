@@ -273,6 +273,37 @@ const dict = {
             ),
         },
     ],
+    footer: {
+        contact: {
+            address: (
+                <>
+                    4120 Schenley Drive
+                    <br />
+                    Pittsburgh, PA
+                    <br />
+                    15260
+                </>
+            ),
+            contactUs: "Contact us",
+            email: "hello@landingjoy.com",
+            phoneNumber: "814-503-0670"
+        },
+        leaveUsAMessage: "Leave us a message",
+        block: {
+            content: (
+                <>
+                    A couple of landing page pros
+                    <br />
+                    added to your team
+                </>
+            ),
+            cta: {
+                text: "Get started",
+                link: "/book/3"
+            },
+        },
+        legal: "© 2022 LandingJoy Inc."
+    }
 };
 
 export default dict;

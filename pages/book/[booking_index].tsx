@@ -10,6 +10,7 @@ import clsx from "clsx";
 import Layout from "../../components/Layout/Layout";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
+import Tags from "../../components/Tags";
 
 export default function BookingIndex() {
     const router = useRouter();
@@ -62,6 +63,10 @@ export default function BookingIndex() {
                 <link rel='icon' href='/favicon.ico' />
                 <meta name='theme-color' content={colors.primary[100]} />
             </Head>
+            <Tags 
+                title="Let's get in touch – #1 SaaS Landing Page Development Agency"
+                description="Learn how your SaaS can triple its landing page conversion rate with the team at Landingjoy. We get started in less than 24 hours."
+            />
             <Header />
             <main className={clsx('overflow-x-hidden relative')}>
                 <>

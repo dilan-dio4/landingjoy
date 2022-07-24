@@ -3,7 +3,6 @@ import type { AppProps } from 'next/app';
 import UiProvider from '../components/Context/UiProvider';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Head from 'next/head';
 import mixpanel from 'mixpanel-browser';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -40,9 +39,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <UiProvider>
-            <Head>
-                <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-            </Head>
             <Component {...pageProps} />
         </UiProvider>
     );

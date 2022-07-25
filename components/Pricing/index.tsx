@@ -10,10 +10,10 @@ import AnimatedBall from '../AnimatedBall';
 function SinglePriceCard(props: typeof dict.pricing['monthly' | 'review']) {
     return (
         <>
-            <span className='flex justify-center items-end mb-3'>
+            <div className='flex justify-center items-end mb-3'>
                 <h4 className='text-2xl mr-[4px] font-bold'>{props.cost}</h4>
                 <small className='font-thin text-lg'>{props.costSmall}</small>
-            </span>
+            </div>
             <Link href={props.buttonOne.link}>
                 <SmallPrimaryButton text={props.buttonOne.text} className='min-w-[150px] px-[24px] py-[10px]' />
             </Link>

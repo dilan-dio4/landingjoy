@@ -136,10 +136,8 @@ export const Floating: FC<FloatingProps> = ({
                         data-testid='tooltip-arrow'
                         ref={arrowRef}
                         style={{
-                            top: arrowY ?? ' ',
-                            left: arrowX ?? ' ',
-                            right: ' ',
-                            bottom: ' ',
+                            ...(arrowY ? { top: arrowY } : {}),
+                            ...(arrowX ? { left: arrowX } : {}),
                             [getArrowPlacement({ placement: floatingTooltip.placement })]: theme.arrow.placement,
                         }}
                     >

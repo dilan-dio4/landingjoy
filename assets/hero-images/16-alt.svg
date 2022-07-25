@@ -1,7 +1,13 @@
-<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <clipPath id="dddivided-clip1"><rect width="60%" height="100%" x="0" y="0"></rect></clipPath>
-      <clipPath id="dddivided-clip2"><rect width="40%" height="100%" x="60%" y="0"></rect></clipPath>
-    </defs> 
-    <path fill="#1f2d3d" clip-path="url(#dddivided-clip1)" transform="translate(-10,-10)" d="m40 46 3.5 95.64 36-45.14 63.2 57.906 16.8-63.032L40 46Z"/><path clip-path="url(#dddivided-clip2)" d="m40 46 3.5 95.64 36-45.14 63.2 57.906 16.8-63.032L40 46Z"/>
+<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="dddivided-clip1-16-alt">
+      <rect width="60%" height="100%" x="0" y="0"></rect>
+    </clipPath>
+    <clipPath id="dddivided-clip2-16-alt">
+      <rect width="40%" height="100%" x="60%" y="0"></rect>
+    </clipPath>
+  </defs>
+  <path fill="#1f2d3d" clip-path="url(#dddivided-clip1-16-alt)" transform="translate(-10,-10)" d="m40 46 3.5 95.64 36-45.14 63.2 57.906 16.8-63.032L40 46Z"/>
+  <path clip-path="url(#dddivided-clip2-16-alt)" d="m40 46 3.5 95.64 36-45.14 63.2 57.906 16.8-63.032L40 46Z"/>
 </svg>

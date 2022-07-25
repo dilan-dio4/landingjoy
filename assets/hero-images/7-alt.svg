@@ -1,8 +1,13 @@
-<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <clipPath id="dddivided-clip1"><rect width="60%" height="100%" x="0" y="0"></rect></clipPath>
-      <clipPath id="dddivided-clip2"><rect width="40%" height="100%" x="60%" y="0"></rect></clipPath>
-    </defs> 
-    <path fill="#1f2d3d" clip-path="url(#dddivided-clip1)" transform="translate(-10,-10)" d="m45 40 34 45-64 18.5 68.5 6.5-30 49.5 48.5-39 22 50.5v-52l55 23-36.5-36.5 42-51.5-69 26.5 6-52.5-29 47.5L45 40Z"/>
-    <path clip-path="url(#dddivided-clip2)" d="m45 40 34 45-64 18.5 68.5 6.5-30 49.5 48.5-39 22 50.5v-52l55 23-36.5-36.5 42-51.5-69 26.5 6-52.5-29 47.5L45 40Z"/>
+<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="dddivided-clip1-7-alt">
+      <rect width="60%" height="100%" x="0" y="0"></rect>
+    </clipPath>
+    <clipPath id="dddivided-clip2-7-alt">
+      <rect width="40%" height="100%" x="60%" y="0"></rect>
+    </clipPath>
+  </defs>
+  <path fill="#1f2d3d" clip-path="url(#dddivided-clip1-7-alt)" transform="translate(-10,-10)" d="m45 40 34 45-64 18.5 68.5 6.5-30 49.5 48.5-39 22 50.5v-52l55 23-36.5-36.5 42-51.5-69 26.5 6-52.5-29 47.5L45 40Z"/>
+  <path clip-path="url(#dddivided-clip2-7-alt)" d="m45 40 34 45-64 18.5 68.5 6.5-30 49.5 48.5-39 22 50.5v-52l55 23-36.5-36.5 42-51.5-69 26.5 6-52.5-29 47.5L45 40Z"/>
 </svg>

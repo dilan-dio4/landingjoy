@@ -1,7 +1,13 @@
-<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <clipPath id="dddivided-clip1"><rect width="60%" height="100%" x="0" y="0"></rect></clipPath>
-      <clipPath id="dddivided-clip2"><rect width="40%" height="100%" x="60%" y="0"></rect></clipPath>
-    </defs> 
-    <path fill="#1f2d3d" clip-path="url(#dddivided-clip1)" transform="translate(-10,-10)" d="M134.871 74.055c3.511-49.734-48.27 15.404-90.835 0-1.902-1.174-6.933-.792-11.848 10.123-6.144 13.644 41.249 14.524 7.899 44.012s30.717 7.482 100.927 13.644c70.211 6.162-9.653-18.045-6.143-67.78Z"/><path clip-path="url(#dddivided-clip2)" d="M134.871 74.055c3.511-49.734-48.27 15.404-90.835 0-1.902-1.174-6.933-.792-11.848 10.123-6.144 13.644 41.249 14.524 7.899 44.012s30.717 7.482 100.927 13.644c70.211 6.162-9.653-18.045-6.143-67.78Z"/>
+<svg width="200" height="200" fill="#ffb5a7" viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="dddivided-clip1-5-alt">
+      <rect width="60%" height="100%" x="0" y="0"></rect>
+    </clipPath>
+    <clipPath id="dddivided-clip2-5-alt">
+      <rect width="40%" height="100%" x="60%" y="0"></rect>
+    </clipPath>
+  </defs>
+  <path fill="#1f2d3d" clip-path="url(#dddivided-clip1-5-alt)" transform="translate(-10,-10)" d="M134.871 74.055c3.511-49.734-48.27 15.404-90.835 0-1.902-1.174-6.933-.792-11.848 10.123-6.144 13.644 41.249 14.524 7.899 44.012s30.717 7.482 100.927 13.644c70.211 6.162-9.653-18.045-6.143-67.78Z"/>
+  <path clip-path="url(#dddivided-clip2-5-alt)" d="M134.871 74.055c3.511-49.734-48.27 15.404-90.835 0-1.902-1.174-6.933-.792-11.848 10.123-6.144 13.644 41.249 14.524 7.899 44.012s30.717 7.482 100.927 13.644c70.211 6.162-9.653-18.045-6.143-67.78Z"/>
 </svg>

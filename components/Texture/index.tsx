@@ -36,7 +36,6 @@ function SingleTexture({ variant, id, style, className }: ISingleTexture) {
             style={style}
             height='100%'
             width='100%'
-            preserveAspectRatio='true'
             id={`svg-root-${variant}-${id}`}
         >
             <defs>

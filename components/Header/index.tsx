@@ -117,16 +117,16 @@ export default function Header() {
                     {isMobile ? (
                         <div className='flex w-full items-center justify-between'>
                             <Link href='/#'>
-                                <a aria-disabled itemProp='url' title='Methodology' style={logoStyle}>
+                                <a title='Methodology' style={logoStyle}>
                                     Landingjoy
                                 </a>
                             </Link>
-                            <span className='flex-center'>
+                            <div className='flex-center'>
                                 <Tooltip {...tooltipProps}>
                                     <DarkModeSwitch {...darkModeSwitchProps} />
                                 </Tooltip>
                                 <FiMenu size={24} className='ml-4' onClick={(_) => setIsMobileMenuOpen(true)} />
-                            </span>
+                            </div>
                         </div>
                     ) : (
                         <>
@@ -137,9 +137,9 @@ export default function Header() {
                                     role='menu'
                                     className={clsx('list-none inline-block whitespace-nowrap', styles['nav-ul'])}
                                 >
-                                    <li itemProp='name' role='menuitem' className=''>
+                                    <li itemProp='name' role='menuitem'>
                                         <Link href='/#'>
-                                            <a aria-disabled itemProp='url' title='Landingjoy' style={logoStyle}>
+                                            <a itemProp='url' title='Landingjoy' style={logoStyle}>
                                                 Landingjoy
                                             </a>
                                         </Link>
@@ -212,8 +212,6 @@ export default function Header() {
                     <div className='flex flex-col items-start'>
                         <Link href="/#">
                             <a
-                                aria-disabled
-                                itemProp='url'
                                 onClick={(_) => setIsMobileMenuOpen(false)}
                                 style={mobileNavLogoStyle}
                                 title='Landingjoy'

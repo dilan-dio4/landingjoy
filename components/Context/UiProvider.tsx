@@ -10,11 +10,17 @@ export default function UiProvider({ children }: { children: React.ReactChild | 
     useEffect(() => {
         if (isMounted) {
             document.documentElement.classList[isDarkMode ? 'add' : 'remove']('dark');
+            localStorage.setItem('theme', isDarkMode ? "dark" : "light");
         }
 
         const metaThemeColor = document.querySelector('meta[name=theme-color]');
         metaThemeColor && metaThemeColor.setAttribute('content', isDarkMode ? colors.secondary[300] : colors.primary[100]);
     }, [isDarkMode]);
+
+
+    useEffect(() => {
+        localStorage.getItem('theme') === "dark" && setIsDarkMode(true);
+    }, [])
 
     return (
         <UiContext.Provider

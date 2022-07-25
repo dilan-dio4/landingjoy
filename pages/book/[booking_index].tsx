@@ -11,14 +11,19 @@ import Layout from "../../components/Layout/Layout";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Tags from "../../components/Tags";
+import useIsMounted from "../../utils/useIsMounted";
 
 export default function BookingIndex() {
     const router = useRouter();
     const { booking_index } = router.query;
     const { isDarkMode } = useContext(UiContext);
     const displayNoneTimeoutRect = useRef<NodeJS.Timeout>();
+    const isMounted = useIsMounted();
 
     useEffect(() => {
+        if (!isMounted) {
+            return;
+        }
         const TEXTURE_DUR = 650;
         anime({
             targets: `.dark-texture-panel`,
@@ -40,6 +45,21 @@ export default function BookingIndex() {
             },
         });
     }, [isDarkMode])
+
+    useEffect(() => {
+        if (isDarkMode) {
+            // Mounted on dark mode
+            document
+                .querySelectorAll<SVGElement>('.dark-texture-panel')
+                .forEach((ele) => {
+                    ele.style.display = 'block';
+                    ele.style.opacity = "1";
+                });
+            document
+                .querySelectorAll<SVGElement>('.light-texture-panel')
+                .forEach((ele) => (ele.style.display = 'none'))
+        }
+    }, [])
 
     const bookingIndexStr: string = booking_index as string;
 

@@ -9,7 +9,6 @@ import Layout from '../components/Layout/Layout';
 import { HeroPrimaryButton } from '../components/Buttons';
 import Pricing from '../components/Pricing';
 import dict from '../components/dict';
-import colors from '../utils/colors';
 import Link from 'next/link';
 import { useContext, useEffect, useRef } from 'react';
 import UiContext from '../components/Context/UiContext';
@@ -24,11 +23,13 @@ import FAQs from '../components/FAQs';
 import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
 import Tags from '../components/Tags';
+import useIsMounted from '../utils/useIsMounted';
 
 const Home: NextPage = () => {
     const { isDarkMode } = useContext(UiContext);
     const displayNoneTimeoutRect = useRef<NodeJS.Timeout>();
     const router = useRouter();
+    const isMounted = useIsMounted();
 
     /**
      * For some reason all of this is necessary for properly
@@ -59,32 +60,34 @@ const Home: NextPage = () => {
                     document.querySelector('#triad-icon-1 path')!.setAttribute('fill', 'none');
                 },
             });
-
-            const TEXTURE_DUR = 650;
-            anime({
-                targets: `.dark-texture-panel`,
-                opacity: isDarkMode ? '1' : '0',
-                duration: TEXTURE_DUR,
-                easing: 'easeInOutQuad',
-                begin() {
-                    clearTimeout(displayNoneTimeoutRect.current);
-                    document
-                        .querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel')
-                        .forEach((ele) => (ele.style.display = 'block'));
-                    displayNoneTimeoutRect.current = setTimeout(
-                        () =>
-                            document
-                                .querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel')
-                                .forEach((ele) => (ele.style.display = 'none')),
-                        TEXTURE_DUR,
-                    );
-                },
-            });
         }, 100)
-
     }
 
     useEffect(() => {
+        if (!isMounted) {
+            return;
+        }
+        const TEXTURE_DUR = 650;
+        anime({
+            targets: `.dark-texture-panel`,
+            opacity: isDarkMode ? '1' : '0',
+            duration: TEXTURE_DUR,
+            easing: 'easeInOutQuad',
+            begin() {
+                clearTimeout(displayNoneTimeoutRect.current);
+                document
+                    .querySelectorAll<SVGElement>(isDarkMode ? '.dark-texture-panel' : '.light-texture-panel')
+                    .forEach((ele) => (ele.style.display = 'block'));
+                displayNoneTimeoutRect.current = setTimeout(
+                    () =>
+                        document
+                            .querySelectorAll<SVGElement>(isDarkMode ? '.light-texture-panel' : '.dark-texture-panel')
+                            .forEach((ele) => (ele.style.display = 'none')),
+                    TEXTURE_DUR,
+                );
+            },
+        });
+
         runTriadAnimations();
     }, [isDarkMode]);
 
@@ -95,6 +98,21 @@ const Home: NextPage = () => {
             router.events.off("hashChangeStart", runTriadAnimations);
         };
     }, [router.events])
+
+    useEffect(() => {
+        if (isDarkMode) {
+            // Mounted on dark mode
+            document
+                .querySelectorAll<SVGElement>('.dark-texture-panel')
+                .forEach((ele) => {
+                    ele.style.display = 'block';
+                    ele.style.opacity = "1";
+                });
+            document
+                .querySelectorAll<SVGElement>('.light-texture-panel')
+                .forEach((ele) => (ele.style.display = 'none'))
+        }
+    }, [])
 
     const heroTextRoot = 'dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0';
     const heroTextShadowRoot = 'absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100';
@@ -118,9 +136,9 @@ const Home: NextPage = () => {
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
                 />
             </Head>
-            <Tags 
-                description="The team at Landingjoy creates beautiful, high-converting landing pages for SaaS companies. Learn how you can triple your conversion rate." 
-                title="#1 SaaS Landing Page Development Agency – Landingjoy" 
+            <Tags
+                description="The team at Landingjoy creates beautiful, high-converting landing pages for SaaS companies. Learn how you can triple your conversion rate."
+                title="#1 SaaS Landing Page Development Agency – Landingjoy"
             />
             <Header />
             <main className={clsx('overflow-x-hidden relative')}>

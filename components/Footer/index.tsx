@@ -104,7 +104,7 @@ export default function Footer() {
                             <div className={clsx(styles['rainbow-block'], '!w-[120px] !h-[40px] mt-9 transition-all hover:-translate-y-0.5')}>
                                 <Link href={dict.footer.block.cta.link}>
                                     <button className='bg-secondary-300 absolute-center z-20 rounded-[11px] w-full'>
-                                        <p className='text-sm font-bold'>{dict.footer.block.cta.text}</p>
+                                        <span className='text-sm font-bold'>{dict.footer.block.cta.text}</span>
                                     </button>
                                 </Link>
                             </div>

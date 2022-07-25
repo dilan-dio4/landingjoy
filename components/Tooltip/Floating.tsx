@@ -119,8 +119,8 @@ export const Floating: FC<FloatingProps> = ({
                     ref: floating,
                     style: {
                         position: strategy,
-                        top: y ?? ' ',
-                        left: x ?? ' ',
+                        ...(y ? { top: y } : {}),
+                        ...(x ? { left: x } : {}),
                     },
                     ...theirProps,
                 })}

@@ -40,7 +40,7 @@ const dict = {
         header1: <>So&#8230; what&apos;s the catch?</>,
         description1: (
             <>
-                We tend to work with <em>ideal</em> SaaS companies. This is because time is scarce and we chose to keep a tight, trustworthy team.
+                We tend to work with <em>ideal</em> SaaS companies. This is because time is scarce, and we chose to keep a tight, trustworthy team.
                 To be respectful to yourself and other potential clients while delivering the highest quality of work, Landingjoy has certain
                 characteristics that we look for in potential partners.
                 <br />
@@ -154,7 +154,7 @@ const dict = {
             summary: 'What technologies do you use?',
             content: (
                 <>
-                    Each project has a different set of requirements. Those requirements dictate the particular technology stack that we opt for. Whether it be
+                    Each project has a different set of requirements. These requirements dictate the particular technology stack that we opt for. Whether it be
                     based on the tools that a team is already familiar with, or is aiming to use, the stack that is assembled will be up to the highest web
                     standards.
                     <br />
@@ -180,12 +180,12 @@ const dict = {
             summary: 'How long does it take?',
             content: (
                 <>
-                    There is a wide array of factors that determine the delivery time of our pages. For us to be confident in the direction of the projects we
-                    take, we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
+                    There&apos;s a wide array of factors that determine the delivery time of our pages. For us to be confident in the direction of your project, 
+                    we have to perform general due diligence, competitor research, user research, design, development, analytics integration and testing.
                     <br />
                     <br />
-                    That being said, we like to move <em>fast</em> in order to be cost-effective and have the time to iterate. So, to go from zero to <em>jaw-dropping</em>, a month 
-                    and a half needs to be spent on the initial page at the very least. Once the design principles and
+                    In order to be cost-effective and have the time to iterate, we like to move <em>fast</em>. So, to go from zero to <em>jaw-dropping</em>, 
+                    a month and a half is typically required to be spent on the initial page at the very least. Once the design principles and
                     infrastructure from the first page is completed, subsequent pages can be delivered much quicker.
                 </>
             ),
@@ -194,11 +194,11 @@ const dict = {
             summary: 'How will we coordinate between teams?',
             content: (
                 <>
-                    Task management is performed with Trello, which is updated throughout the day. This is where you will be able to observe and collaborate on
+                    Task management is done with Trello, which is updated throughout the day. This is where you can observe and collaborate on
                     the to-dos of the day.
                     <br />
                     <br />
-                    Communication can be done through whatever platform your team is comfortable with (e.g. Slack, discord, email, etc.). We typically aim to have a formal
+                    Communication can be done with whatever platform your team is comfortable with (e.g. Slack, discord, email, etc.). We typically aim to have a formal
                     meeting (Zoom, Google Meet, Teams) at least once a week for ~30 minutes.
                     <br />
                     <br />
@@ -213,7 +213,7 @@ const dict = {
                     As many as you need!
                     <br />
                     <br />
-                    During our due diligence and competitor research phase, we will be able to suggest supplemental landing pages. Moving forward on those pages
+                    During our due diligence and competitor research phase, we can suggest supplemental landing pages. Moving forward on those pages
                     is based on your discretion.
                 </>
             ),

@@ -16,9 +16,24 @@ import useIsMounted from "../../utils/useIsMounted";
 export default function BookingIndex() {
     const router = useRouter();
     const { booking_index } = router.query;
-    const { isDarkMode } = useContext(UiContext);
+    const { isDarkMode, isMountedOnDarkMode } = useContext(UiContext);
     const displayNoneTimeoutRect = useRef<NodeJS.Timeout>();
     const isMounted = useIsMounted();
+
+    useEffect(() => {
+        if (isDarkMode) {
+            // Mounted on dark mode
+            document
+                .querySelectorAll<SVGElement>('.dark-texture-panel')
+                .forEach((ele) => {
+                    ele.style.display = 'block';
+                    ele.style.opacity = "1";
+                });
+            document
+                .querySelectorAll<SVGElement>('.light-texture-panel')
+                .forEach((ele) => (ele.style.display = 'none'))
+        }
+    }, [])
 
     useEffect(() => {
         if (!isMounted) {
@@ -45,21 +60,6 @@ export default function BookingIndex() {
             },
         });
     }, [isDarkMode])
-
-    useEffect(() => {
-        if (isDarkMode) {
-            // Mounted on dark mode
-            document
-                .querySelectorAll<SVGElement>('.dark-texture-panel')
-                .forEach((ele) => {
-                    ele.style.display = 'block';
-                    ele.style.opacity = "1";
-                });
-            document
-                .querySelectorAll<SVGElement>('.light-texture-panel')
-                .forEach((ele) => (ele.style.display = 'none'))
-        }
-    }, [])
 
     const bookingIndexStr: string = booking_index as string;
 

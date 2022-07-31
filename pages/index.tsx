@@ -31,6 +31,21 @@ const Home: NextPage = () => {
     const router = useRouter();
     const isMounted = useIsMounted();
 
+    useEffect(() => {
+        if (isDarkMode) {
+            // Mounted on dark mode
+            document
+                .querySelectorAll<SVGElement>('.dark-texture-panel')
+                .forEach((ele) => {
+                    ele.style.display = 'block';
+                    ele.style.opacity = "1";
+                });
+            document
+                .querySelectorAll<SVGElement>('.light-texture-panel')
+                .forEach((ele) => (ele.style.display = 'none'))
+        }
+    }, [])
+
     /**
      * For some reason all of this is necessary for properly
      * restarting the animations when the hash changes
@@ -99,21 +114,6 @@ const Home: NextPage = () => {
         };
     }, [router.events])
 
-    useEffect(() => {
-        if (isDarkMode) {
-            // Mounted on dark mode
-            document
-                .querySelectorAll<SVGElement>('.dark-texture-panel')
-                .forEach((ele) => {
-                    ele.style.display = 'block';
-                    ele.style.opacity = "1";
-                });
-            document
-                .querySelectorAll<SVGElement>('.light-texture-panel')
-                .forEach((ele) => (ele.style.display = 'none'))
-        }
-    }, [])
-
     const heroTextRoot = 'dark:text-secondary-100 transition-all duration-500 translate-x-0 translate-y-0';
     const heroTextShadowRoot = 'absolute top-0 left-0 right-0 text-primary-200 transition-all duration-500 opacity-0 dark:opacity-100';
 
@@ -172,11 +172,11 @@ const Home: NextPage = () => {
                                     {isDarkMode ? (
                                         <>
                                             <h3
-                                                className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic pointer-events-none')}
+                                                className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 !text-xs italic pointer-events-none')}
                                             >
                                                 {dict.hero.tag}
                                             </h3>
-                                            <h3 className={clsx(heroTextShadowRoot, 'text-xs italic')}>
+                                            <h3 className={clsx(heroTextShadowRoot, '!text-xs italic')}>
                                                 <Link href='/book/3'>
                                                     <a>{dict.hero.tag}</a>
                                                 </Link>
@@ -184,12 +184,12 @@ const Home: NextPage = () => {
                                         </>
                                     ) : (
                                         <>
-                                            <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 text-xs italic')}>
+                                            <h3 className={clsx(heroTextRoot, 'dark:-translate-x-0.5 dark:-translate-y-0.5 !text-xs italic')}>
                                                 <Link href='/book/3'>
                                                     <a>{dict.hero.tag}</a>
                                                 </Link>
                                             </h3>
-                                            <h3 className={clsx(heroTextShadowRoot, 'text-xs italic pointer-events-none')}>{dict.hero.tag}</h3>
+                                            <h3 className={clsx(heroTextShadowRoot, '!text-xs italic pointer-events-none')}>{dict.hero.tag}</h3>
                                         </>
                                     )}
                                 </div>

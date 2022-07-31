@@ -85,16 +85,16 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
+  h1:not(.prose *) {
     @apply text-center text-4xl sm:text-6xl tracking-normal !leading-tight font-bold;
   }
-  h2 {
+  h2:not(.prose *) {
     @apply text-center text-xl tracking-normal leading-tight font-light;
   }
-  h3 {
+  h3:not(.prose *) {
     @apply text-center text-4xl tracking-normal font-bold;
   }
-  h4  {
+  h4:not(.prose *)  {
     @apply text-lg font-extrabold;
   }
 }

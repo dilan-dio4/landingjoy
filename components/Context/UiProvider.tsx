@@ -5,6 +5,7 @@ import colors from '../../utils/colors';
 
 export default function UiProvider({ children }: { children: React.ReactChild | JSX.Element | JSX.Element[] }) {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+    const [isMountedOnDarkMode, setIsMountedOnDarkMode] = useState<boolean>(false);
     const isMounted = useIsMounted();
 
     useEffect(() => {
@@ -19,7 +20,10 @@ export default function UiProvider({ children }: { children: React.ReactChild | 
 
 
     useEffect(() => {
-        localStorage.getItem('theme') === "dark" && setIsDarkMode(true);
+        if (localStorage.getItem('theme') === "dark") {
+            setIsMountedOnDarkMode(true);
+            setIsDarkMode(true);
+        }
     }, [])
 
     return (
@@ -27,6 +31,7 @@ export default function UiProvider({ children }: { children: React.ReactChild | 
             value={{
                 isDarkMode,
                 setIsDarkMode,
+                isMountedOnDarkMode
             }}
         >
             {children}

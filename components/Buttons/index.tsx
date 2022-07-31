@@ -69,3 +69,25 @@ function _smallButtonGenerator(rootClassname: string, { href, onClick, text, end
 
 export const HeroPrimaryButton = ({ fullWidth, ...props }: IButton) => _buttonGenerator('hero-button', props, fullWidth);
 export const SmallPrimaryButton = ({ fullWidth, ...props }: IButton) => _smallButtonGenerator('hero-button-sm', props, fullWidth);
+
+function _oldButtonGenerator(rootClassname: string, { href, onClick, text, endIcon, className, style }: IButton) {
+    const allClassnames = rootClassname.split(" ").map(singleClassname => styles[singleClassname])
+    if (href) {
+        return (
+            <Link href={href}>
+                <a className={clsx(...allClassnames, className)} role="button" type="text" onClick={onClick} style={style}>
+                    {text}
+                    {endIcon || ""}
+                </a>
+            </Link>
+        )
+    } else {
+        return (
+            <button className={clsx(...allClassnames, className)} onClick={onClick} style={style}>
+                {text}
+                {endIcon || ""}
+            </button>
+        )
+    }
+}
+export const OldHeroSecondaryButton = (props: IButton) => _oldButtonGenerator("old-hero-button old-hero-secondary-button", props);

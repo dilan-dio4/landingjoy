@@ -55,3 +55,30 @@
 .hero-button-sm:hover {
     transform: translate3d(2px, 2px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
 }
+
+.old-hero-button {
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    width: 275px;
+    height: 55px;
+    border-radius: 9px;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+.old-hero-secondary-button {
+    @apply text-primary-100 bg-secondary-300 dark:text-secondary-300 dark:bg-primary-300 border border-primary-100 dark:border-secondary-300;
+}
+
+.hero-secondary-button:hover {
+    color: var(--site-background);
+    background-color: var(--site-foreground);
+    border-color: var(--site-background);
+    @apply dark:text-primary-100 dark:bg-secondary-300 text-secondary-300 bg-primary-300 border dark:border-primary-100 border-secondary-300;
+}

@@ -91,20 +91,7 @@ export default function BookingIndex() {
                         <Texture />
                     </div>
                     <Container className={""}>
-                        <Layout>
-                            {pageData[bookingIndexStr] ? (
-                                <iframe
-                                    src={`https://meet.landingjoy.com/${pageData[bookingIndexStr].route}?view=compact`}
-                                    className="m-auto max-w-[850px] w-full mt-10 h-[100vh] sm:h-[650px] rounded-md overflow-hidden shadow-lg bg-transparent"
-                                    frameBorder="0"
-                                    scrolling="yes"
-                                    allowTransparency
-                                />
-                            ) : (
-                                <div className="h-[100vh] sm:h-[650px]" />
-                            )
-                            }
-                        </Layout>
+
                     </Container>
                     <Container className='bg-black text-white'>
                         <Layout>

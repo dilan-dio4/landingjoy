@@ -24,5 +24,3 @@ background fractal alt: https://fffuel.co/dddivided/
 Curve maker: https://yqnn.github.io/svg-path-editor/
   1. stroke="#fcd5ce"
   2. stroke-width="0.13"
-
-TODO: Download all Ubuntu font
